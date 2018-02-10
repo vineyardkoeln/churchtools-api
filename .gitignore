@@ -1,0 +1,9 @@
+# Ignore all IDE settings files and folders
+.classpath
+.project
+.settings
+.idea
+.metadata
+nbproject
+*.iml
+*.ipr

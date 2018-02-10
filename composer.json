@@ -1,0 +1,21 @@
+{
+    "name": "vineyardkoeln/churchtools-api",
+    "type": "library",
+    "description": "Object-oriented API access to ChurchTools",
+    "homepage": "https://github.com/vineyardkoeln/churchtools-api",
+    "license": "Apache2",
+    "authors": [
+        {"name": "Jörn Wagner", "email": "joern.wagner@vineyard.koeln"}
+    ],
+    "require": {
+        "php": ">=7.0.9",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    }
+}
