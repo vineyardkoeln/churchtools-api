@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Object-oriented API access to ChurchTools",
     "homepage": "https://github.com/vineyardkoeln/churchtools-api",
-    "license": "Apache2",
+    "license": "Apache-2.0",
     "authors": [
         {"name": "Jörn Wagner", "email": "joern.wagner@vineyard.koeln"}
     ],
