@@ -77,6 +77,13 @@ class RestApi
         ]);
     }
 
+    public function getMasterData(): array
+    {
+        return $this->callApi(self::SERVICE_ROUTE, [
+            'func' => 'getMasterData'
+        ]);
+    }
+
     private function callApi(string $apiRoute, array $data = []): array
     {
         $response = $this->guzzleClient->post($this->getApiUrl($apiRoute), $this->getRequestOptions($data));
