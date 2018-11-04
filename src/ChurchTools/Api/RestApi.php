@@ -60,6 +60,11 @@ class RestApi
         ]);
     }
 
+    /**
+	 * get all events from now until and with in ten days
+	 * 
+	 * @param $categoryIds the calendar ids for which to get the events
+	 */
     public function getCalendarEvents(array $categoryIds): array
     {
         return $this->callApi(self::CALENDAR_ROUTE, [
@@ -82,6 +87,18 @@ class RestApi
         return $this->callApi(self::SERVICE_ROUTE, [
             'func' => 'getMasterData'
         ]);
+    }
+
+    /**
+	 * get token for current user
+	 */
+    public function getToken($email, $password): array
+    {
+    	return $this->callApi(self::LOGIN_ROUTE, [
+			'func' => 'getUserLoginToken',
+			'email' => $email,
+			'password' => $password
+		]);
     }
 
     private function callApi(string $apiRoute, array $data = []): array

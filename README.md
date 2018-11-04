@@ -14,4 +14,35 @@ Free software (both as in free beer *and* free speech) by [Vineyard Köln][2], l
 
 ## Usage
 
-Coming soon
+### Get all calendar entries
+
+To get all calendar entries from now until in 10 days:
+
+```
+require __DIR__ . '/vendor/autoload.php';
+use ChurchTools\Api\RestApi;
+
+$churchHandle = 'mychurch';
+$loginId = 1234; // see below how to get id/token
+$token = '…';
+$api = RestApi::createWithLoginIdToken($churchHandle, $loginId, $token);
+$events = $api->getCalendarEvents([1,2,…]);
+
+foreach($events['data'] as $event) {
+    // …
+}
+```
+
+### Get Token
+
+```
+require __DIR__ . '/vendor/autoload.php';
+use ChurchTools\Api\RestApi;
+
+$churchHandle = 'mychurch';
+$email = 'user@domain.org';
+$pass = '…';
+
+$api = RestApi::createWithUsernamePassword($churchHandle, $email, $pass);
+print_r($api->getToken($email, $pass));
+```
