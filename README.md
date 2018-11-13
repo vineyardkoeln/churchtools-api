@@ -14,35 +14,87 @@ Free software (both as in free beer *and* free speech) by [Vineyard Köln][2], l
 
 ## Usage
 
-### Get all calendar entries
+### Prerequisite: Autoloading
 
-To get all calendar entries from now until in 10 days:
+If you haven't already configured autoloading in your project, start by including the Composer autoloader:
 
 ```
 require __DIR__ . '/vendor/autoload.php';
-use ChurchTools\Api\RestApi;
+``` 
 
-$churchHandle = 'mychurch';
-$loginId = 1234; // see below how to get id/token
-$token = '…';
-$api = RestApi::createWithLoginIdToken($churchHandle, $loginId, $token);
+### Login to use the API
+
+In order to use the ChurchTools API you need a valid login. This can either be a username / password pair
+or you can use a login ID and token. The latter is the recommended way because it keeps you API
+separate from any user account but username and password is fine for testing purposes.
+
+To login with username and password, use this code snippet:
+```
+$api = \ChurchTools\Api\RestApi::createWithUsernamePassword('mychurch', 'username', 'password');
+```
+where `mychurch` is your church handle or subdomain like in the URL to your web interface: https://_churchhandle_.church.tools/
+
+To login with a login ID and token, use this code snippet (recommended):
+```
+$api = \ChurchTools\Api\RestApi::createWithLoginIdToken('mychurch', 1337, 'a really long seemingly random string of 256 alphanumeric characters');
+```
+You can retrieve the token by logging in once to the API with a username and password via the static method `getLoginToken()` (see below).
+
+The login is valid for the duration of the programm call (script lifecycle). This way you can perform many requests with
+only one login via the static constructor method of your choice.
+
+The following examples mostly assume you have a valid login and the API object is assigned to the variable `$api`. 
+
+### Get Token
+
+In order to acquire a login ID and token you must call the `getLoginToken` method once:
+
+```
+$result = \ChurchTools\Api\RestApi::getLoginToken($churchHandle, $usernameOrEmail, $pass);
+var_dump($result);
+```
+
+This will return something like: 
+```
+array(2) {
+  ["status"]=>
+  string(7) "success"
+  ["data"]=>
+  array(2) {
+    ["token"]=>
+    string(256) "this is the very long string of seemingly random 256 alphanumberic characters that you need to store"
+    ["id"]=>
+    string(2) "1337"
+  }
+}
+```
+
+### Get all calendar entries
+
+To get all calendar entries from now until 10 days in the future:
+```
 $events = $api->getCalendarEvents([1,2,…]);
 
-foreach($events['data'] as $event) {
+foreach ($events['data'] as $event) {
     // …
 }
 ```
 
-### Get Token
+This method also has two optional parameters, `$toDays` and `$fromDays`, which allow you to select the desired timeframe.
+
+### Get master data
+
+To get master data, use this method:
 
 ```
-require __DIR__ . '/vendor/autoload.php';
-use ChurchTools\Api\RestApi;
-
-$churchHandle = 'mychurch';
-$email = 'user@domain.org';
-$pass = '…';
-
-$api = RestApi::createWithUsernamePassword($churchHandle, $email, $pass);
-print_r($api->getToken($email, $pass));
+var_dump($api->getMasterData());
 ```
+
+TODO: In one of the upcoming alpha versions, methods will return model objects and not plain arrays.
+
+## TODOs
+
+1. Wrap more API calls
+1. Use Model classes for the return data instead of plain arrays
+1. Someday, wrap all available API calls
+1. Document every single available method

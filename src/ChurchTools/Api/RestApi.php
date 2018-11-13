@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace ChurchTools\Api;
 
@@ -141,17 +141,18 @@ class RestApi
      * be stored in the project environment or configuration for re-use with `createWithLoginIdToken`.
      * It is very long-lasting (until revoked?).
      *
+     * @param string $churchHandle
      * @param string $usernameOrEmail
      * @param string $password
      * @return array
      * @see https://api.churchtools.de/class-CTLoginModule.html#_getUserLoginToken
      */
-    public function getToken(string $usernameOrEmail, string $password): array
+    public static function getLoginToken(string $churchHandle, string $usernameOrEmail, string $password): array
     {
-        return $this->callApi(self::LOGIN_ROUTE, [
+        return (new self($churchHandle))->callApi(self::LOGIN_ROUTE, [
             'func' => 'getUserLoginToken',
             'email' => $usernameOrEmail,
-            'password' => $password
+            'password' => $password,
         ]);
     }
 
@@ -170,7 +171,7 @@ class RestApi
             throw new RestApiException($response);
         }
 
-        $rawData = $response->getBody();
+        $rawData = (string)$response->getBody();
         $data = json_decode($rawData, true);
         if (!$data) {
             throw new JsonDecodingException($rawData);
