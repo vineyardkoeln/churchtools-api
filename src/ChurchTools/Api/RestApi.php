@@ -97,7 +97,7 @@ class RestApi
      *
      * @param array $categoryIds the calendar ids for which to get the events
      * @param int $fromDays starting time frame in days from today
-     * @param int $toDays end of time frame in days from tdoay
+     * @param int $toDays end of time frame in days from today
      * @return array
      * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getCalendarEvents
      */
