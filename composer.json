@@ -5,7 +5,8 @@
     "homepage": "https://github.com/vineyardkoeln/churchtools-api",
     "license": "Apache-2.0",
     "authors": [
-        {"name": "Jörn Wagner", "email": "joern.wagner@vineyard.koeln"}
+        {"name": "Jörn Wagner", "email": "joern.wagner@vineyard.koeln"},
+        {"name": "André Schild", "email": "andre@schild.ws"}
     ],
     "require": {
         "php": ">=7.0.9",
