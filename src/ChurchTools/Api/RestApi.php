@@ -12,7 +12,8 @@ use ChurchTools\Api\Exception\RestApiException;
  */
 class RestApi
 {
-    const API_URL_TEMPLATE = 'https://%s.church.tools/?q=%s';
+    const API_URL_TEMPLATE = 'https://%s/?q=%s'; // Self hosted
+    const API_URL_TEMPLATE_HOSTED = 'https://%s.church.tools/?q=%s'; // Hosted by CT
     const LOGIN_ROUTE = 'login/ajax';
     const DATABASE_ROUTE = 'churchdb/ajax';
     const CALENDAR_ROUTE = 'churchcal/ajax';
@@ -96,7 +97,7 @@ class RestApi
      *
      * @param array $categoryIds the calendar ids for which to get the events
      * @param int $fromDays starting time frame in days from today
-     * @param int $toDays end of time frame in days from tdoay
+     * @param int $toDays end of time frame in days from today
      * @return array
      * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getCalendarEvents
      */
@@ -207,6 +208,13 @@ class RestApi
      */
     private function getApiUrl(string $route): string
     {
-        return sprintf(self::API_URL_TEMPLATE, $this->churchHandle, $route);
+        if (strpos($this->churchHandle, '.'))
+        {
+            return sprintf(self::API_URL_TEMPLATE, $this->churchHandle, $route);
+        }
+        else
+        {
+            return sprintf(self::API_URL_TEMPLATE_HOSTED, $this->churchHandle, $route);
+        }
     }
 }

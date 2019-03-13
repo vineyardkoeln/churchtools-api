@@ -33,6 +33,7 @@ To login with username and password, use this code snippet:
 $api = \ChurchTools\Api\RestApi::createWithUsernamePassword('mychurch', 'username', 'password');
 ```
 where `mychurch` is your church handle or subdomain like in the URL to your web interface: https://_churchhandle_.church.tools/
+if you are selfhsoting churchtools, then put ni the full server name of your installation.
 
 To login with a login ID and token, use this code snippet (recommended):
 ```
