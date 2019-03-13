@@ -7,3 +7,4 @@
 nbproject
 *.iml
 *.ipr
+/vendor/
