@@ -1,15 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ChurchTools\Api;
+
+use DateTime;
 
 /**
  * Description of Calendar
  *
  * @author andre
  */
-class Calendar
-{
+class Calendar extends CTObject {
+
     private $id;            // Calendar ID required for API calls
     private $station_id;    // Station id of this calendar
     private $name;          // Name of calendar
@@ -24,100 +27,110 @@ class Calendar
     private $modified_pid;      // Modified by person
     private $event_template_id; // Event template id
 
-    public function __construct($calendarMasterData)
-    {
-        $this->id                = intval($calendarMasterData["id"]);
-        $this->name              = $calendarMasterData["bezeichnung"];
-        $this->sortkey           = intval($calendarMasterData["sortkey"]);
-        $this->color             = $calendarMasterData["color"];
-        $this->calendar_public   = $calendarMasterData["oeffentlich_yn"] === "1";
-        $this->calendar_private  = $calendarMasterData["privat_yn"] === "1";
-        $this->random_url        = $calendarMasterData["randomurl"];
-        $this->ical_source_url   = $calendarMasterData["ical_source_url"];
-        $this->station_id        = intval($calendarMasterData["station_id"]);
-        $this->modified_date     = strtotime($calendarMasterData["modified_date"]);
-        $this->modified_pid      = intval($calendarMasterData["modified_pid"]);
-        $this->event_template_id = intval($calendarMasterData["event_template_id"]);
-        $this->textColor         = $calendarMasterData["textColor"];
+    public function __construct(array $rawData, $hasDataBlock = false) {
+        parent::__construct($rawData, $hasDataBlock);
+    }
+
+    protected function handleDataBlock($blockName, $blockData) {
+        switch ($blockName) {
+            case 'id': $this->id = intval($blockData);
+                break;
+            case 'bezeichnung': $this->name = $blockData;
+                break;
+            case 'sortkey': $this->sortkey = intval($blockData);
+                break;
+            case 'color': $this->color = $blockData;
+                break;
+            case 'oeffentlich_yn': $this->calendar_public = $blockData == "1";
+                break;
+            case 'privat_yn': $this->calendar_private = $blockData == "1";
+                break;
+            case 'randomurl': $this->random_url = $blockData;
+                break;
+            case 'ical_source_url': $this->ical_source_url = $blockData;
+                break;
+            case 'station_id': $this->station_id = intval($blockData);
+                break;
+            case 'modified_date': $this->modified_date = new DateTime($blockData);
+                break;
+            case 'modified_pid': $this->modified_pid = intval($blockData);
+                break;
+            case 'event_template_id': $this->event_template_id = intval($blockData);
+                break;
+            case 'textColor': $this->textColor = $blockData;
+                break;
+            default:
+                parent::handleDataBlock($blockName, $blockData);
+        }
     }
 
     /**
      * @return int id of calendar
      */
-    public function getID()
-    {
+    public function getID() {
         return $this->id;
     }
 
     /**
      * @return string name of calendar
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
     /**
      * @return int sort order of calendar
      */
-    public function getSortKey()
-    {
+    public function getSortKey() {
         return $this->sortkey;
     }
 
     /**
      * @return string background color of calendar as html color name or hex value
      */
-    public function getColor()
-    {
+    public function getColor() {
         return $this->color;
     }
 
     /**
      * @return string text color of calendar as html color name or hex value
      */
-    public function getTextColor()
-    {
+    public function getTextColor() {
         return $this->textColor;
     }
 
     /**
      * @return boolean if this calendar can be accessed without login
      */
-    public function isCalendarPublic()
-    {
+    public function isCalendarPublic() {
         return $this->calendar_public;
     }
 
     /**
      * @return boolean if this calendar needs login for access
      */
-    public function isCalendarPrivate()
-    {
+    public function isCalendarPrivate() {
         return $this->calendar_private;
     }
 
     /**
      * @return string the random URL to build ical url
      */
-    public function getRandomUrl()
-    {
+    public function getRandomUrl() {
         return $this->random_url;
     }
 
     /**
      * @return string the url of the source calendar (if any)
      */
-    public function getIcalSourceURL()
-    {
+    public function getIcalSourceURL() {
         return $this->ical_source_url;
     }
 
     /**
      * @return int the station this calendar is assigned to
      */
-    public function getStationID()
-    {
+    public function getStationID() {
         return $this->station_id;
     }
 
@@ -125,8 +138,7 @@ class Calendar
      * 
      * @return date calendar last modified at
      */
-    public function getModifiedDate()
-    {
+    public function getModifiedDate() {
         return $this->modified_date;
     }
 
@@ -134,8 +146,8 @@ class Calendar
      * 
      * @return date calendar last modified by person ID
      */
-    public function getModifiedByPID()
-    {
+    public function getModifiedByPID() {
         return $this->modified_pid;
     }
+
 }

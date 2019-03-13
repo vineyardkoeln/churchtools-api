@@ -1,27 +1,26 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ChurchTools\Api;
 
-use ChurchTools\Api\Calendar;
-
 /**
- * Description of Calendars
+ * Collection if Calendars with methods for sorting
  *
  * @author andre
  */
-class Calendars
-{
+class Calendars extends CTObject {
+
     // List of calendars in master data
     private $calendars = [];
 
-    public function __construct($masterData)
-    {
-        $categories = $masterData["data"]["category"];
-        foreach ($categories as $cal) {
-            $myCal                            = new Calendar($cal);
-            $this->calendars[$myCal->getId()] = $myCal;
-        }
+    public function __construct(array $rawData, $hasDataBlock = false) {
+        parent::__construct($rawData, $hasDataBlock);
+    }
+
+    protected function handleDataBlock($blockName, $blockData) {
+        $calendar= new Calendar($blockData, false);
+        $this->calendars[$calendar->getID()]= $calendar;
     }
 
     /**
@@ -29,8 +28,7 @@ class Calendars
      * 
      * @return ChurchTools\Api\Calendar
      */
-    public function getCalendar($calendarID)
-    {
+    public function getCalendar($calendarID) {
         return $this->calendars[$calendarID];
     }
 
@@ -39,12 +37,11 @@ class Calendars
      * 
      * @return ChurchTools\Api\Calendar
      */
-    public function getCalendarIDS($sorted = false)
-    {
+    public function getCalendarIDS($sorted = false) {
         $cals = [];
         foreach ($this->calendars as $cal) {
-            $id        = $cal->getID();
-            $order     = $cal->getSortKey();
+            $id = $cal->getID();
+            $order = $cal->getSortKey();
             $cals[$id] = $order;
         }
         if ($sorted) {
@@ -52,4 +49,5 @@ class Calendars
         }
         return $cals;
     }
+
 }
