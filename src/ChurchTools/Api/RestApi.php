@@ -208,12 +208,9 @@ class RestApi
      */
     private function getApiUrl(string $route): string
     {
-        if (strpos($this->churchHandle, '.'))
-        {
+        if (strpos($this->churchHandle, '.')) {
             return sprintf(self::API_URL_TEMPLATE, $this->churchHandle, $route);
-        }
-        else
-        {
+        } else {
             return sprintf(self::API_URL_TEMPLATE_HOSTED, $this->churchHandle, $route);
         }
     }
