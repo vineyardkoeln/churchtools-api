@@ -20,8 +20,8 @@ class RestApi
     const CALENDAR_ROUTE = 'churchcal/ajax';
     const SERVICE_ROUTE = 'churchservice/ajax';
 
-    private $guzzleClient;
-    private $churchHandle;
+    private $guzzleClient;  /** http client for server requests */
+    private $churchHandle;  /** site name or full hostname for requests */
 
     /**
      * RestApi constructor. It's private, because you should be using one of the static constructor methods

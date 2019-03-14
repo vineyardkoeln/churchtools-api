@@ -1,19 +1,17 @@
 <?php
-
 declare(strict_types=1);
 
 namespace ChurchTools\Api;
 
-use DateTime;
 use ChurchTools\Api\Booking;
 
 /**
  * A single calendarentry, with bookings if any
  *
- * @author andre
+ * @author André Schild
  */
-class Calendarentry extends CTObject {
-
+class Calendarentry extends CTObject
+{
     private $startDate;
     private $endDate;
     private $title;
@@ -22,22 +20,26 @@ class Calendarentry extends CTObject {
     private $remarks;
     private $bookings;
 
-    protected function handleDataBlock($blockName, $blockData) {
+    /**
+     * @overridedoc
+     */
+    protected function handleDataBlock(string $blockName, array $blockData): void
+    {
         switch ($blockName) {
-            case 'startdate': $this->startDate = $this->parseDateTime($blockData);
+            case 'startdate': $this->startDate    = $this->parseDateTime($blockData);
                 break;
-            case 'enddate': $this->endDate = $this->parseDateTime($blockData);
+            case 'enddate': $this->endDate      = $this->parseDateTime($blockData);
                 break;
-            case 'bezeichnung': $this->title = $blockData;
+            case 'bezeichnung': $this->title        = $blockData;
                 break;
-            case 'notizen': $this->remarks = $blockData;
+            case 'notizen': $this->remarks      = $blockData;
                 break;
-            case 'category_id': $this->calendarID = intval($blockData);
+            case 'category_id': $this->calendarID   = intval($blockData);
                 break;
             case 'category_name': $this->calendarName = $blockData;
                 break;
             case 'bookings':
-                $bookings = [];
+                $bookings           = [];
                 foreach ($blockData as $b) {
                     array_push($bookings, new Booking($b));
                 }
@@ -49,30 +51,34 @@ class Calendarentry extends CTObject {
     }
 
     /**
-     * @return date start date of calendar entry
+     * @return \DateTime start date of calendar entry
      */
-    public function getStartDate(): \DateTime {
+    public function getStartDate(): \DateTime
+    {
         return $this->startDate;
     }
 
     /**
      * @return date end date of calenda entry
      */
-    public function getEndDate(): \DateTime {
+    public function getEndDate(): \DateTime
+    {
         return $this->endDate;
     }
 
     /**
      * @return string title of calenda entry
      */
-    public function getTitle(): string {
+    public function getTitle(): string
+    {
         return $this->title;
     }
 
     /**
      * @return string remarks of calendar entry
      */
-    public function getRemarks(): string {
+    public function getRemarks(): ?string
+    {
         return $this->remarks;
     }
 
@@ -80,14 +86,16 @@ class Calendarentry extends CTObject {
      * 
      * @return int calendar id this entry is for
      */
-    public function getCalendarID(): int {
+    public function getCalendarID(): int
+    {
         return $this->calendarID;
     }
 
     /**
      * @return string name of calendar
      */
-    public function getCalendarName(): string {
+    public function getCalendarName(): string
+    {
         return $this->calendarName;
     }
 
@@ -95,8 +103,8 @@ class Calendarentry extends CTObject {
      * 
      * @return array Booking of bookings associated with this calendar entry
      */
-    public function getBookings(): Bookings {
+    public function getBookings(): ?array
+    {
         return $this->bookings;
     }
-
 }
