@@ -58,6 +58,6 @@ class Calendars extends CTObject
         if ($sorted) {
             asort($cals);
         }
-        return $cals;
+        return array_keys($cals);
     }
 }
