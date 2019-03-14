@@ -25,7 +25,7 @@ class MasterData extends CTObject
     private $userName;
     private $userID;
 
-    protected function handleDataBlock(string $blockName, array $blockData): void
+    protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
             case 'base_url':

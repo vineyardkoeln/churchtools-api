@@ -23,7 +23,7 @@ class Calendarentry extends CTObject
     /**
      * @overridedoc
      */
-    protected function handleDataBlock(string $blockName, array $blockData): void
+    protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
             case 'startdate': $this->startDate    = $this->parseDateTime($blockData);

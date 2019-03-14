@@ -15,24 +15,17 @@ class Calendars extends CTObject
 
     /**
      */
-    public function __construct(array $rawData, bool $hasDataBlock = false): void
+    public function __construct(array $rawData, bool $hasDataBlock = false)
     {
         parent::__construct($rawData, $hasDataBlock);
     }
 
     /**
      */
-    protected function handleDataBlock(string $blockName, array $blockData): void
+    protected function handleDataBlock($blockName, $blockData): void
     {
-        switch ($blockName) {
-            case 'calendar':
-                $calendar                            = new Calendar($blockData,
-                    false);
-                $this->calendars[$calendar->getID()] = $calendar;
-                break;
-            default:
-                parent::handleDataBlock($blockName, $blockData);
-        }
+        $myCal                            = new Calendar($blockData);
+        $this->calendars[$myCal->getId()] = $myCal;
     }
 
     /**

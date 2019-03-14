@@ -30,7 +30,7 @@ class Calendar extends CTObject
      *
      * @param bool $hasDataBlock default to false
      */
-    public function __construct(array $rawData, bool $hasDataBlock = false): void
+    public function __construct(array $rawData, bool $hasDataBlock = false)
     {
         parent::__construct($rawData, $hasDataBlock);
     }

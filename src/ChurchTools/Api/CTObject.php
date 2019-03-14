@@ -57,10 +57,10 @@ abstract class CTObject
      * it should call the super::handleDataBlock method, which will the put
      * the block in the $rawDataBlocks
      *
-     * @param string $blockName
-     * @param string $blockData
+     * @param $blockName
+     * @param array|string $blockData
      */
-    protected function handleDataBlock(string $blockName, string $blockData): void
+    protected function handleDataBlock($blockName, $blockData): void
     {
         $this->rawDataBlocks[$blockName] = $blockData;
     }

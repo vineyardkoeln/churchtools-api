@@ -24,7 +24,7 @@ class Serviceentry extends CTObject
     /**
      * @inhertidoc
      */
-    public function __construct(array $rawData, bool $hasDataBlock = false): void
+    public function __construct(array $rawData, bool $hasDataBlock = false)
     {
         parent::__construct($rawData, $hasDataBlock);
     }
@@ -32,7 +32,7 @@ class Serviceentry extends CTObject
     /**
      * @inhertidoc
      */
-    protected function handleDataBlock(string $blockName, array $blockData): void
+    protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
             case 'id': $this->id           = intval($blockData);

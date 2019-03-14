@@ -38,7 +38,7 @@ class Event extends CTObject
     /**
      * @inheritdoc
      */
-    protected function handleDataBlock(string $blockName, array $blockData): void
+    protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
             case 'id': $this->id                = intval($blockData);
