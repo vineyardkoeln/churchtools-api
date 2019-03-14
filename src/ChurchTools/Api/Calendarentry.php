@@ -32,7 +32,7 @@ class Calendarentry extends CTObject
                 break;
             case 'bezeichnung': $this->title        = $blockData;
                 break;
-            case 'notizen': $this->remarks      = $blockData;
+            case 'ort': $this->remarks      = $blockData;
                 break;
             case 'category_id': $this->calendarID   = intval($blockData);
                 break;
