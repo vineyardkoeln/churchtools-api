@@ -96,6 +96,12 @@ class RestApi
     /**
      * Get all events from now until and with in ten days
      *
+     * This api does not return them sorted, and repeating
+     * events are sometimes returned even outside the specified range.
+     *
+     * You can use the ChurchTools\Api\Tools\CalendarTools to do filtering
+     * and sorting on the result if required
+     *
      * @param array $categoryIds the calendar ids for which to get the events
      * @param int $fromDays starting time frame in days from today
      * @param int $toDays end of time frame in days from today
