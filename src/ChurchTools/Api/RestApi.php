@@ -94,6 +94,27 @@ class RestApi
     }
 
     /**
+     * Get all allowed calendars for the logged in user
+     *
+     * @param boolean $includePrivate Also return private calendars, or only global+group calendars, default false
+     * @return Calendars All calendar ID the user is allowed to see
+     *
+     * @see https://api.churchtools.de/function-churchcal_getAllowedCategories.html
+     */
+    public function getAllowedCalendars(bool $includePrivate= false): ?Calendars
+    {
+        $retVal= null;
+        $rawData= $this->callApi(self::CALENDAR_ROUTE, [
+            'func' => 'churchcal_getAllowedCategories',
+            'withPrivat' => $includePrivate,
+            'onlyIds' => false
+        ]);
+
+        $retVal= new Calendars($rawData, false);
+        return $retVal;
+    }
+
+    /**
      * Get all events from now until and with in ten days
      *
      * This api does not return them sorted, and repeating
@@ -146,14 +167,27 @@ class RestApi
     }
 
     /**
-     * Get master data
+     * Get service master data
      *
      * @return array
      * @see https://api.churchtools.de/class-CTChurchServiceModule.html#_getMasterData
      */
-    public function getMasterData(): MasterData
+    public function getServiceMasterData(): MasterData
     {
         return new MasterData($this->callApi(self::SERVICE_ROUTE, [
+            'func' => 'getMasterData'
+        ]));
+    }
+
+    /**
+     * Get calendar master data
+     *
+     * @return array
+     * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getMasterData
+     */
+    public function getCalendarMasterData(): MasterData
+    {
+        return new MasterData($this->callApi(self::CALENDAR_ROUTE, [
             'func' => 'getMasterData'
         ]));
     }

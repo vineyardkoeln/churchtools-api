@@ -85,10 +85,16 @@ This method also has two optional parameters, `$toDays` and `$fromDays`, which a
 
 ### Get master data
 
-To get master data, use this method:
+To get calendar or service master data, use this method:
 
 ```
-var_dump($api->getMasterData());
+var_dump($api->getCalendarMasterData());
+```
+
+or 
+
+```
+var_dump($api->getServiceMasterData());
 ```
 
 TODO: In one of the upcoming alpha versions, methods will return model objects and not plain arrays.
