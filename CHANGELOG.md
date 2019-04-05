@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.4.0
+    * FEATURE     #5   Basic object model implemented (thanks a lot to @a-schild!)
+
 * 0.3.0
     * FEATURE     #2   Enhance API to also work with self hosted ct installations (thanks to @a-schild!)
 
