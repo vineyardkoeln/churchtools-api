@@ -2,6 +2,7 @@
 
 namespace ChurchTools\Api;
 
+use ChurchTools\Api\MasterData;
 use ChurchTools\Api\Exception\ChurchToolsApiException;
 use ChurchTools\Api\Exception\JsonDecodingException;
 use ChurchTools\Api\Exception\RestApiException;
@@ -19,8 +20,8 @@ class RestApi
     const CALENDAR_ROUTE = 'churchcal/ajax';
     const SERVICE_ROUTE = 'churchservice/ajax';
 
-    private $guzzleClient;
-    private $churchHandle;
+    private $guzzleClient;  /** http client for server requests */
+    private $churchHandle;  /** site name or full hostname for requests */
 
     /**
      * RestApi constructor. It's private, because you should be using one of the static constructor methods
@@ -93,22 +94,56 @@ class RestApi
     }
 
     /**
+     * Get all allowed calendars for the logged in user
+     *
+     * @param boolean $includePrivate Also return private calendars, or only global+group calendars, default false
+     * @return Calendars All calendar ID the user is allowed to see
+     *
+     * @see https://api.churchtools.de/function-churchcal_getAllowedCategories.html
+     */
+    public function getAllowedCalendars(bool $includePrivate= false): ?Calendars
+    {
+        $retVal= null;
+        $rawData= $this->callApi(self::CALENDAR_ROUTE, [
+            'func' => 'churchcal_getAllowedCategories',
+            'withPrivat' => $includePrivate,
+            'onlyIds' => false
+        ]);
+
+        $retVal= new Calendars($rawData, false);
+        return $retVal;
+    }
+
+    /**
      * Get all events from now until and with in ten days
+     *
+     * This api does not return them sorted, and repeating
+     * events are sometimes returned even outside the specified range.
+     *
+     * You can use the ChurchTools\Api\Tools\CalendarTools to do filtering
+     * and sorting on the result if required
      *
      * @param array $categoryIds the calendar ids for which to get the events
      * @param int $fromDays starting time frame in days from today
      * @param int $toDays end of time frame in days from today
-     * @return array
+     * @return array of Event objects
      * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getCalendarEvents
      */
     public function getCalendarEvents(array $categoryIds, int $fromDays = 0, int $toDays = 10): array
     {
-        return $this->callApi(self::CALENDAR_ROUTE, [
+        $retVal= [];
+        $rawData= $this->callApi(self::CALENDAR_ROUTE, [
             'func' => 'getCalendarEvents',
             'category_ids' => $categoryIds,
             'from' => $fromDays,
             'to' => $toDays,
         ]);
+        
+        foreach ($rawData['data'] as $eventData) {
+            $e= new Calendarentry($eventData, false);
+            array_push($retVal, $e);
+        }
+        return $retVal;
     }
 
     /**
@@ -119,22 +154,42 @@ class RestApi
      */
     public function getAllEventData(): array
     {
-        return $this->callApi(self::SERVICE_ROUTE, [
+        $retVal= [];
+        $rawData= $this->callApi(self::SERVICE_ROUTE, [
             'func' => 'getAllEventData',
         ]);
+        
+        foreach ($rawData['data'] as $eventData) {
+            $e= new Event($eventData, false);
+            array_push($retVal, $e);
+        }
+        return $retVal;
     }
 
     /**
-     * Get master data
+     * Get service master data
      *
      * @return array
      * @see https://api.churchtools.de/class-CTChurchServiceModule.html#_getMasterData
      */
-    public function getMasterData(): array
+    public function getServiceMasterData(): MasterData
     {
-        return $this->callApi(self::SERVICE_ROUTE, [
+        return new MasterData($this->callApi(self::SERVICE_ROUTE, [
             'func' => 'getMasterData'
-        ]);
+        ]));
+    }
+
+    /**
+     * Get calendar master data
+     *
+     * @return array
+     * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getMasterData
+     */
+    public function getCalendarMasterData(): MasterData
+    {
+        return new MasterData($this->callApi(self::CALENDAR_ROUTE, [
+            'func' => 'getMasterData'
+        ]));
     }
 
     /**
