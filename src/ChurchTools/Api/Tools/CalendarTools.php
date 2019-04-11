@@ -25,8 +25,9 @@ class CalendarTools
     {
         $retVal = array_filter($calendarEntries,
             function($entry) use ($startDate, $endDate) {
-            return $entry->getStartDate()->getTimestamp() >= $startDate && $entry->getStartDate()->getTimestamp()
-                <= $endDate;
+            return $entry->getStartDate()->getTimestamp() <= $endDate && 
+                ($entry->getStartDate()->getTimestamp() >= $startDate ||
+                ($entry->getEndDate()->getTimestamp() >= $startDate)) ;
         });
         return $retVal;
     }
