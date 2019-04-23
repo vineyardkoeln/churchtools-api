@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.4.1
+    * BUGFIX      #6   Don't filter calendar entries which start before start date
+
 * 0.4.0
     * FEATURE     #5   Basic object model implemented (thanks a lot to @a-schild!)
 
