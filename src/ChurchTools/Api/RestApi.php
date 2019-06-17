@@ -19,6 +19,7 @@ class RestApi
     const DATABASE_ROUTE = 'churchdb/ajax';
     const CALENDAR_ROUTE = 'churchcal/ajax';
     const SERVICE_ROUTE = 'churchservice/ajax';
+    const RESOURCE_ROUTE = 'churchresource/ajax';
 
     private $guzzleClient;  /** http client for server requests */
     private $churchHandle;  /** site name or full hostname for requests */
@@ -179,6 +180,18 @@ class RestApi
         ]));
     }
 
+    /**
+     * Get service master data
+     *
+     * @return array
+     * @see https://api.church.tools/class-CTChurchResourceModule.html#_getMasterData
+     */
+    public function getResourceMasterData(): MasterData
+    {
+        return new MasterData($this->callApi(self::RESOURCE_ROUTE, [
+            'func' => 'getMasterData'
+        ]));
+    }
     /**
      * Get calendar master data
      *

@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace ChurchTools\Api;
 
 use ChurchTools\Api\Calendars;
+use ChurchTools\Api\Resources;
+use ChurchTools\Api\ResourceTypes;
 
 /**
  * The masterdata contains the global settings of the ct instance, like 
@@ -24,6 +26,8 @@ class MasterData extends CTObject
     private $adminEmail;
     private $userName;
     private $userID;
+    private $resources;
+    private $resourceTypes;
 
     protected function handleDataBlock($blockName, $blockData): void
     {
@@ -52,6 +56,12 @@ class MasterData extends CTObject
             case 'category':
                 $this->calendars   = new Calendars($blockData, false);
                 break;
+            case 'resources':
+                $this->resources   = new Resources($blockData, false);
+                break;
+            case 'resourceTypes':
+                $this->resourceTypes   = new ResourceTypes($blockData, false);
+                break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
         }
@@ -65,5 +75,25 @@ class MasterData extends CTObject
     public function getCalendars(): Calendars
     {
         return $this->calendars;
+    }
+    
+    /**
+     * All system wide resources where the user has access
+     * 
+     * @return \ChurchTools\Api\Resources list resources
+     */
+    public function getResources(): Resources 
+    {
+        return $this->resources;
+    }
+    
+    /**
+     * All system wide resource types where the user has access
+     * 
+     * @return \ChurchTools\Api\ResourceTypes list resource types
+     */
+    public function getResourceTypes(): ResourceTypes
+    {
+        return $this->resourceTypes;
     }
 }

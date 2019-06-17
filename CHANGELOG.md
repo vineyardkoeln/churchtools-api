@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.4.2
+    * FEATURE     #6   Add support to retrieve resources and resource types
+
 * 0.4.1
     * BUGFIX      #6   Don't filter calendar entries which start before start date
 
