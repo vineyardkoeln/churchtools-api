@@ -16,7 +16,15 @@ class Booking extends CTObject
     private $resourceID;
     private $statusID;
     private $location;
-    private $note;
+    private $remarks;
+    private $title;
+    private $personID;
+    private $startDate;
+    private $endDate;
+    private $createDate;
+    private $modifiedDate;
+    private $version;
+    
 
     /**
      * @inheritDoc
@@ -44,9 +52,23 @@ class Booking extends CTObject
                 break;
             case 'status_id': $this->statusID   = intval($blockData);
                 break;
+            case 'person_id': $this->personID = intval($blockData);
+                break;
             case 'location': $this->location   = $blockData;
                 break;
-            case 'note': $this->note       = $blockData;
+            case 'note': $this->remarks       = $blockData;
+                break;
+            case 'text': $this->title       = $blockData;
+                break;
+            case 'version': $this->version       = $blockData;
+                break;
+            case 'startdate': $this->startDate    = $this->parseDateTime($blockData);
+                break;
+            case 'enddate': $this->endDate      = $this->parseDateTime($blockData);
+                break;
+            case 'create_date': $this->createDate    = $this->parseDateTime($blockData);
+                break;
+            case 'modified_date': $this->modifiedDate      = $this->parseDateTime($blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -104,8 +126,53 @@ class Booking extends CTObject
     /**
      * @return string|null note of the booking
      */
-    public function getNote(): ?string
+    public function getRemarks(): ?string
     {
-        return $this->note;
+        return $this->remarks;
     }
+    
+    /**
+     * @return \DateTime start date of calendar entry
+     */
+    public function getStartDate(): \DateTime
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @return date end date of calenda entry
+     */
+    public function getEndDate(): \DateTime
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @return string title of calenda entry
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function isConfirmed(): bool
+    {
+        return $this->statusID == 2;
+    }
+    
+    public function isWaitingConfirmation(): bool
+    {
+        return $this->statusID == 1;
+    }
+
+    public function isRejected(): bool
+    {
+        return $this->statusID == 3;
+    }
+
+    public function isDeleted(): bool
+    {
+        return $this->statusID == 99;
+    }
+
 }

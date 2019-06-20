@@ -20,7 +20,7 @@ class CalendarTools
      *
      */
 
-    public static function filterCalendarentries(array $calendarEntries,
+    public static function filterCalendarEntries(array $calendarEntries,
                                                  int $startDate, int $endDate): array
     {
         $retVal = array_filter($calendarEntries,
@@ -40,7 +40,7 @@ class CalendarTools
      *
      * @return array the sorted array
      */
-    public static function sortCalendarentries(array $calendarEntries,
+    public static function sortCalendarEntries(array $calendarEntries,
                                                bool $sortAscending = true): array
     {
         usort($calendarEntries,

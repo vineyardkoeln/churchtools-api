@@ -116,19 +116,16 @@ class RestApi
     }
 
     /**
-     * Get all events from now until and with in ten days
+     * Get all calender entries from now until and with in ten days
      *
      * This api does not return them sorted, and repeating
      * events are sometimes returned even outside the specified range.
      *
-     * You can use the ChurchTools\Api\Tools\CalendarTools to do filtering
-     * and sorting on the result if required
-     *
-     * @param array $categoryIds the calendar ids for which to get the events
+     * @param array $categoryIds the resource ids for which to get the bookings
      * @param int $fromDays starting time frame in days from today
      * @param int $toDays end of time frame in days from today
      * @return array of Event objects
-     * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getCalendarEvents
+     * @see https://api.church.tools/class-CTChurchCalModule.html#_getCalendarEvents
      */
     public function getCalendarEvents(array $categoryIds, int $fromDays = 0, int $toDays = 10): array
     {
@@ -147,6 +144,26 @@ class RestApi
         return $retVal;
     }
 
+    /**
+     * Get all resource bookings
+     *
+     * @return array of Booking objects
+     * @see https://api.church.tools/class-CTChurchResourceModule.html#_getBookings
+     */
+    public function getResourceBookings(): array
+    {
+        $retVal= [];
+        $rawData= $this->callApi(self::RESOURCE_ROUTE, [
+            'func' => 'getBookings',
+        ]);
+        
+        foreach ($rawData['data'] as $bookingData) {
+            $e= new Booking($bookingData, false);
+            array_push($retVal, $e);
+        }
+        return $retVal;
+    }
+    
     /**
      * Get all event data including services
      *
