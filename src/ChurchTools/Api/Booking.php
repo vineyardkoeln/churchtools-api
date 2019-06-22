@@ -157,22 +157,22 @@ class Booking extends CTObject
 
     public function isConfirmed(): bool
     {
-        return $this->statusID == 2;
+        return BookingStatusType::isConfirmed($this->statusID);
     }
     
     public function isWaitingConfirmation(): bool
     {
-        return $this->statusID == 1;
+        return BookingStatusType::isWaitingConfirmation($this->statusID);
     }
 
     public function isRejected(): bool
     {
-        return $this->statusID == 3;
+        return BookingStatusType::isRejected($this->statusID == 3);
     }
 
     public function isDeleted(): bool
     {
-        return $this->statusID == 99;
+        return BookingStatusType::isDeleted($this->statusID == 99);
     }
 
 }

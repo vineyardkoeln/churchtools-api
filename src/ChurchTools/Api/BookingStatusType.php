@@ -4,16 +4,16 @@ declare(strict_types=1);
 namespace ChurchTools\Api;
 
 /**
- * A resource type
+ * Booking status
  *
  * @author André Schild
  */
-class ResourceType extends CTObject
+class BookingStatusType extends CTObject
 {
     private $id;
+    private $title;
     private $sortKey;
-    private $description;
-    private $stationId;
+    
 
     /**
      * @inheritDoc
@@ -33,11 +33,9 @@ class ResourceType extends CTObject
         switch ($blockName) {
             case 'id': $this->id         = intval($blockData);
                 break;
-            case 'sortkey': $this->sortKey    = intval($blockData);
+            case 'bezeichnung': $this->title       = $blockData;
                 break;
-            case 'bezeichnung': $this->description   = $blockData;
-                break;
-            case 'station_id': $this->stationId = intval($blockData);
+            case 'sortkey': $this->sortKey       = $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -45,38 +43,39 @@ class ResourceType extends CTObject
     }
 
     /**
-     * @return int ID of this resource type
+     * @return int ID of this booking status
      */
     public function getID(): int
     {
         return $this->id;
     }
 
+  
     /**
-     * 
-     * @return int sortkey of resource type entry
+     * @return string title of booking status entry
      */
-    public function getSortKey(): int
+    public function getTitle(): string
     {
-        return $this->sortKey;
+        return $this->title;
+    }
+
+    public static function isConfirmed($statusID): bool
+    {
+        return $statusID == 2;
     }
     
-    /**
-     * 
-     * @return string Description of this resource type
-     * 
-     */
-    public function getDescription(): string
+    public static function isWaitingConfirmation($statusID): bool
     {
-        return $this->description;
+        return $statusID == 1;
     }
-    
-    /**
-     * 
-     * @return int Station id of this resource type
-     */
-    public function getStationId(): ?int
+
+    public static function isRejected($statusID): bool
     {
-        return $this->stationId;
+        return $statusID == 3;
+    }
+
+    public static function isDeleted($statusID): bool
+    {
+        return $statusID == 99;
     }
 }

@@ -28,6 +28,8 @@ class MasterData extends CTObject
     private $userID;
     private $resources;
     private $resourceTypes;
+    private $repeatingTypes;
+    private $bookingStatus;
 
     protected function handleDataBlock($blockName, $blockData): void
     {
@@ -61,6 +63,12 @@ class MasterData extends CTObject
                 break;
             case 'resourceTypes':
                 $this->resourceTypes   = new ResourceTypes($blockData, false);
+                break;
+            case 'repeat':
+                $this->repeatingTypes= new RepeatingTypes($blockData, false);
+                break;
+            case 'status':
+                $this->bookingStatusTypes= new BookingStatusTypes($blockData, false);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);

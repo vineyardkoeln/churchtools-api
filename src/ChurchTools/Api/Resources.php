@@ -10,7 +10,7 @@ namespace ChurchTools\Api;
  */
 class Resources extends CTObject
 {
-    // List of calendars in master data
+    // List of resources in master data
     private $resources = [];
 
     /**
