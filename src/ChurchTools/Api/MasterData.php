@@ -33,6 +33,8 @@ class MasterData extends CTObject
     private $repeatingTypes;
     private $bookingStatusTypes;
     private $firstDayInWeek;
+    private $serviceGroups;
+    private $serviceEntries;
 
     protected function handleDataBlock($blockName, $blockData): void
     {
@@ -76,6 +78,12 @@ class MasterData extends CTObject
             case 'status':
             case 'bookingStatus':
                 $this->bookingStatusTypes= new BookingStatusTypes($blockData, false);
+                break;
+            case 'servicegroup':
+                $this->serviceGroups   = new ServiceGroups($blockData, false);
+                break;
+            case 'service':
+                $this->serviceEntries   = new ServiceEntries($blockData, false);
                 break;
             case 'churchcal_name':
                 $this->moduleCalendarName= $blockData;
@@ -121,6 +129,26 @@ class MasterData extends CTObject
         return $this->resourceTypes;
     }
     
+    /**
+     * All system wide resource types where the user has access
+     * 
+     * @return \ChurchTools\Api\ResourceTypes list resource types
+     */
+    public function getServiceGroups(): ServiceGroups
+    {
+        return $this->serviceGroups;
+    }
+        
+    /**
+     * All system wide service where the user has access
+     * 
+     * @return \ChurchTools\Api\ServiceEntries list resource types
+     */
+    public function getServiceEntries(): ServiceEntries
+    {
+        return $this->serviceEntries;
+    }
+           
     public function getCalendarModuleName() : string
     {
         return $this->moduleCalendarName;

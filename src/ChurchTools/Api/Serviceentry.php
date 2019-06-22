@@ -8,18 +8,13 @@ namespace ChurchTools\Api;
  *
  * @author André Schild
  */
-class Serviceentry extends CTObject
+class ServiceEntry extends CTObject
 {
     private $id;
-    private $serviceID;
-    private $name;
-    private $personID;
-    private $isAccepted;
-    private $isValid;
-    private $entryDate;
-    private $userID;
-    private $userName;
-    private $mailSendDate;
+    private $serviceGroupID;
+    private $title;
+    private $sortKey;
+    private $remarks;
 
     /**
      * @inhertidoc
@@ -34,26 +29,17 @@ class Serviceentry extends CTObject
      */
     protected function handleDataBlock($blockName, $blockData): void
     {
+        var_dump($blockName);
         switch ($blockName) {
             case 'id': $this->id           = intval($blockData);
                 break;
-            case 'service_id': $this->serviceID    = intval($blockData);
+            case 'servicegroup_id': $this->serviceGroupID    = intval($blockData);
                 break;
-            case 'name': $this->name         = $blockData;
+            case 'bezeichnung': $this->title         = $blockData;
                 break;
-            case 'cdb_person_id': $this->personID     = intval($blockData);
+            case 'notiz': $this->remarks         = $blockData;
                 break;
-            case 'zugesagt_yn': $this->isAccepted   = $blockData == "1";
-                break;
-            case 'valid_yn': $this->isValid      = $blockData == "1";
-                break;
-            case 'datum': $this->entryDate    = $this->parseDateTime($blockData);
-                break;
-            case 'user_id': $this->userID       = intval($blockData);
-                break;
-            case 'user': $this->userName     = $blockData;
-                break;
-            case 'mailsenddate': $this->mailSendDate = $this->parseDateTime($blockData);
+            case 'sortkey': $this->sortKey   = intval($blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -77,7 +63,7 @@ class Serviceentry extends CTObject
     }
 
     /**
-     * @return string title of service entry
+     * @return string name of service entry
      */
     public function getTitle(): string
     {
@@ -96,19 +82,20 @@ class Serviceentry extends CTObject
      * 
      * @return int calendar id this entry is for
      */
-    public function getCalendarID(): int
+    public function getID(): int
     {
-        return $this->calendarID;
+        return $this->id;
     }
 
     /**
-     * @return string name of calendar
+     * 
+     * @return int calendar id this entry is for
      */
-    public function getCalendarName(): string
+    public function getServiceGroupID(): int
     {
-        return $this->calendarName;
+        return $this->serviceGroupID;
     }
-
+    
     /**
      * 
      * @return array Booking of bookings associated with this service entry
@@ -116,5 +103,10 @@ class Serviceentry extends CTObject
     public function getBookings(): ?array
     {
         return $this->bookings;
+    }
+    
+    public function getSortKey(): int
+    {
+        return $this->sortKey;
     }
 }

@@ -18,7 +18,7 @@ class RestApi
     const LOGIN_ROUTE = 'login/ajax';
     const DATABASE_ROUTE = 'churchdb/ajax';
     const CALENDAR_ROUTE = 'churchcal/ajax';
-    const SERVICE_ROUTE = 'churchservice/ajax';
+    const SERVICE_ROUTE  = 'churchservice/ajax';
     const RESOURCE_ROUTE = 'churchresource/ajax';
 
     private $guzzleClient;  /** http client for server requests */
@@ -85,7 +85,7 @@ class RestApi
      * Get all person data
      *
      * @return array
-     * @see https://api.churchtools.de/class-CTChurchDBModule.html#_getAllPersonData
+     * @see https://api.church.tools/class-CTChurchDBModule.html#_getAllPersonData
      */
     public function getAllPersonData(): array
     {
@@ -100,7 +100,7 @@ class RestApi
      * @param boolean $includePrivate Also return private calendars, or only global+group calendars, default false
      * @return Calendars All calendar ID the user is allowed to see
      *
-     * @see https://api.churchtools.de/function-churchcal_getAllowedCategories.html
+     * @see https://api.church.tools/function-churchcal_getAllowedCategories.html
      */
     public function getAllowedCalendars(bool $includePrivate= false): ?Calendars
     {
@@ -168,7 +168,7 @@ class RestApi
      * Get all event data including services
      *
      * @return array
-     * @see https://api.churchtools.de/class-CTChurchServiceModule.html#_getAllEventData
+     * @see https://api.church.tools/class-CTChurchServiceModule.html#_getAllEventData
      */
     public function getAllEventData(): array
     {
@@ -188,7 +188,7 @@ class RestApi
      * Get service master data
      *
      * @return array
-     * @see https://api.churchtools.de/class-CTChurchServiceModule.html#_getMasterData
+     * @see https://api.church.tools/class-CTChurchServiceModule.html#_getMasterData
      */
     public function getServiceMasterData(): MasterData
     {
@@ -213,7 +213,7 @@ class RestApi
      * Get calendar master data
      *
      * @return array
-     * @see https://api.churchtools.de/class-CTChurchCalModule.html#_getMasterData
+     * @see https://api.church.tools/class-CTChurchCalModule.html#_getMasterData
      */
     public function getCalendarMasterData(): MasterData
     {
@@ -231,7 +231,7 @@ class RestApi
      * @param string $usernameOrEmail
      * @param string $password
      * @return array
-     * @see https://api.churchtools.de/class-CTLoginModule.html#_getUserLoginToken
+     * @see https://api.church.tools/class-CTLoginModule.html#_getUserLoginToken
      */
     public static function getLoginToken(string $churchHandle, string $usernameOrEmail, string $password): array
     {
