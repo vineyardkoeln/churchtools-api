@@ -18,6 +18,7 @@ use ChurchTools\Api\ResourceTypes;
  */
 class MasterData extends CTObject
 {
+    private $moduleCalendarName;
     private $calendars;
     private $baseURL;
     private $filesURL;
@@ -27,9 +28,11 @@ class MasterData extends CTObject
     private $userName;
     private $userID;
     private $resources;
+    private $allowedResources;
     private $resourceTypes;
     private $repeatingTypes;
-    private $bookingStatus;
+    private $bookingStatusTypes;
+    private $firstDayInWeek;
 
     protected function handleDataBlock($blockName, $blockData): void
     {
@@ -64,12 +67,25 @@ class MasterData extends CTObject
             case 'resourceTypes':
                 $this->resourceTypes   = new ResourceTypes($blockData, false);
                 break;
+            case 'allowedresources':
+                $this->allowedResources=  $blockData;
+                break;
             case 'repeat':
                 $this->repeatingTypes= new RepeatingTypes($blockData, false);
                 break;
             case 'status':
+            case 'bookingStatus':
                 $this->bookingStatusTypes= new BookingStatusTypes($blockData, false);
                 break;
+            case 'churchcal_name':
+                $this->moduleCalendarName= $blockData;
+                break;
+            case 'firstDayInWeek':
+                $this->firstDayInWeek= $blockData;
+                break;
+//            case 'views':
+//                var_dump($blockData);
+//                break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
         }
@@ -103,5 +119,15 @@ class MasterData extends CTObject
     public function getResourceTypes(): ResourceTypes
     {
         return $this->resourceTypes;
+    }
+    
+    public function getCalendarModuleName() : string
+    {
+        return $this->moduleCalendarName;
+    }
+    
+    public function getFirstDayInWeek()
+    {
+        return $this->firstDayInWeek;
     }
 }

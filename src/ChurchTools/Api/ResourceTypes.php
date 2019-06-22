@@ -29,7 +29,7 @@ class ResourceTypes extends CTObject
     }
 
     /**
-     * Returns the calendar object associated with this calendarID
+     * Returns the resource type object associated with this id
      *
      * @param int id of resource to retrieve
      * 
