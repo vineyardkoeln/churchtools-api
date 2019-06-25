@@ -35,6 +35,8 @@ class MasterData extends CTObject
     private $firstDayInWeek;
     private $serviceGroups;
     private $serviceEntries;
+    private $groupTypes;
+    private $groups;
 
     protected function handleDataBlock($blockName, $blockData): void
     {
@@ -91,6 +93,12 @@ class MasterData extends CTObject
             case 'firstDayInWeek':
                 $this->firstDayInWeek= $blockData;
                 break;
+            case 'groupTypes':
+                $this->groupTypes   = new GroupTypes($blockData, false);
+                break;
+            case 'groups':
+                $this->groups   = new Groups($blockData, false);
+                break;
 //            case 'views':
 //                var_dump($blockData);
 //                break;
@@ -107,6 +115,26 @@ class MasterData extends CTObject
     public function getCalendars(): Calendars
     {
         return $this->calendars;
+    }
+    
+    /**
+     * All system wide grouos where the user has access
+     * 
+     * @return \ChurchTools\Api\Groups list groups
+     */
+    public function getGroups(): groups
+    {
+        return $this->groups;
+    }
+
+    /**
+     * All system wide group types where the user has access
+     * 
+     * @return \ChurchTools\Api\GroupTypes list group types
+     */
+    public function getGroupTypes(): GroupTypes
+    {
+        return $this->groupTypes;
     }
     
     /**

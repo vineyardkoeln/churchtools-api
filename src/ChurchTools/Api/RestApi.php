@@ -185,6 +185,28 @@ class RestApi
     }
 
     /**
+     * Get all group meetings
+     *
+     * @return array of GroupMeeting objects
+     * @see https://api.church.tools/class-CTChurchResourceModule.html#_getBookings
+     */
+    public function getGroupMeetings(int $groupId): array
+    {
+        $retVal= [];
+        $rawData= $this->callApi(self::DATABASE_ROUTE, [
+            'func' => 'GroupMeeting',
+            'sub'  => 'getList',
+            'g_id' => $groupId,
+        ]);
+        
+        foreach ($rawData['data'] as $bookingData) {
+            $e= new GroupMeeting($bookingData, false);
+            array_push($retVal, $e);
+        }
+        return $retVal;
+    }
+    
+    /**
      * Get service master data
      *
      * @return array
@@ -209,6 +231,20 @@ class RestApi
             'func' => 'getMasterData'
         ]));
     }
+
+    /**
+     * Get person master data
+     *
+     * @return array
+     * @see https://api.church.tools/class-CTChurchDBModule.html#_getMasterData
+     */
+    public function getPersonMasterData(): MasterData
+    {
+        return new MasterData($this->callApi(self::DATABASE_ROUTE, [
+            'func' => 'getMasterData'
+        ]));
+    }
+    
     /**
      * Get calendar master data
      *
