@@ -76,7 +76,6 @@ class Booking extends CTObject
             case 'category_id': $this->calendarID      = intval($blockData);
                 break;
             default:
-                var_dump($blockName);
                 parent::handleDataBlock($blockName, $blockData);
         }
     }
