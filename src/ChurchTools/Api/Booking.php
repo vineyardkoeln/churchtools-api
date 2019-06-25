@@ -24,7 +24,8 @@ class Booking extends CTObject
     private $createDate;
     private $modifiedDate;
     private $version;
-    
+    private $calendarEntryID;
+    private $calendarID;
 
     /**
      * @inheritDoc
@@ -70,7 +71,12 @@ class Booking extends CTObject
                 break;
             case 'modified_date': $this->modifiedDate      = $this->parseDateTime($blockData);
                 break;
+            case 'cc_cal_id': $this->calendarEntryID      = intval($blockData);
+                break;
+            case 'category_id': $this->calendarID      = intval($blockData);
+                break;
             default:
+                var_dump($blockName);
                 parent::handleDataBlock($blockName, $blockData);
         }
     }
@@ -173,6 +179,16 @@ class Booking extends CTObject
     public function isDeleted(): bool
     {
         return BookingStatusType::isDeleted($this->statusID == 99);
+    }
+    
+    public function getCalendarEntryID(): ?int
+    {
+        return $this->calendarEntryID;
+    }
+    
+    public function getCalendarID(): ?int
+    {
+        return $this->calendarID;
     }
 
 }

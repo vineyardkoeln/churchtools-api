@@ -121,10 +121,10 @@ class RestApi
      * This api does not return them sorted, and repeating
      * events are sometimes returned even outside the specified range.
      *
-     * @param array $categoryIds the resource ids for which to get the bookings
+     * @param array $categoryIds the calendar ids for which to get the entries
      * @param int $fromDays starting time frame in days from today
      * @param int $toDays end of time frame in days from today
-     * @return array of Event objects
+     * @return array of CalendarEntry objects
      * @see https://api.church.tools/class-CTChurchCalModule.html#_getCalendarEvents
      */
     public function getCalendarEvents(array $categoryIds, int $fromDays = 0, int $toDays = 10): array
@@ -138,7 +138,7 @@ class RestApi
         ]);
         
         foreach ($rawData['data'] as $eventData) {
-            $e= new Calendarentry($eventData, false);
+            $e= new CalendarEntry($eventData, false);
             array_push($retVal, $e);
         }
         return $retVal;

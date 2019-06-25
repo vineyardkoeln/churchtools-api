@@ -10,7 +10,7 @@ use ChurchTools\Api\Booking;
  *
  * @author André Schild
  */
-class Calendarentry extends CTObject
+class CalendarEntry extends CTObject
 {
     private $startDate;
     private $endDate;

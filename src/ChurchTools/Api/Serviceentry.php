@@ -29,7 +29,7 @@ class ServiceEntry extends CTObject
      */
     protected function handleDataBlock($blockName, $blockData): void
     {
-        var_dump($blockName);
+        //var_dump($blockName);
         switch ($blockName) {
             case 'id': $this->id           = intval($blockData);
                 break;
