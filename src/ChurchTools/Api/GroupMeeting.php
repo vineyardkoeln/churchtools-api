@@ -20,6 +20,8 @@ class GroupMeeting extends CTObject
     private $modifiedPersonId;
     private $entryDone;
     private $meetingCanceled;
+    private $pollResult;
+    private $entries;
 
     /**
      * @inheritDoc
@@ -57,6 +59,10 @@ class GroupMeeting extends CTObject
                 break;
             case 'ausgefallen_yn': $this->meetingCanceled          = intval($blockData);
                 break;
+            case 'pollresult': $this->pollResult          = $blockData;
+                break;
+            case 'entries': $this->entries          = $blockData;
+                break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
         }
@@ -72,10 +78,36 @@ class GroupMeeting extends CTObject
 
   
     /**
-     * @return string title of booking status entry
+     * @return string remark of entry
      */
-    public function getTitle(): string
+    public function getRemarks(): ?string
     {
-        return $this->title;
+        return $this->remark;
     }
+    
+    public function getStartDate(): \DateTime
+    {
+        return $this->startDate;
+    }
+
+    public function getEndDate(): ?\DateTime
+    {
+        return $this->endDate;
+    }
+    
+    public function getPollResult()
+    {
+        return $this->pollResult;
+    }
+    
+    public function isMeetingCanceled(): bool
+    {
+        return $this->meetingCanceled == 1;
+    }
+
+    public function isMeetingDone(): bool
+    {
+        return $this->entryDone == 1;
+    }
+    
 }

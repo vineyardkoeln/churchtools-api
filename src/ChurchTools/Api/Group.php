@@ -15,6 +15,7 @@ class Group extends CTObject
     private $sortKey;
     private $groupTypeID;
     private $groupStatusID;
+    private $modifiedDate;
     
 
     /**
@@ -43,6 +44,8 @@ class Group extends CTObject
                 break;
             case 'groupstatus_id': $this->groupStatusID        = intval($blockData);
                 break;
+            case 'letzteaenderung': $this->modifiedDate      = $this->parseDateTime($blockData);
+                break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
         }
@@ -65,8 +68,13 @@ class Group extends CTObject
         return $this->title;
     }
 
-    public function getGroupTypeId(): ?ìnt
+    public function getGroupTypeId(): ? int
     {
         return $this->groupTypeID;
+    }
+    
+    public function getLastModified(): ?\DateTime
+    {
+        return $this->modifiedDate;
     }
 }

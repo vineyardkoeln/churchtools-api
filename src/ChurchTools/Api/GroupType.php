@@ -35,7 +35,7 @@ class GroupType extends CTObject
                 break;
             case 'bezeichnung': $this->title       = $blockData;
                 break;
-            case 'sortkey': $this->sortKey       = $blockData;
+            case 'sortkey': $this->sortKey       = intval($blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -59,23 +59,14 @@ class GroupType extends CTObject
         return $this->title;
     }
 
-    public static function isConfirmed($statusID): bool
+    /**
+     * 
+     * @return int sortkey of resource type entry
+     */
+    public function getSortKey(): int
     {
-        return $statusID == 2;
+        return $this->sortKey;
     }
     
-    public static function isWaitingConfirmation($statusID): bool
-    {
-        return $statusID == 1;
-    }
-
-    public static function isRejected($statusID): bool
-    {
-        return $statusID == 3;
-    }
-
-    public static function isDeleted($statusID): bool
-    {
-        return $statusID == 99;
-    }
+   
 }
