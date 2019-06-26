@@ -198,10 +198,11 @@ class RestApi
             'sub'  => 'getList',
             'g_id' => $groupId,
         ]);
-        
-        foreach ($rawData['data'] as $bookingData) {
-            $e= new GroupMeeting($bookingData, false);
-            array_push($retVal, $e);
+        if ($rawData['data'] != null ) {
+            foreach ($rawData['data'] as $bookingData) {
+                $e= new GroupMeeting($bookingData, false);
+                array_push($retVal, $e);
+            }
         }
         return $retVal;
     }

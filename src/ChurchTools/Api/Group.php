@@ -65,7 +65,7 @@ class Group extends CTObject
         return $this->title;
     }
 
-    public function getGroupTypeId(): ?ìnt
+    public function getGroupTypeId(): ? int
     {
         return $this->groupTypeID;
     }
