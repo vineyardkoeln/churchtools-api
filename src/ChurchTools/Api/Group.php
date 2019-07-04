@@ -51,9 +51,9 @@ class Group extends CTObject
                 break;
             case 'permission_deep_no': $this->permissionDeepNumber         = intval($blockData);
                 break;
-            case 'parents': $this->parentIDS      = $blockData;
+            case 'parents': $this->parentIDS      = array_map('intval', $blockData);
                 break;
-            case 'childs': $this->childIDS      = $blockData;
+            case 'childs': $this->childIDS      =  array_map('intval', $blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
