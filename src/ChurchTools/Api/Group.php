@@ -16,6 +16,9 @@ class Group extends CTObject
     private $groupTypeID;
     private $groupStatusID;
     private $modifiedDate;
+    private $permissionDeepNumber;
+    private $parentIDS= array();
+    private $childIDS= array();
     
 
     /**
@@ -45,6 +48,12 @@ class Group extends CTObject
             case 'groupstatus_id': $this->groupStatusID        = intval($blockData);
                 break;
             case 'letzteaenderung': $this->modifiedDate      = $this->parseDateTime($blockData);
+                break;
+            case 'permission_deep_no': $this->permissionDeepNumber         = intval($blockData);
+                break;
+            case 'parents': $this->parentIDS      = $blockData;
+                break;
+            case 'childs': $this->childIDS      = $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -77,4 +86,21 @@ class Group extends CTObject
     {
         return $this->modifiedDate;
     }
+    
+    public function getParentIDS(): ? array
+    {
+        return $this->parentIDS;
+    }
+    
+    public function getChildIDS(): ? array
+    {
+        return $this->childIDS;
+    }
+    
+    public function getPermissionDeepNumber(): ? int
+    {
+        return $this->permissionDeepNumber;
+    }
+    
+    
 }

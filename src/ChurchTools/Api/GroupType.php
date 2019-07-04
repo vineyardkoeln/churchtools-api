@@ -13,7 +13,9 @@ class GroupType extends CTObject
     private $id;
     private $title;
     private $sortKey;
-    
+    private $requireLeader;
+    private $showInCreatePerson;
+    private $permissionDeepNumber;
 
     /**
      * @inheritDoc
@@ -37,6 +39,13 @@ class GroupType extends CTObject
                 break;
             case 'sortkey': $this->sortKey       = intval($blockData);
                 break;
+            case 'muss_leiter_enthalten_yn': $this->requireLeader         = $blockData == "1";
+                break;
+            case 'in_neue_person_erstellen_yn': $this->showInCreatePerson         = $blockData == "1";
+                break;
+            case 'permission_deep_no': $this->permissionDeepNumber         = intval($blockData);
+                break;
+            
             default:
                 parent::handleDataBlock($blockName, $blockData);
         }
@@ -68,5 +77,19 @@ class GroupType extends CTObject
         return $this->sortKey;
     }
     
-   
+    public function isRequireLeader(): ? bool
+    {
+        return $this->requireLeader;
+    }
+    
+    public function isShowInCreatePerson(): ? bool
+    {
+        return $this->showInCreatePerson;
+    }
+    
+    public function getPermissionDeepNumber(): ? int
+    {
+        return $this->permissionDeepNumber;
+    }
+    
 }

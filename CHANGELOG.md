@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.4.3
+    * FEATURE     #6   Add support to retrieve group, group types, group meetings and bookings
+
 * 0.4.2
     * FEATURE     #6   Add support to retrieve resources and resource types
 
