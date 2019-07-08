@@ -87,11 +87,14 @@ class RestApi
      * @return array
      * @see https://api.church.tools/class-CTChurchDBModule.html#_getAllPersonData
      */
-    public function getAllPersonData(): array
+    public function getAllPersonData(): ?Persons
     {
-        return $this->callApi(self::DATABASE_ROUTE, [
+        $retVal= null;
+        $rawData= $this->callApi(self::DATABASE_ROUTE, [
             'func' => 'getAllPersonData',
         ]);
+        $retVal= new Persons($rawData, true);
+        return $retVal;
     }
 
     /**
@@ -245,7 +248,7 @@ class RestApi
             'func' => 'getMasterData'
         ]));
     }
-    
+
     /**
      * Get calendar master data
      *

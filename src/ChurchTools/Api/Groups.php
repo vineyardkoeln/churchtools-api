@@ -37,7 +37,7 @@ class Groups extends CTObject
      */
     public function getGroups($groupID): Group
     {
-        return $this->group[$groupD];
+        return $this->group[$groupID];
     }
 
     /**
