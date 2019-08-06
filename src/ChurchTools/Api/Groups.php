@@ -29,15 +29,15 @@ class Groups extends CTObject
     }
 
     /**
-     * Returns the booking status type object associated with this id
+     * Returns the group object associated with this id
      *
-     * @param int id of booking status to retrieve
+     * @param int id of group to retrieve
      * 
      * @return ChurchTools\Api\Group
      */
-    public function getGroups($groupID): Group
+    public function getGroupByID($groupID): Group
     {
-        return $this->group[$groupID];
+        return $this->groups["$groupID"];
     }
 
     /**
@@ -50,7 +50,7 @@ class Groups extends CTObject
     public function getGroupIDS($sorted = false): array
     {
         $groups = [];
-        foreach ($this->group as $group) {
+        foreach ($this->groups as $group) {
             $id        = $group->getID();
             $order     = $group->getSortKey();
             $groups[$id] = $order;
