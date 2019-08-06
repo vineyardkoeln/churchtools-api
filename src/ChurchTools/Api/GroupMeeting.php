@@ -76,6 +76,13 @@ class GroupMeeting extends CTObject
         return $this->id;
     }
 
+    /**
+     * @return int groupID of this booking status
+     */
+    public function getGroupID(): int
+    {
+        return $this->groupId;
+    }
   
     /**
      * @return string remark of entry

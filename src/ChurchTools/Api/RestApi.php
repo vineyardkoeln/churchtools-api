@@ -339,4 +339,5 @@ class RestApi
             return sprintf(self::API_URL_TEMPLATE_HOSTED, $this->churchHandle, $route);
         }
     }
+
 }
