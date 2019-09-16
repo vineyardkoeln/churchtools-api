@@ -100,6 +100,30 @@ abstract class CTObject
     }
 
     /**
+     * Check if this is a full day event
+     * Since we don't receive a flag to detect full day events, we need to check if
+     * both start+end times are 00:00:00, then it's a full day event
+     * 
+     * @param DateTime $startDateTime
+     * @param DateTime $endDateTime
+     * @return boolean true when it's a full day event
+     */
+    protected function isFullDayEvent(DateTime $startDateTime, DateTime $endDateTime): bool {
+        return $startDateTime->format("H:i:s") == "00:00:00" && $endDateTime->format("H:i:s") == "00:00:00";
+    }
+    
+    /**
+     * Set the end time of the event to the end of day.
+     * Is used to expand the end time of full day events to 23:59:59 of the last day
+     * 
+     * @param DateTime $endDateTime
+     * @return boolean true when it's a full day event
+     */
+    protected function makeFullDayEvent(DateTime $endDateTime): DateTime {
+        return $endDateTime->setTime(23, 59, 59);
+    }
+    
+    /**
      * The CT api sometimes returns the list of adminusers as a comma separated
      * string. For example "1, 23, 33"
      *

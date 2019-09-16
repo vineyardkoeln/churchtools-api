@@ -29,6 +29,10 @@ class CalendarEntry extends CTObject
             case 'startdate': $this->startDate    = $this->parseDateTime($blockData);
                 break;
             case 'enddate': $this->endDate      = $this->parseDateTime($blockData);
+                if ($this->isFullDayEvent($this->startDate, $this->endDate))
+                {
+                    $this->endDate= $this->makeFullDayEvent($this->endDate);
+                }
                 break;
             case 'bezeichnung': $this->title        = $blockData;
                 break;
