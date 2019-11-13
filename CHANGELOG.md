@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.4.5
+    * FEATURE     #8   Calendar entries now processes moreInfos and link on entry
+
 * 0.4.4
     * BUGFIX      #7   All day calendar events end now 23:59:59 of last day and not 00:00:00 as returned by ct api
 

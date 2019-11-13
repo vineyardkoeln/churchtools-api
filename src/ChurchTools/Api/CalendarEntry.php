@@ -18,6 +18,8 @@ class CalendarEntry extends CTObject
     private $calendarID;
     private $calendarName;
     private $remarks;
+    private $moreInfos;
+    private $link;
     private $bookings;
 
     /**
@@ -35,6 +37,10 @@ class CalendarEntry extends CTObject
                 }
                 break;
             case 'bezeichnung': $this->title        = $blockData;
+                break;
+            case 'notizen': $this->moreInfos        = $blockData;
+                break;
+            case 'link': $this->link        = $blockData;
                 break;
             case 'ort': $this->remarks      = $blockData;
                 break;
@@ -86,6 +92,22 @@ class CalendarEntry extends CTObject
         return $this->remarks;
     }
 
+    /**
+     * @return string moreInfos of calendar entry
+     */
+    public function getMoreInfos(): ?string
+    {
+        return $this->moreInfos;
+    }
+
+    /**
+     * @return string link of calendar entry
+     */
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+    
     /**
      * 
      * @return int calendar id this entry is for
