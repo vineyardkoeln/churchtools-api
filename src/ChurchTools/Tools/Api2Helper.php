@@ -30,10 +30,12 @@ class Api2Helper {
      * We need to do this for each CT installation, since the fields
      * defined in the objects can be adapted on a per-instance level
      * 
-     * @param string $serverURL
+     * @param string $serverURL URL to your CT server, like:  https://mysite.church.tools
+     * @param string $janeBinaryPath can be null, the system trys to autodected
+     * 
      * @return bool
      */
-    public static function generateClient(string $serverURL) : bool
+    public static function generateClient(string $serverURL, ?string $janeBinaryPath= null) : bool
     {
         $isWindows= strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
         $configFile= fopen(__DIR__."/.jane", "w");
@@ -47,7 +49,31 @@ class Api2Helper {
 
         fwrite($configFile, "];\n");
         fclose($configFile);
-        $cmdLine= __DIR__."/../../../vendor/bin/jane-openapi".($isWindows ? ".bat" : "")." generate --config-file=".__DIR__."/.jane";
+        $janeFile= "jane-openapi".($isWindows ? ".bat" : "");
+        $janePath= __DIR__."/vendor/bin/".$janeFile;
+        if ($janeBinaryPath != null)
+        {
+            $janePath= $janeBinaryPath;
+        }
+        else
+        {
+            $pathParents= "";
+            // We look up to 10 parent folders to find the jane binary
+            for ($maxParents= 10; $maxParents > 0; $maxParents--)
+            {
+                if (file_exists($janePath))
+                {
+                    break;
+                }
+                else
+                {
+                    $pathParents= "/..".$pathParents;
+                    $janePath= __DIR__.$pathParents."/vendor/bin/".$janeFile;
+                }
+            }
+        }
+        
+        $cmdLine= $janePath." generate --config-file=".__DIR__."/.jane";
         echo "Exec: ".$cmdLine."<br>\n";
         set_time_limit ( 120 ); // Retrieval & generation takes more than the default 30 seconds
         exec($cmdLine);
