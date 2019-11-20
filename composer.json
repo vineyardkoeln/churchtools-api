@@ -11,7 +11,7 @@
     "require": {
         "php": ">=7.1",
         "ext-json": "*",
-        "jane-php/open-api": "^5.2",
+        "jane-php/open-api": "dev-master",
         "guzzlehttp/psr7" : "^1.6",
         "guzzlehttp/guzzle": "^6.4",
         "php-http/guzzle6-adapter" : "^2.0",
