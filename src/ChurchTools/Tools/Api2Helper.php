@@ -46,6 +46,9 @@ class Api2Helper {
         fwrite($configFile, "'namespace' => 'ChurchTools\Api2',\n");
         fwrite($configFile, "'directory' => __DIR__ . '/../Api2',\n");
         fwrite($configFile, "'client' => 'psr18',\n");
+        fwrite($configFile, "'strict' => 'true',\n");
+        fwrite($configFile, "'use-fixer' => 'true',\n");
+        
 
         fwrite($configFile, "];\n");
         fclose($configFile);

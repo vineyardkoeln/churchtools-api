@@ -115,7 +115,16 @@ class RestApi2 extends Client {
         ]);
         $requestFactory = \Http\Discovery\Psr17FactoryDiscovery::findRequestFactory();
         $streamFactory = \Http\Discovery\Psr17FactoryDiscovery::findStreamFactory();
-        $serializer = new \Symfony\Component\Serializer\Serializer(\ChurchTools\Api2\Normalizer\NormalizerFactory::create(), array(new \Symfony\Component\Serializer\Encoder\JsonEncoder(new \Symfony\Component\Serializer\Encoder\JsonEncode(), new \Symfony\Component\Serializer\Encoder\JsonDecode())));
+        $serializer = new \Symfony\Component\Serializer\Serializer(
+                                \ChurchTools\Api2\Normalizer\NormalizerFactory::create(), 
+                                array(
+                                    new \Symfony\Component\Serializer\Encoder\JsonEncoder(
+                                            new \Symfony\Component\Serializer\Encoder\JsonEncode(), 
+                                            //new \Symfony\Component\Serializer\Encoder\JsonDecode()
+                                            new \ChurchTools\Tools\Api2JsonDecoder()
+                                        )
+                                    )
+                        );
         $retVal= new static($pluginClient, $requestFactory, $serializer, $streamFactory);
         $retVal->setLoginToken($loginToken);
         return $retVal;
