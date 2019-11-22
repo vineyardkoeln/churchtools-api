@@ -35,3 +35,27 @@ You can also use tokens to access the Api2. In that case use this create method:
 ```
 $apiClient = \ChurchTools\Api2\RestApi2::createClientWithLoginToken("https://mysite.church.tools", "my_auth_token");
 ```
+
+### Example usage of the Api2
+
+```
+$currentUser= $apiClient->getCurrentUser();
+var_dump($currentUser);
+```
+
+```
+$user= $apiClient->getPersonById("<numeric id of the user>");
+var_dump($user);
+```
+
+```
+$users= $apiClient->getAllPersons();
+var_dump($users);
+```
+
+
+```
+$dbfields= $apiClient->getAllFields();
+var_dump($dbfields);
+```
+
