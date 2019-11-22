@@ -41,7 +41,8 @@ class Api2Helper {
         $configFile= fopen(__DIR__."/.jane", "w");
         fwrite($configFile, "<?php\n");
         fwrite($configFile, "return [\n");
-        fwrite($configFile, "'openapi-file' => '".$serverURL."/system/runtime/swagger/openapi.json',\n");
+        //fwrite($configFile, "'openapi-file' => '".$serverURL."/system/runtime/swagger/openapi.json',\n");
+        fwrite($configFile, "'openapi-file' => 'openapi.yaml',\n");
         //fwrite($configFile, "'root-class' => 'ChurchToolModel',\n");
         fwrite($configFile, "'namespace' => 'ChurchTools\Api2',\n");
         fwrite($configFile, "'directory' => __DIR__ . '/../Api2',\n");

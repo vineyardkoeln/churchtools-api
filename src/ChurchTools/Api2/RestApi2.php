@@ -111,7 +111,8 @@ class RestApi2 extends Client {
         $httpClient = \Http\Discovery\Psr18ClientDiscovery::find();
         $pluginClient = new \Http\Client\Common\PluginClient($httpClient, [
             new \Http\Client\Common\Plugin\AddHostPlugin($uri),
-            new \Http\Client\Common\Plugin\AddPathPlugin($uri)
+            new \Http\Client\Common\Plugin\AddPathPlugin($uri),
+            new \ChurchTools\Tools\QueryAuthPlugin($loginToken)
         ]);
         $requestFactory = \Http\Discovery\Psr17FactoryDiscovery::findRequestFactory();
         $streamFactory = \Http\Discovery\Psr17FactoryDiscovery::findStreamFactory();
