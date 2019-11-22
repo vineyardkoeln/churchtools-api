@@ -8,3 +8,9 @@ nbproject
 *.iml
 *.ipr
 /vendor/
+/src/ChurchTools/Tools/.jane
+/src/ChurchTools/Api2/Client.php
+/src/ChurchTools/Api2/Endpoint
+/src/ChurchTools/Api2/Exception
+/src/ChurchTools/Api2/Model
+/src/ChurchTools/Api2/Normalizer
