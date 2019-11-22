@@ -1,0 +1,2996 @@
+openapi: 3.0.0
+info:
+  title: ChurchTools REST API
+  version: 0.1.0
+  description: 'The ChurchTools REST API is the best entry point for developers to access ChurchTools. <br><br> **Authentication:** You need to be authorized to use some endpoints. Those endpoints are marked by a gray lock symbol. If you view the documentation, while you are logged into ChurchTools, all requests are already authorized. If you want to authorized a request, you need to provide a `login_token` as query parameter or send a valid cookie. You can use the green "Authorize" dialog to enter those details and see how a request would look like in detail. <br><br> **Missing Endpoints:** Not all features are yet available by our new REST API. This documentation will grow in the future. We are working hard to add new endpoints with every ChurchTools version. The documentation will always show only those endpoints you can use with your ChurchTools installation.'
+  contact:
+    name: German ChurchTools Forum
+    url: 'https://forum.church.tools/category/22/churchtools-schnittstellen'
+servers:
+  - url: /api
+    description: ChurchTools
+tags:
+  - name: General
+    description: Endpoints of general purpose
+  - name: Person
+    description: Find out about persons in ChurchTools
+  - name: Group
+    description: Groups we love
+  - name: Status
+    description: CRUD methods for status field
+  - name: Campus
+    description: CRUD methods for campus field
+  - name: Field
+    description: CRUD methods for db fields
+  - name: Service & Service Groups
+    description: CRUD methods for services & Service Groups
+  - name: Tag
+    description: Create and Update Tags for Persons & Groups or songs
+  - name: Department
+    description: CRUD methods for department field
+  - name: Admin
+    description: Admin relevant endpoints
+  - name: Calendar
+    description: Endpoint to list and create appointment templates
+  - name: Event
+    description: Endpoints for event module
+  - name: MasterData
+    description: Master data endpoints for each module
+paths:
+  /info:
+    get:
+      summary: Information about API
+      description: The API envoles and dependes on the ChurchTools version. This endpoint provides the build version and CT version.
+      operationId: getApiInfo
+      tags:
+        - General
+      responses:
+        '200':
+          description: API Information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  build:
+                    type: string
+                  version:
+                    type: string
+                example:
+                  build: '31255'
+                  version: 3.40.0-RC6
+  /whoami:
+    get:
+      summary: Currently logged in user.
+      description: 'This endpoint returns the current user. If the request is unauthorized, the anonymous user (aka public user) is returned.'
+      operationId: getCurrentUser
+      tags:
+        - General
+      responses:
+        '200':
+          description: Current user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Person'
+  /campuses:
+    get:
+      summary: Get all campuses
+      description: Returns an array of all campuses defined in ChurchTools. Campuses are sorted by its `sortKey` by default.
+      operationId: getAllCampuses
+      tags:
+        - Campus
+      responses:
+        '200':
+          description: All campuses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Campus'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see campuses
+      security:
+        - login_token: []
+    post:
+      summary: Save new campus
+      operationId: createNewCampus
+      tags:
+        - Campus
+      requestBody:
+        description: Campus to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - shorty
+              properties:
+                name:
+                  type: string
+                shorty:
+                  type: string
+                sortKey:
+                  type: integer
+                  default: 10
+              example:
+                name: Stuttgart
+                shorty: S
+                sortKey: 10
+      responses:
+        '201':
+          description: Successfuly created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Campus'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '400':
+          description: Validation error
+        '402':
+          $ref: '#/paths/~1persons/post/responses/402'
+      security:
+        - login_token: []
+  '/campuses/{id}':
+    get:
+      summary: Get a specific campus
+      tags:
+        - Campus
+      parameters:
+        - $ref: '#/paths/~1campuses~1%7Bid%7D/put/parameters/0'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Campus'
+        '403':
+          description: Forbidden to see campus
+        '404':
+          description: Campus not found
+      security:
+        - login_token: []
+    put:
+      summary: Update campus
+      tags:
+        - Campus
+      parameters:
+        - name: id
+          in: path
+          description: ID of campus
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: New values for campus
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - shorty
+                - sortKey
+              properties:
+                name:
+                  type: string
+                shorty:
+                  type: string
+                sortKey:
+                  type: integer
+              example:
+                name: Augsburg
+                shorty: A
+                sortKey: 10
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1campuses~1%7Bid%7D/put/requestBody/content/application~1json/schema'
+      responses:
+        '200':
+          description: Successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Campus'
+      security:
+        - login_token: []
+    delete:
+      summary: Delete a campus
+      tags:
+        - Campus
+      parameters:
+        - $ref: '#/paths/~1campuses~1%7Bid%7D/put/parameters/0'
+      responses:
+        '204':
+          description: Successful deleted
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - login_token: []
+  /fields:
+    get:
+      summary: Get all fields
+      description: Returns an array of all fields defined in ChurchTools.
+      operationId: getAllFields
+      tags:
+        - Field
+      responses:
+        '200':
+          description: All Fields
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: ID of field
+                        key:
+                          type: string
+                          description: The key of the field. This is the name that is also used when using the person or group api
+                        name:
+                          type: string
+                          description: Field name
+                        shorty:
+                          type: string
+                          description: Abbreviation
+                        fieldCategoryCode:
+                          type: string
+                          description: The intern code of the field category the field belongs to
+                        fieldTypeCode:
+                          type: string
+                          description: The intern code of the field type the field belongs to
+                        isActive:
+                          type: boolean
+                          description: Active Flag
+                        isNewPersonField:
+                          type: boolean
+                          description: Defines if the field can be used as parameter when creating new persons
+                        lineEnding:
+                          type: string
+                          description: The line ending that should be used when displaying the field
+                        secLevel:
+                          type: integer
+                          description: The security level necessary to see this field
+                        length:
+                          type: integer
+                          description: The max length of the field
+                        deleteOnArchive:
+                          type: boolean
+                          description: Whether the field should be deleted on person archive or not
+                        nullable:
+                          type: boolean
+                          description: Should define if a field can be null. This is sadly not really enforced in the application right now. So don't bet on it.
+                        sortKey:
+                          type: integer
+                          description: Used to sort all campuses
+                      example:
+                        id: 2
+                        key: street
+                        name: strasse
+                        shorty: st
+                        fieldCategoryCode: f_address
+                        fieldTypeCode: text
+                        isActive: true
+                        isNewPersonField: false
+                        lineEnding: </br>
+                        secLevel: 1
+                        length: 30
+                        deleteOnArchive: false
+                        nullable: false
+                        sortKey: 5
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see fields
+      security:
+        - login_token: []
+  /statuses:
+    get:
+      summary: Get all statuses
+      description: Returns an array of all statuses defined in ChurchTools. Statuses are sorted by its `sortKey` by default.
+      operationId: getAllStatuses
+      tags:
+        - Status
+      responses:
+        '200':
+          description: All statuses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Status'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see statuses
+      security:
+        - login_token: []
+    post:
+      summary: Save new status
+      operationId: createNewStatus
+      tags:
+        - Status
+      requestBody:
+        description: Status to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - shorty
+                - isMember
+              properties:
+                name:
+                  type: string
+                shorty:
+                  type: string
+                isMember:
+                  type: boolean
+                isSearchable:
+                  type: boolean
+                  default: true
+                sortKey:
+                  type: integer
+                  default: 10
+                securityLevelId:
+                  type: integer
+                  default: 1
+              example:
+                name: Member
+                shorty: M
+                isMember: true
+                isSearchable: true
+                sortKey: 10
+                securityLevelId: 1
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1statuses/post/requestBody/content/application~1json/schema'
+      responses:
+        '201':
+          description: Successfuly created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Status'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '400':
+          description: Validation error
+      security:
+        - login_token: []
+  '/statuses/{id}':
+    get:
+      summary: Get a specific status
+      tags:
+        - Status
+      parameters:
+        - $ref: '#/paths/~1statuses~1%7Bid%7D/put/parameters/0'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Status'
+        '403':
+          description: Forbidden to see status
+        '404':
+          description: Status not found
+      security:
+        - login_token: []
+    put:
+      summary: Update status
+      tags:
+        - Status
+      parameters:
+        - name: id
+          in: path
+          description: ID of status
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: New values for status
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - shorty
+                - isMember
+                - isSearchable
+                - sortKey
+                - securityLevelId
+              properties:
+                name:
+                  type: string
+                shorty:
+                  type: string
+                isMember:
+                  type: boolean
+                isSearchable:
+                  type: boolean
+                sortKey:
+                  type: integer
+                securityLevelId:
+                  type: integer
+              example:
+                name: Member
+                shorty: M
+                isMember: true
+                isSearchable: true
+                sortKey: 10
+                securityLevelId: 1
+      responses:
+        '200':
+          description: Successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Status'
+      security:
+        - login_token: []
+    delete:
+      summary: Delete a status
+      tags:
+        - Status
+      parameters:
+        - $ref: '#/paths/~1statuses~1%7Bid%7D/put/parameters/0'
+      responses:
+        '204':
+          description: Successful deleted
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - login_token: []
+  /persons:
+    get:
+      summary: Get all persons
+      description: 'This endpoint gives you all the people you are allowed to see. Each person object holds only those fields you may see. You will get at least an empty array even if you cannot see any person.<br><br> We distinguish between `date` and `date-time` fields. `date` is a ISO representation like `YYYY-MM-DD`. On the other hand, for `date-time` we return and accept a <a href="https://www.w3.org/TR/NOTE-datetime">W3C Zulu date string</a>. Example `1994-11-05T08:15:30Z`'
+      operationId: getAllPersons
+      tags:
+        - Person
+      parameters:
+        - name: ids
+          in: query
+          description: Array of person ids
+          schema:
+            type: array
+            items:
+              type: integer
+          style: deepObject
+        - name: status_ids
+          in: query
+          description: Filter by status id
+          schema:
+            type: array
+            items:
+              type: integer
+          style: deepObject
+        - name: campus_ids
+          in: query
+          description: Filter by campus id
+          schema:
+            type: array
+            items:
+              type: integer
+          style: deepObject
+        - name: birthday_before
+          in: query
+          description: 'Filter by birthdays before that date (Format: YYYY-MM-DD)'
+          schema:
+            type: string
+            format: date
+        - name: birthday_after
+          in: query
+          description: 'Filter by birthdays after that date (Format: YYYY-MM-DD)'
+          schema:
+            type: string
+            format: date
+        - name: is_archived
+          in: query
+          description: Show only archived or not archived people
+          schema:
+            type: boolean
+        - $ref: '#/paths/~1logs/get/parameters/5'
+        - $ref: '#/paths/~1logs/get/parameters/6'
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Person'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+                      pagination:
+                        $ref: '#/paths/~1logs/get/responses/200/content/application~1json/schema/properties/meta/properties/pagination'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+    post:
+      summary: Create new person
+      description: 'Endpoint to save a new person in ChurchTools. Generally, you can provide any information to save, but be aware that you can only save information for fields you have write access to. If the request fails because a duplicate is found (person with same name) use the `force` flag to create this person even if a duplicate is found.'
+      operationId: createPerson
+      tags:
+        - Person
+      parameters:
+        - name: force
+          in: query
+          description: 'Force the action, which would otherwise fail.'
+          schema:
+            type: boolean
+            example: 'true'
+      requestBody:
+        description: Include those fields you want to add and are allowed to write.
+        required: true
+        content:
+          application/json:
+            schema:
+              description: The default values are used if no value is provides.
+              type: object
+              properties:
+                title:
+                  type: string
+                  nullable: true
+                  default: null
+                firstName:
+                  type: string
+                  nullable: true
+                  example: Alfred
+                lastName:
+                  type: string
+                  nullable: true
+                  example: API Tester
+                nickname:
+                  type: string
+                  nullable: true
+                job:
+                  type: string
+                  nullable: true
+                street:
+                  type: string
+                  nullable: true
+                addressAddition:
+                  type: string
+                  nullable: true
+                zip:
+                  type: string
+                  nullable: true
+                city:
+                  type: string
+                  nullable: true
+                country:
+                  type: string
+                  nullable: true
+                phonePrivate:
+                  type: string
+                  nullable: true
+                phoneWork:
+                  type: string
+                  nullable: true
+                mobile:
+                  type: string
+                  nullable: true
+                fax:
+                  type: string
+                  nullable: true
+                birthName:
+                  type: string
+                  nullable: true
+                birthday:
+                  type: string
+                  format: date
+                  nullable: true
+                birthplace:
+                  type: string
+                  nullable: true
+                sexId:
+                  type: integer
+                  nullable: true
+                  example: 1
+                email:
+                  type: string
+                  nullable: true
+                cmsUserId:
+                  type: string
+                  nullable: true
+                optigemId:
+                  type: integer
+                  nullable: true
+                privacyPolicyAgreement:
+                  description: This object can be optional or required. Depending on your ChurchTools data security settings.
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                      nullable: true
+                    typeId:
+                      type: integer
+                      nullable: true
+                    whoId:
+                      type: integer
+                      nullable: true
+                nationalityId:
+                  type: integer
+                  nullable: true
+                  example: 3
+                familyStatusId:
+                  type: integer
+                  nullable: true
+                weddingDate:
+                  type: string
+                  format: date
+                  nullable: true
+                campusId:
+                  type: integer
+                  example: 0
+                statusId:
+                  type: integer
+                  example: 5
+                firstContact:
+                  type: string
+                  format: date-time
+                  nullable: true
+                dateOfBelonging:
+                  type: string
+                  format: date
+                  nullable: true
+                dateOfEntry:
+                  type: string
+                  format: date-time
+                  nullable: true
+                dateOfResign:
+                  type: string
+                  format: date-time
+                  nullable: true
+                dateOfBaptism:
+                  type: string
+                  format: date
+                  nullable: true
+                placeOfBaptism:
+                  type: string
+                  nullable: true
+                baptisedBy:
+                  type: string
+                  nullable: true
+                referredBy:
+                  type: string
+                  nullable: true
+                referredTo:
+                  type: string
+                  nullable: true
+                growPathId:
+                  type: integer
+                  nullable: true
+      responses:
+        '200':
+          description: New person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Person'
+        '400':
+          description: Bad Request / Duplicate Person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Duplicate found. Use force flag to create person with same name.
+                  translatedMessage:
+                    type: string
+                    example: Duplikat gefunden. Nutze das force Flag um die Person trotzdem anzulegen.
+                  messageKey:
+                    type: string
+                    example: forbidden.duplicate.person
+                  args:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '402':
+          description: License limit reached. Update your license to perform this action.
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /persons/properties:
+    post:
+      summary: 'Retrieve people''s properties, whether they own an email adress'
+      operationId: getPersonProperties
+      tags:
+        - Person
+      requestBody:
+        description: 'List all person IDs for which you want the property information. If empty, all person IDs are used'
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: integer
+                  example:
+                    - 1
+                    - 2
+                    - 3
+      responses:
+        '200':
+          description: 'Get properties for people. Key = Person ID, Value = Object with person properties'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      '1':
+                        type: object
+                        properties:
+                          hasEmail:
+                            type: boolean
+                            example: true
+        '401':
+          description: Unauthorized
+      security:
+        - login_token: []
+  '/persons/{id}':
+    get:
+      summary: Get a person by ID
+      description: Each person as a unique numeric ID in ChurchTools. This ID is used all over in ChurchTools and in the API.
+      operationId: getPersonById
+      tags:
+        - Person
+      parameters:
+        - name: id
+          in: path
+          description: ID or GUID of person
+          required: true
+          schema:
+            type: string
+            example: 42
+      responses:
+        '200':
+          description: The person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Person'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+        '404':
+          $ref: '#/paths/~1tags/get/responses/404'
+      security:
+        - login_token: []
+    patch:
+      summary: Updates a person
+      description: 'Endpoint to update a person in ChurchTools. Generally, you can provide any information to save, but be aware that you can only save information for fields you have write access to. Beware, that not all fields which are listed in the Person schema can be updated. E.g. `imageUrl` or `familyUrl`.'
+      operationId: patchPerson
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+      requestBody:
+        description: Include those fields you want to update and are allowed to write.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/paths/~1persons/post/requestBody/content/application~1json/schema'
+      responses:
+        '200':
+          description: The updated person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Person'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: There are validation errors
+                  translatedMessage:
+                    type: string
+                    example: Die eingegebenen Daten waren nicht korrekt.
+                  messageKey:
+                    type: string
+                    example: validation.error
+                  args:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                    example: []
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+    delete:
+      summary: Delete person
+      operationId: deletePerson
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+      responses:
+        '204':
+          description: Successful deleted
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - login_token: []
+  '/persons/{id}/tags':
+    get:
+      summary: Get all tags attached to a person
+      operationId: getPersonTags
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+      responses:
+        '200':
+          description: Tags of person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - login_token: []
+  '/persons/{id}/relationships':
+    get:
+      summary: Get all relationships linked to this person
+      description: 'This endpoint returns all relationships of this person. The result is sorted by 1. the `sortkey` of the relationship type, 2. last name, and 3. first name of a person.'
+      operationId: getPersonRelationships
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+      responses:
+        '200':
+          description: Relationships of person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      description: 'Relationship information of a person. Notice, that a relationship has a security level. That means you only see those relationships, you are allowed to see.'
+                      type: object
+                      properties:
+                        relationshipName:
+                          type: string
+                          example: Parent/Child
+                        degreeOfRelationship:
+                          type: string
+                          example: Parent
+                        relative:
+                          $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      security:
+        - login_token: []
+  '/persons/{id}/settings':
+    get:
+      summary: Get all person settings
+      description: Use this endpoint to get all person settings for this user.
+      operationId: getAllPersonSettings
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+      responses:
+        '200':
+          description: All person settings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PersonSetting'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  '/persons/{id}/settings/{module}':
+    get:
+      summary: Get all person settings of a module
+      description: Person settings are grouped per module. This endpoint returns an array of all user settings for a person of this module.
+      operationId: getPersonModuleSettings
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+        - name: module
+          in: path
+          required: true
+          description: Module name like `churchdb` or `churchservice`
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of person settings for this module
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PersonSetting'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  '/persons/{id}/settings/{module}/{attribute}':
+    get:
+      summary: Get person setting
+      description: 'To retrieve a specific person setting, use this endpoint. A setting is identifies by `module` and `attribute`.'
+      operationId: getPersonSetting
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+        - $ref: '#/paths/~1persons~1%7Bid%7D~1settings~1%7Bmodule%7D/get/parameters/1'
+        - $ref: '#/paths/~1persons~1%7Bid%7D~1settings~1%7Bmodule%7D~1%7Battribute%7D/put/parameters/2'
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PersonSetting'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+    put:
+      summary: Create/Update person setting
+      description: '<strong>Important:</strong> Not all settings are supported to update over this endpoint. The API will tell you if you are allowed to update a setting.<br>This endpoint can be used to update a value of an existing setting or create it if it does not exists, yet.'
+      operationId: updatePersonSetting
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+        - $ref: '#/paths/~1persons~1%7Bid%7D~1settings~1%7Bmodule%7D/get/parameters/1'
+        - name: attribute
+          in: path
+          required: true
+          description: Attribute name of setting
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully created/updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PersonSetting'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+    delete:
+      summary: Delete a person setting
+      description: Deleting settings is sometimes useful or necessary. This endpoint can be used to delete one specific setting.
+      operationId: deletePersonSetting
+      tags:
+        - Person
+      parameters:
+        - $ref: '#/paths/~1persons~1%7Bid%7D/get/parameters/0'
+        - $ref: '#/paths/~1persons~1%7Bid%7D~1settings~1%7Bmodule%7D/get/parameters/1'
+        - $ref: '#/paths/~1persons~1%7Bid%7D~1settings~1%7Bmodule%7D~1%7Battribute%7D/put/parameters/2'
+      responses:
+        '204':
+          description: Successfully deleted
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  '/persons/{id}/events':
+    get:
+      summary: Get events that person is involved with
+      description: Gets a list of all events that a person is involved
+      operationId: getPersonEvents
+      tags:
+        - Event
+        - Person
+      parameters:
+        - name: id
+          in: path
+          description: ID of person
+          required: true
+          schema:
+            type: string
+            example: 42
+        - name: from
+          in: query
+          description: 'Start date from when events are returned. Default value: today'
+          required: false
+          schema:
+            type: string
+            format: date
+            example: '2019-08-08'
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Event'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /groups:
+    get:
+      summary: Get all groups
+      description: This endpoint returns an array with all groups the user can see. This includes groups the user is a member off as well as subordinate groups the user is allowed to see.
+      operationId: getAllGroups
+      tags:
+        - Group
+      parameters:
+        - name: ids
+          in: query
+          description: Array of group ids
+          schema:
+            type: array
+            items:
+              type: integer
+          style: deepObject
+        - $ref: '#/paths/~1logs/get/parameters/5'
+        - $ref: '#/paths/~1logs/get/parameters/6'
+      responses:
+        '200':
+          description: Your groups
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+                      pagination:
+                        $ref: '#/paths/~1logs/get/responses/200/content/application~1json/schema/properties/meta/properties/pagination'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see groups
+      security:
+        - login_token: []
+  '/groups/{id}':
+    get:
+      summary: Get a group
+      tags:
+        - Group
+      parameters:
+        - name: id
+          in: path
+          description: ID of group
+          required: true
+          schema:
+            type: integer
+            example: 42
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Group'
+        '403':
+          description: Forbidden to see group
+        '404':
+          description: Group not found
+      security:
+        - login_token: []
+  '/groups/{id}/members':
+    get:
+      summary: Get all group members
+      description: This endpoint returns an array with all group members of one group.
+      operationId: getAllGroupMembers
+      tags:
+        - Group
+      parameters:
+        - name: id
+          in: path
+          description: ID of group
+          required: true
+          schema:
+            type: integer
+            example: 42
+        - $ref: '#/paths/~1logs/get/parameters/5'
+        - $ref: '#/paths/~1logs/get/parameters/6'
+      responses:
+        '200':
+          description: The group members
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GroupMember'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+                      pagination:
+                        $ref: '#/paths/~1logs/get/responses/200/content/application~1json/schema/properties/meta/properties/pagination'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see group members
+      security:
+        - login_token: []
+  /servicegroups:
+    get:
+      summary: Get all service groups
+      description: This endpoint returns an array with all service groups.
+      operationId: getAllServiceGroups
+      tags:
+        - Service & Service Groups
+      responses:
+        '200':
+          description: The service groups
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServiceGroup'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see service groups
+      security:
+        - login_token: []
+  /services:
+    get:
+      summary: Get all services
+      description: This endpoint returns an array with all services.
+      operationId: getAllServices
+      tags:
+        - Service & Service Groups
+      responses:
+        '200':
+          description: The service
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Service'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see services
+      security:
+        - login_token: []
+  /tags:
+    get:
+      summary: Get all tags of a type
+      description: Returns all tags of type persons or songs
+      operationId: getTags
+      tags:
+        - Tag
+      parameters:
+        - name: type
+          in: query
+          description: Type of tags
+          required: true
+          schema:
+            type: string
+            example: persons
+      responses:
+        '200':
+          description: Array with all tags of a type
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Session expired!
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+        '404':
+          description: Resource not found
+      security:
+        - login_token: []
+    post:
+      summary: Create new tag
+      operationId: saveTag
+      tags:
+        - Tag
+      requestBody:
+        description: Tax rate data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                type:
+                  type: string
+              example:
+                name: Neuer TAG
+                type: persons
+      responses:
+        '200':
+          description: return new tag with ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Tag'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /departments:
+    get:
+      summary: Get all departments
+      description: Returns an array of all departments defined in ChurchTools. Departments are sorted by its `sortKey` by default.
+      operationId: getAllDepartments
+      tags:
+        - Department
+      responses:
+        '200':
+          description: All departments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Department'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see departments
+      security:
+        - login_token: []
+  '/files/{domainType}/{domainIdentifier}':
+    post:
+      summary: Upload files
+      operationId: uploadFiles
+      tags:
+        - File
+      parameters:
+        - name: domainType
+          in: path
+          description: 'The domain type. Currently supported are ''avatar'', ''groupimage'', ''logo'', ''attatchments'', ''html_template'', ''service'', ''song_arrangement'', ''importtable'', ''person'', ''familyavatar'', ''wiki_.?''.'
+          required: true
+          schema:
+            type: string
+            example: logo
+        - name: domainIdentifier
+          in: path
+          description: the domain identifier
+          required: true
+          schema:
+            type: string
+            example: 35
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '200':
+          description: return new files
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/File'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+    delete:
+      summary: Delete files that are matching the domainType and domainIdentifier
+      operationId: deleteFiles
+      tags:
+        - File
+      parameters:
+        - $ref: '#/paths/~1files~1%7BdomainType%7D~1%7BdomainIdentifier%7D/post/parameters/0'
+        - $ref: '#/paths/~1files~1%7BdomainType%7D~1%7BdomainIdentifier%7D/post/parameters/1'
+      responses:
+        '204':
+          description: Successful deleted
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /logs:
+    get:
+      summary: Get all log messages
+      description: The response is a collection of all log messages you may see and is limited to a specific number of messages. You can use the `page` parameter to browse the list of log messages. The logs are ordered by date.
+      operationId: getAllLogs
+      tags:
+        - Admin
+      parameters:
+        - name: message
+          in: query
+          description: Filter by text
+          schema:
+            type: string
+            example: Person updated
+        - name: levels
+          in: query
+          description: Filter by log level
+          schema:
+            type: array
+            items:
+              type: integer
+          style: deepObject
+        - name: before
+          in: query
+          description: 'Filter log messages before that date. (Format: YYYY-MM-DD\Thh:mm:ssZ)'
+          schema:
+            type: string
+            format: date-time
+        - name: after
+          in: query
+          description: 'Filter log messages after that date. (Format: YYYY-MM-DD\Thh:mm:ssZ)'
+          schema:
+            type: string
+            format: date-time
+        - name: person_id
+          in: query
+          description: Filter by person
+          schema:
+            type: integer
+        - name: page
+          in: query
+          description: 'Page number to show page in pagenation. If empty, start at first page.'
+          schema:
+            type: integer
+            example: 34
+            default: 1
+        - name: limit
+          in: query
+          description: Number of results per page.
+          schema:
+            type: integer
+            example: 50
+            default: 10
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Log'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+                      pagination:
+                        type: object
+                        properties:
+                          total:
+                            type: integer
+                            description: Total number of results.
+                            example: 21
+                          current:
+                            type: integer
+                            description: Current page.
+                            example: 1
+                          limit:
+                            type: integer
+                            description: Number of results per page.
+                            example: 10
+                          lastPage:
+                            type: integer
+                            description: Number of last page.
+                            example: 3
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          description: 'Forbidden to see, create, update, or delete resource'
+      security:
+        - login_token: []
+  '/logs/{id}':
+    get:
+      summary: Get a log message
+      description: Fetch one specific log message by its ID.
+      operationId: getLogById
+      tags:
+        - Admin
+      parameters:
+        - name: id
+          in: path
+          description: ID of log
+          required: true
+          schema:
+            type: integer
+            example: 12
+      responses:
+        '200':
+          description: The log
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Log'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /calendars/appointments/templates:
+    get:
+      summary: get all appointment templates
+      operationId: getAllTemplates
+      tags:
+        - Calendar
+      responses:
+        '200':
+          description: get all appointment templates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AppointmentTemplate'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+    post:
+      summary: Create new appointment template
+      operationId: createTemplate
+      tags:
+        - Calendar
+      requestBody:
+        description: appointment template data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - startTime
+                - duration
+              properties:
+                title:
+                  type: string
+                comment:
+                  type: string
+                startTime:
+                  type: string
+                duration:
+                  type: integer
+                allDay:
+                  type: boolean
+                note:
+                  type: string
+                isInternal:
+                  type: boolean
+                categoryId:
+                  type: integer
+                repeatId:
+                  type: integer
+              example:
+                title: Kids Service
+                comment: With supervising
+                startTime: '10:00'
+                duration: 3600
+                allDay: false
+                note: ''
+                link: ''
+                isInternal: false
+                categoryId: 1
+                repeatId: 4
+      responses:
+        '200':
+          description: new appointment template
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AppointmentTemplate'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  '/calendars/appointments/templates/{templateId}':
+    get:
+      summary: get a appointment template
+      operationId: getTemplateById
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/paths/~1calendars~1appointments~1templates~1%7BtemplateId%7D/put/parameters/0'
+      responses:
+        '200':
+          description: get appointment template
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AppointmentTemplate'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+        '404':
+          $ref: '#/paths/~1tags/get/responses/404'
+      security:
+        - login_token: []
+    put:
+      summary: update a appointment template identified by id
+      operationId: updateTemplate
+      tags:
+        - Calendar
+      parameters:
+        - name: templateId
+          in: path
+          description: ID of appointment template
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        description: appointment template data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/paths/~1calendars~1appointments~1templates/post/requestBody/content/application~1json/schema'
+      responses:
+        '200':
+          description: Updated appointment template
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AppointmentTemplate'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+        '404':
+          $ref: '#/paths/~1tags/get/responses/404'
+      security:
+        - login_token: []
+    delete:
+      summary: Delete a appointment template identified by id
+      operationId: deleteTemplate
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/paths/~1calendars~1appointments~1templates~1%7BtemplateId%7D/put/parameters/0'
+      responses:
+        '204':
+          description: Successful deleted
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+        '404':
+          $ref: '#/paths/~1tags/get/responses/404'
+      security:
+        - login_token: []
+  '/events/{eventId}/agenda':
+    get:
+      summary: Get agenda for event
+      description: Fetch all agenda items.
+      operationId: getAgendaForEvent
+      tags:
+        - Event
+      parameters:
+        - name: eventId
+          in: path
+          description: ID of corresponding event
+          required: true
+          schema:
+            type: integer
+            example: 12
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Agenda'
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /agendas/send:
+    post:
+      summary: Send agenda email to recipients
+      description: 'A agenda can be sent to multiple people at once. Recipients can be participants of one of the events, whereby the user sending the mail MUST see the service groups, or the user can add additional recipients from the list of people the user can see. To send a mail the user MUST see the agenda.'
+      operationId: sendAgendaEmail
+      tags:
+        - Event
+      requestBody:
+        description: E-Mail information and recipients
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - eventIds
+                - recipients
+                - subject
+                - body
+              properties:
+                eventIds:
+                  description: 'Array of event IDs. Multiple event IDs MUST be integrated events, i.e. all events share the same agenda.'
+                  type: array
+                  items:
+                    type: integer
+                recipients:
+                  description: Array of person IDs.
+                  type: array
+                  items:
+                    type: integer
+                sendCopyToMe:
+                  description: Flag if a mail should be send to the user sending the request.
+                  type: boolean
+                  default: false
+                subject:
+                  description: E-Mail subject.
+                  type: string
+                body:
+                  description: E-Mail body.
+                  type: string
+              example:
+                eventIds:
+                  - 31
+                  - 32
+                recipients:
+                  - 40
+                  - 41
+                  - 116
+                sendCopyToMe: true
+                subject: Agenda Updated
+                body: I have a updated the agenda for the upcoming service. Please review the changes.
+      responses:
+        '200':
+          description: Successfully sent mails to some recipients.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  translatedMessage:
+                    type: string
+                  messageKey:
+                    type: string
+                  args:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                  errors:
+                    description: 'Array of DomainObjects with people, who have no eMail Addresses.'
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        titel:
+                          type: string
+                        domainType:
+                          type: string
+                          enum:
+                            - person
+                        domainIdentifier:
+                          type: string
+                        apiUrl:
+                          type: string
+                        frontendUrl:
+                          type: string
+                        imageUrl:
+                          type: string
+                        domainAttributes:
+                          type: object
+                          properties:
+                            firstName:
+                              type: string
+                            lastName:
+                              type: string
+                      example:
+                        title: John Smith
+                        domainType: person
+                        domainIdentifier: '116'
+                        apiUrl: 'http://churchtools.test/api/persons/116'
+                        frontendUrl: 'http://churchtools.test/?q=churchdb#PersonView/searchEntry:%23116/'
+                        imageUrl: ''
+                        domainAttributes:
+                          - firstName: John
+                            lastName: Smith
+                example:
+                  message: 5 recipients have no eMail address. No eMail is sent to them.
+                  translatedMessage: 5 Empfänger haben keine E-Mail Adresse. Keine E-Mail wurde an sie geschickt.
+                  messageKey: agenda.mail.missing.email
+                  args:
+                    count: 5
+                  errors:
+                    - $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items/example'
+        '204':
+          description: Successfully sent mails to all recipients the user can see.
+        '400':
+          description: Validation errors. See response for details
+        '401':
+          $ref: '#/paths/~1tags/get/responses/401'
+        '403':
+          $ref: '#/paths/~1logs/get/responses/403'
+      security:
+        - login_token: []
+  /masterdata/person/roles:
+    get:
+      summary: Get all group type roles
+      description: This endpoint returns an array with all roles of a group type.
+      operationId: getAllGroupTypeRoles
+      tags:
+        - MasterData
+      responses:
+        '200':
+          description: All group type roles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Role'
+                  meta:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                        example: 1
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to see group type roles
+      security:
+        - login_token: []
+  '/masterdata/person/roles/{roleId}':
+    get:
+      summary: Get a group type role
+      tags:
+        - MasterData
+      parameters:
+        - name: roleId
+          in: path
+          description: ID of group type role
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Role'
+                example:
+                  data:
+                    $ref: '#/components/schemas/Role/example/0'
+        '403':
+          description: Forbidden to see group type role
+        '404':
+          description: Role not found
+      security:
+        - login_token: []
+components:
+  securitySchemes:
+    login_token:
+      type: apiKey
+      name: login_token
+      in: query
+  schemas:
+    Person:
+      description: 'A person object includes all fields the logged in user may see depending on the security level. Additional DB fields, created by the admin, are also part of the response. Those fields have the same name as the column name.'
+      type: object
+      properties:
+        id:
+          type: integer
+        securityLevelForPerson:
+          type: integer
+          description: Security level of the current user. The user sees fields upto this level.
+        editSecurityLevelForPerson:
+          type: integer
+          description: Eidt security level of the current user. The user can edit fields upto this level.
+        title:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        nickname:
+          type: string
+          nullable: true
+        job:
+          type: string
+          nullable: true
+        street:
+          type: string
+          nullable: true
+        addressAddition:
+          type: string
+          nullable: true
+        zip:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+        latitude:
+          type: number
+          format: float
+          nullable: true
+        longitude:
+          type: number
+          format: float
+          nullable: true
+        latitudeLoose:
+          type: number
+          format: float
+          nullable: true
+        longitudeLoose:
+          type: number
+          format: float
+          nullable: true
+        phonePrivate:
+          type: string
+          nullable: true
+        phoneWork:
+          type: string
+          nullable: true
+        mobile:
+          type: string
+          nullable: true
+        fax:
+          type: string
+          nullable: true
+        birthName:
+          type: string
+          nullable: true
+        birthday:
+          type: string
+          format: date
+          nullable: true
+        birthplace:
+          type: string
+          nullable: true
+        imageUrl:
+          type: string
+          nullable: true
+        familyImageUrl:
+          type: string
+          nullable: true
+        sexId:
+          type: integer
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        cmsUserId:
+          type: string
+          nullable: true
+        optigemId:
+          type: integer
+          nullable: true
+        privacyPolicyAgreement:
+          type: object
+          properties:
+            date:
+              type: string
+              format: date
+              nullable: true
+            typeId:
+              type: integer
+              nullable: true
+            whoId:
+              type: integer
+              nullable: true
+        nationalityId:
+          type: integer
+          nullable: true
+        familyStatusId:
+          type: integer
+          nullable: true
+        weddingDate:
+          type: string
+          format: date
+          nullable: true
+        campusId:
+          type: integer
+        statusId:
+          type: integer
+        firstContact:
+          type: string
+          format: date-time
+          nullable: true
+        dateOfBelonging:
+          type: string
+          format: date
+          nullable: true
+        dateOfEntry:
+          type: string
+          format: date-time
+          nullable: true
+        dateOfResign:
+          type: string
+          format: date-time
+          nullable: true
+        dateOfBaptism:
+          type: string
+          format: date
+          nullable: true
+        placeOfBaptism:
+          type: string
+          nullable: true
+        baptisedBy:
+          type: string
+          nullable: true
+        referredBy:
+          type: string
+          nullable: true
+        referredTo:
+          type: string
+          nullable: true
+        growPathId:
+          type: integer
+          nullable: true
+        isArchived:
+          type: boolean
+      example:
+        id: 1
+        firstName: Alfred
+        lastName: API Tester
+        sexId: 1
+        nationalityId: 3
+        campusId: 0
+        statusId: 5
+    PersonSetting:
+      description: 'Piece of meta information about a person, like is this person using two factor authentication or does she want service remind mails.'
+      type: object
+      properties:
+        module:
+          type: string
+        attribute:
+          type: string
+        value:
+          description: Mixed content. Each setting has its own type.
+          oneOf:
+            - type: string
+            - type: integer
+            - type: array
+            - type: object
+      example:
+        module: churchcore
+        attribute: saml-id
+        value: 99
+    Group:
+      type: object
+      description: 'The group model structures all information in different objects: `information`, `settings`, `followUp`, and `roles`. Custom group fields are added to the root level of this model.'
+      properties:
+        id:
+          type: integer
+          example: 42
+        name:
+          type: string
+          example: Smallgroup West
+        securityLevelForGroup:
+          type: integer
+          description: You can see group fields up to this security level.
+          example: 3
+        information:
+          type: object
+          properties:
+            imageUrl:
+              default: null
+              nullable: true
+              type: string
+            dateOfFoundation:
+              type: string
+              format: date
+              nullable: true
+            endDate:
+              type: string
+              format: date
+              nullable: true
+            meetingTime:
+              type: string
+              nullable: true
+            weekday:
+              type: integer
+              nullable: true
+              description: 'The number of the weekday. Starting with 0 = Sunday, 1 = Monday, ...'
+            groupCategoryId:
+              nullable: true
+              type: integer
+            ageGroups:
+              type: array
+              items:
+                type: integer
+              example:
+                - 1
+                - 2
+            targetGroupId:
+              nullable: true
+              type: integer
+            maxMembers:
+              type: integer
+              nullable: true
+            groupTypeId:
+              type: integer
+            groupStatusId:
+              type: integer
+            note:
+              type: string
+            campusId:
+              nullable: true
+              type: integer
+        settings:
+          type: object
+          properties:
+            isHidden:
+              type: boolean
+            isOpenForMembers:
+              description: Indicator if people can apply for participation.
+              type: boolean
+            autoAccept:
+              description: Indicator if applications are accepted automatically.
+              type: boolean
+            isPublic:
+              type: boolean
+            inStatistic:
+              description: Show in statistics.
+              type: boolean
+            groupMeeting:
+              type: object
+              properties:
+                autoCreate:
+                  description: Create weekly group meetings.
+                  type: boolean
+                templateId:
+                  description: Group template used for meetings.
+                  type: integer
+                  nullable: true
+            informLeader:
+              description: Inform leader via e-mail about changes.
+              type: boolean
+            newMember:
+              description: 'Campus, Status, Department for newly created persons.'
+              type: object
+              nullable: true
+              properties:
+                campusId:
+                  nullable: true
+                  type: integer
+                statusId:
+                  nullable: true
+                  type: integer
+                departmentId:
+                  nullable: true
+                  type: integer
+        followUp:
+          type: object
+          properties:
+            typeId:
+              type: integer
+              example: 1
+            targetTypeId:
+              type: integer
+              example: 0
+            targetObjectId:
+              type: integer
+              nullable: true
+              example: null
+            targetGroupMemberStatusId:
+              type: integer
+              nullable: true
+              example: null
+            sendReminderMails:
+              type: boolean
+              example: true
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of this group role.
+              groupTypeRoleId:
+                type: integer
+                description: ID of the corresponding group type role.
+              groupTypeId:
+                type: integer
+                description: ID of corresponding group type.
+              name:
+                type: string
+                description: Name of role.
+              shorty:
+                type: string
+                description: Abbreviation of the name.
+              sortKey:
+                type: integer
+                description: Number used for sorting roles.
+              toDelete:
+                type: boolean
+                description: 'Flag, if members of this role can be deleted or removed from the group.'
+              hasRequested:
+                type: boolean
+                description: 'Flag, if group member is requesting group access.'
+              isLeader:
+                type: boolean
+                description: 'Flag, this role is a leader.'
+              isDefault:
+                type: boolean
+                description: Indicator of default roles.
+              isHidden:
+                type: boolean
+                description: 'Flag, if this role is hidden in groups.'
+              growPathId:
+                type: integer
+                nullable: true
+                description: ID of the grow path. The id is either given from the group type role. But a group can override the grow path. In this case the group role specific ID is used.
+              forceTwoFactorAuth:
+                type: boolean
+                description: 'Flag, if members with this role have to use two factor authentication.'
+              isActive:
+                type: boolean
+                description: 'Flag, if this role is active in this group.'
+            example:
+              - id: 5
+                groupTypeRoleId: 3
+                groupTypeId: 2
+                name: Member
+                shorty: M
+                sortKey: 4
+                toDelete: false
+                hasRequested: false
+                isLeader: false
+                isDefault: true
+                isHidden: false
+                growPathId: null
+                forceTwoFactorAuth: false
+                isActive: true
+              - id: 6
+                groupTypeRoleId: 4
+                groupTypeId: 2
+                name: Leader
+                shorty: L
+                sortKey: 2
+                toDelete: false
+                hasRequested: false
+                isLeader: true
+                isDefault: false
+                isHidden: false
+                growPathId: 2
+                forceTwoFactorAuth: true
+                isActive: true
+          example:
+            $ref: '#/components/schemas/Group/properties/roles/items/example'
+    Role:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of this group type role.
+        groupTypeId:
+          type: integer
+          description: ID of corresponding group type.
+        name:
+          type: string
+          description: Name of role.
+        shorty:
+          type: string
+          description: Abbreviation of the name.
+        sortKey:
+          type: integer
+          description: Number used for sorting roles.
+        toDelete:
+          type: boolean
+          description: 'Flag, if members of this role can be deleted or removed from the group.'
+        hasRequested:
+          type: boolean
+          description: 'Flag, if group member is requesting group access.'
+        isLeader:
+          type: boolean
+          description: 'Flag, this role is a leader.'
+        isDefault:
+          type: boolean
+          description: Indicator of default roles.
+        isHidden:
+          type: boolean
+          description: 'Flag, if this role is hidden in groups.'
+        growPathId:
+          type: integer
+          nullable: true
+          description: ID of the grow path.
+      example:
+        - id: 5
+          groupTypeId: 2
+          name: Member
+          shorty: M
+          sortKey: 4
+          toDelete: false
+          hasRequested: false
+          isLeader: false
+          isDefault: true
+          isHidden: false
+          growPathId: null
+        - id: 6
+          groupTypeId: 2
+          name: Leader
+          shorty: L
+          sortKey: 2
+          toDelete: false
+          hasRequested: false
+          isLeader: true
+          isDefault: false
+          isHidden: false
+          growPathId: 2
+    GroupMember:
+      type: object
+      properties:
+        personId:
+          type: integer
+        roleId:
+          type: integer
+        comment:
+          type: string
+        memberStartDate:
+          type: string
+          format: date
+        memberEndDate:
+          type: string
+          format: date
+    Status:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of status
+        name:
+          type: string
+          description: Status name
+        shorty:
+          type: string
+          description: Abbreviation of name.
+        isMember:
+          type: boolean
+          description: Flag if status is member of the church
+        isSearchable:
+          type: boolean
+          description: Flag if that status is searchable
+        sortKey:
+          type: integer
+          description: Used to sort all statuses
+        securityLevelId:
+          type: integer
+          description: Only persons with that securitylevel can edit/select/delete that status
+      example:
+        id: 1
+        name: Mitglied
+        shorty: M
+        isMember: true
+        isSearchable: true
+        sortKey: 10
+        securityLevelId: 1
+    Campus:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of campus
+        name:
+          type: string
+          description: Campus name
+        shorty:
+          type: string
+          description: Abbreviation
+        sortKey:
+          type: integer
+          description: Used to sort all campuses
+      example:
+        id: 1
+        name: Gersthofen
+        shorty: G
+        sortKey: 10
+    ServiceGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        sortKey:
+          type: integer
+        viewAll:
+          type: boolean
+        campusId:
+          type: integer
+          nullable: true
+        onlyVisibleInCampusFilter:
+          type: boolean
+      example:
+        id: 2
+        name: Program
+        sortKey: 20
+        viewAll: true
+        campusId: 1
+        onlyVisibleInCampusFilter: false
+    Service:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        serviceGroupId:
+          type: integer
+        commentOnConfirmation:
+          type: boolean
+        sortKey:
+          type: integer
+        allowDecline:
+          type: boolean
+        allowExchange:
+          type: boolean
+        comment:
+          type: string
+        standard:
+          type: boolean
+        hidePersonName:
+          type: boolean
+        sendReminderMails:
+          type: boolean
+        sendServiceRequestEmails:
+          type: boolean
+        allowControlLiveAgenda:
+          type: boolean
+        groupIds:
+          type: string
+          nullable: true
+          description: Comma separated list of group ids
+        tagIds:
+          type: string
+          nullable: true
+          description: Comma separated list of tag ids
+        calTextTemplate:
+          type: string
+      example:
+        id: 2
+        name: Preaching
+        serviceGroupId: 1
+        commentOnConfirmation: false
+        sortKey: 20
+        allowDecline: true
+        allowExchange: true
+        comment: ''
+        standard: true
+        hidePersonName: false
+        sendReminderMails: true
+        sendServiceRequestEmails: true
+        allowControlLiveAgenda: false
+        groupIds: '6'
+        tagIds: '8,10'
+        calTextTemplate: ''
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        count:
+          type: integer
+      example:
+        id: 1
+        name: Super Tag
+        count: 2
+    Department:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of department
+        name:
+          type: string
+          description: Department name
+        shorty:
+          type: string
+          description: Abbreviation
+        sortKey:
+          type: integer
+          description: Used to sort all departments
+      example:
+        id: 1
+        name: Gemeindeliste
+        shorty: G
+        sortKey: 10
+    File:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        filename:
+          type: string
+        url:
+          type: string
+        relativeUrl:
+          type: string
+        size:
+          type: integer
+          description: The file size in byte
+        domainType:
+          type: string
+        domainIdentifier:
+          type: string
+      example:
+        id: 12
+        name: Bild.png
+        filename: 34567890987654566000
+        url: 'https://tets.church.tools?q=file&id=12'
+        relativeUrl: '?q=file&id=12'
+        size: 45678
+        domainType: avatar
+        domainIdentifier: 56
+    Log:
+      description: ChurchTools writes log messages for many events and changes. This can be an update for a person or the deletion of an event. You can use the log to debug your system and follow error messages. This is a versitile tool.
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 2
+        level:
+          type: integer
+          description: 'The log level indicates the importance. 1 = Warning, 2 = Notice, 3 = Info.'
+          example: 1
+        date:
+          type: string
+          description: Timestamp of log
+          format: date-time
+          example: '2018-05-06 19:33'
+        personId:
+          type: integer
+          description: 'If the person ID is `-1`, that means, no person but the system itself has logged that message.'
+          example: 2
+        simultePersonId:
+          type: integer
+          description: 'If a person is simulated by an administrator, we log the personId as well. This makes it possible to see if a person did the action or an admin, who simulated that person.'
+          example: 5
+          nullable: true
+        domainType:
+          type: string
+          description: 'The domain type tells us, where in ChurchTools the action was performed.'
+          example: mail
+        domainId:
+          type: integer
+          description: 'Analog to the domain type, the ID is the explicit resource.'
+          example: 1
+        message:
+          type: string
+          example: 'Help page called: 0:main (1)'
+    AppointmentTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        comment:
+          type: string
+        startTime:
+          type: string
+        duration:
+          type: integer
+          description: Duration in seconds
+        allDay:
+          type: boolean
+        note:
+          type: string
+        isInternal:
+          type: boolean
+        categoryId:
+          type: integer
+        repeatId:
+          type: integer
+        repeatFrequence:
+          type: integer
+        repeatOptionId:
+          type: integer
+        repeatDuration:
+          type: integer
+      example:
+        id: 1
+        title: Service
+        comment: with sacrament
+        startTime: '10:00'
+        duration: 3600
+        allDay: false
+        note: ''
+        link: ''
+        isInternal: false
+        categoryId: 1
+        repeatId: 4
+        repeatFrequence: null
+        repeatOptionId: null
+        repeatDuration: null
+    Agenda:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        series:
+          type: string
+        isFinal:
+          type: boolean
+        calendarId:
+          type: integer
+        total:
+          type: integer
+          description: Total of agenda items (without headers)
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              position:
+                type: integer
+              type:
+                type: string
+                enum:
+                  - normal
+                  - song
+                  - header
+              title:
+                type: string
+              note:
+                type: string
+              duration:
+                type: integer
+                description: Duration of agenda item in seconds.
+              start:
+                type: string
+                format: date-time
+                description: The start time of a position is dynamically calculated based on previous items and the start time of the event.
+              isBeforeEvent:
+                type: boolean
+              responsible:
+                type: object
+                properties:
+                  text:
+                    type: string
+                    description: Raw text string. You need to search-replace the placeholders yourself.
+                  persons:
+                    description: 'Array of all persons, who could be resolved from the text string. If a service has multiple positions, multiple objects are in the array with the same `service` text string. If a service is not yet set the `person` object will be null.'
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        service:
+                          type: string
+                          description: 'Name of the service, which is also the placeholder in the raw text string.'
+                        approved:
+                          type: boolean
+                          description: Flat to indicate if the person has approved the service or is requested.
+                        person:
+                          $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items'
+                          nullable: true
+              serviceGroupNotes:
+                description: 'Array of notes per service group. You will only see the service groups, you are allowed to see.'
+                type: array
+                items:
+                  type: object
+                  properties:
+                    serviceGroupId:
+                      type: integer
+                    note:
+                      type: string
+                  example:
+                    - serviceGroupId: 13
+                      note: Start with synthy pad in background
+                    - serviceGroupId: 11
+                      note: Light off at beginning
+              song:
+                type: object
+                description: If the type is `song` the song object is added to this item. `normal` and `header` items do not include this object.
+                properties:
+                  songId:
+                    type: integer
+                  arrangementId:
+                    type: integer
+                  title:
+                    type: string
+                  arrangement:
+                    type: string
+                  category:
+                    type: string
+                  key:
+                    type: string
+                  bpm:
+                    type: string
+                  defaultArrangement:
+                    type: string
+            example:
+              id: 345
+              position: 1
+              title: Start of Worship
+              type: song
+              note: Praise the Lord
+              duration: 315
+              start: '2019-05-25T11:00:00Z'
+              isBeforeEvent: false
+              responsible:
+                text: '[Worshipleader]'
+                persons:
+                  - service: '[Worshipleader]'
+                    approved: true
+                    person:
+                      $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items/example'
+              serviceGroupNotes:
+                $ref: '#/components/schemas/Agenda/properties/items/items/properties/serviceGroupNotes/items/example'
+              song:
+                songId: 11
+                arrangementId: 22
+                title: Bless the Lord
+                arrangement: For Man Voice
+                category: Worship
+                key: G-Major
+                bpm: '80'
+                defaultArrangement: Original
+      example:
+        id: 10
+        name: 11.00 Service 25.05.2019
+        series: Prophets
+        isFinal: false
+        calendarId: 1
+        total: 24
+        items:
+          - $ref: '#/components/schemas/Agenda/properties/items/items/example'
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        eventServices:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              person:
+                $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items'
+                nullable: true
+              name:
+                type: string
+              serviceId:
+                type: integer
+              agreed:
+                type: boolean
+              isValid:
+                type: boolean
+              requestedDate:
+                type: string
+                format: date
+              requesterPerson:
+                $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items'
+                nullable: true
+              comment:
+                type: string
+              counter:
+                type: integer
+            example:
+              id: 77
+              person:
+                $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items/example'
+              name: John Smith
+              serviceId: 8
+              agreed: true
+              isValid: true
+              requestedDate: '2019-08-01 16:16:54'
+              requesterPerson:
+                $ref: '#/paths/~1agendas~1send/post/responses/200/content/application~1json/schema/properties/errors/items/example'
+              comment: I"m in
+              counter: 0
+      example:
+        id: 10
+        name: Sunday Service
+        description: We celebrate
+        startDate: '2019-08-06 11:00:00'
+        endDate: '2019-08-06 12:30:00'
+        items:
+          - $ref: '#/components/schemas/Event/properties/eventServices/items/example'
