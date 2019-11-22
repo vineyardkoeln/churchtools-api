@@ -20,27 +20,6 @@ If you haven't already configured autoloading in your project, start by includin
 require __DIR__ . '/vendor/autoload.php';
 ``` 
 
-### Generate the data classes, which match your CT instance
-**Before the first use of the classes, you need to generate the wrapper
-classes which match your CT instance.**
-
-We can't provide these for you, since each CT instance can be extended/configured
-with additional fields and tables.
-
-So you need to create a file which the content below and set the URL to your CT
-instance.
-
-You can then call this script once (and afterwards when you add fields to your
-CT instance or if you have an upgrade of the CT version)
-
-**The generation of these classes takes 1-2 minutes, depending on your CPU**
-
-```
-require __DIR__ . '/vendor/autoload.php';
-require_once 'ChurchTools/Tools/Api2Helper.php';
-\ChurchTools\Tools\Api2Helper::generateClient("https://mysite.church.tools");
-```
-
 ### Using the Api2
 
 ```
