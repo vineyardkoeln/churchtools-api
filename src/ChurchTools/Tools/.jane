@@ -1,0 +1,9 @@
+<?php
+return [
+'openapi-file' => 'openapi.yaml',
+'namespace' => 'ChurchTools\Api2',
+'directory' => __DIR__ . '/../Api2',
+'client' => 'psr18',
+'strict' => 'true',
+'use-fixer' => 'true',
+];

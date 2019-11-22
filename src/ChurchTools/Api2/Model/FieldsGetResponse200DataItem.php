@@ -67,7 +67,7 @@ class FieldsGetResponse200DataItem
     /**
      * The max length of the field
      *
-     * @var int
+     * @var int|null
      */
     protected $length;
     /**
@@ -301,20 +301,20 @@ class FieldsGetResponse200DataItem
     /**
      * The max length of the field
      *
-     * @return int
+     * @return int|null
      */
-    public function getLength() : int
+    public function getLength() : ?int
     {
         return $this->length;
     }
     /**
      * The max length of the field
      *
-     * @param int $length
+     * @param int|null $length
      *
      * @return self
      */
-    public function setLength(int $length) : self
+    public function setLength(?int $length) : self
     {
         $this->length = $length;
         return $this;

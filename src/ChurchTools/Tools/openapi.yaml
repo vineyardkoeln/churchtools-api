@@ -296,6 +296,7 @@ paths:
                         length:
                           type: integer
                           description: The max length of the field
+                          nullable: true
                         deleteOnArchive:
                           type: boolean
                           description: Whether the field should be deleted on person archive or not

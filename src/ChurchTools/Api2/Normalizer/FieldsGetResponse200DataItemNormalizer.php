@@ -85,7 +85,9 @@ class FieldsGetResponse200DataItemNormalizer implements DenormalizerInterface, N
         $data->{'isNewPersonField'} = $object->getIsNewPersonField();
         $data->{'lineEnding'} = $object->getLineEnding();
         $data->{'secLevel'} = $object->getSecLevel();
-        $data->{'length'} = $object->getLength();
+        if (null !== $object->getLength()) {
+            $data->{'length'} = $object->getLength();
+        }
         $data->{'deleteOnArchive'} = $object->getDeleteOnArchive();
         $data->{'nullable'} = $object->getNullable();
         $data->{'sortKey'} = $object->getSortKey();
