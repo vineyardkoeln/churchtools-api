@@ -2521,6 +2521,7 @@ components:
         memberEndDate:
           type: string
           format: date
+          nullable: true
     Status:
       type: object
       properties:

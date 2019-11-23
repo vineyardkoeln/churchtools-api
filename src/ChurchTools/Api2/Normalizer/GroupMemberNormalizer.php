@@ -52,7 +52,9 @@ class GroupMemberNormalizer implements DenormalizerInterface, NormalizerInterfac
         $data->{'roleId'} = $object->getRoleId();
         $data->{'comment'} = $object->getComment();
         $data->{'memberStartDate'} = $object->getMemberStartDate();
-        $data->{'memberEndDate'} = $object->getMemberEndDate();
+        if (null !== $object->getMemberEndDate()) {
+            $data->{'memberEndDate'} = $object->getMemberEndDate();
+        }
         return $data;
     }
 }

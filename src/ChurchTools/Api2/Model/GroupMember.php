@@ -31,7 +31,7 @@ class GroupMember
     /**
      * 
      *
-     * @var string
+     * @var string|null
      */
     protected $memberEndDate;
     /**
@@ -121,20 +121,20 @@ class GroupMember
     /**
      * 
      *
-     * @return string
+     * @return string|null
      */
-    public function getMemberEndDate() : string
+    public function getMemberEndDate() : ?string
     {
         return $this->memberEndDate;
     }
     /**
      * 
      *
-     * @param string $memberEndDate
+     * @param string|null $memberEndDate
      *
      * @return self
      */
-    public function setMemberEndDate(string $memberEndDate) : self
+    public function setMemberEndDate(?string $memberEndDate) : self
     {
         $this->memberEndDate = $memberEndDate;
         return $this;

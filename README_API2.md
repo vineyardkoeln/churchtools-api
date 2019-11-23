@@ -59,3 +59,8 @@ $dbfields= $apiClient->getAllFields();
 var_dump($dbfields);
 ```
 
+
+### API definition fixes
+
+/fields  -> length nullable
+/groups/{id}/members/ ->memberEndDate	string($date) -> nullable

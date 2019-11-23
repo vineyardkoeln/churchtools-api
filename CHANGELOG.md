@@ -3,6 +3,7 @@ Change Log for ChurchTools API
 
 * 0.5.0
     * FEATURE          First working implementation of the new REST Api
+    * BUGFIX           GroupMemberscipEndDate can be null
 	
 * 0.4.5
     * FEATURE     #8   Calendar entries now processes moreInfos and link on entry
