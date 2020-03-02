@@ -13,8 +13,8 @@ use ChurchTools\Api\Exception\RestApiException;
  */
 class RestApi
 {
-    const API_URL_TEMPLATE = 'https://%s/?q=%s'; // Self hosted
-    const API_URL_TEMPLATE_HOSTED = 'https://%s.church.tools/?q=%s'; // Hosted by CT
+    const API_URL_TEMPLATE = 'https://%s/'; // Self hosted
+    const API_URL_TEMPLATE_HOSTED = 'https://%s.church.tools/'; // Hosted by CT
     const LOGIN_ROUTE = 'login/ajax';
     const DATABASE_ROUTE = 'churchdb/ajax';
     const CALENDAR_ROUTE = 'churchcal/ajax';
@@ -23,6 +23,7 @@ class RestApi
 
     private $guzzleClient;  /** http client for server requests */
     private $churchHandle;  /** site name or full hostname for requests */
+    private $csrfToken; /** CSRF token */
 
     /**
      * RestApi constructor. It's private, because you should be using one of the static constructor methods
@@ -55,6 +56,7 @@ class RestApi
             'email' => $username,
             'password' => $password,
         ]);
+        $newInstance->getCsrfToken();
 
         return $newInstance;
     }
@@ -77,8 +79,30 @@ class RestApi
             'id' => $loginId,
             'token' => $loginToken,
         ]);
+        $newInstance->getCsrfToken();
 
         return $newInstance;
+    }
+
+    /**
+     * Get the CSRF token
+     *
+     * @return -
+     * @see https://intern.church.tools/?q=churchwiki#/WikiView/filterWikicategory_id:0/doc:API-CSRF
+     */
+    private function getCsrfToken()
+    {
+        $response = $this->guzzleClient->get($this->getApiUrlCsrfToken($this->churchHandle));
+        if ($response->getStatusCode() !== 200) {
+            throw new RestApiException($response);
+        }
+
+        $rawData = (string)$response->getBody();
+        $data = json_decode($rawData, true);
+        if (!$data) {
+            throw new JsonDecodingException($rawData);
+        }
+        $this->csrfToken = $data["data"];
     }
 
     /**
@@ -321,6 +345,7 @@ class RestApi
             'body' => http_build_query($parameters),
             'headers' => [
                 'Content-type' => 'application/x-www-form-urlencoded',
+                'CSRF-Token' => $this->csrfToken,
             ],
         ];
     }
@@ -334,9 +359,25 @@ class RestApi
     private function getApiUrl(string $route): string
     {
         if (strpos($this->churchHandle, '.')) {
-            return sprintf(self::API_URL_TEMPLATE, $this->churchHandle, $route);
+            return sprintf(self::API_URL_TEMPLATE . '?q=%s', $this->churchHandle, $route);
         } else {
-            return sprintf(self::API_URL_TEMPLATE_HOSTED, $this->churchHandle, $route);
+            return sprintf(self::API_URL_TEMPLATE_HOSTED . '?q=%s', $this->churchHandle, $route);
+        }
+    }
+
+    /**
+     * Build the API URL for the CSRF token
+     * See also: https://intern.church.tools/?q=churchwiki#/WikiView/filterWikicategory_id:0/doc:API-CSRF
+     *
+     * @param string $route
+     * @return string
+     */
+    private function getApiUrlCsrfToken(): string
+    {
+        if (strpos($this->churchHandle, '.')) {
+            return sprintf(self::API_URL_TEMPLATE . 'api/csrftoken', $this->churchHandle);
+        } else {
+            return sprintf(self::API_URL_TEMPLATE_HOSTED . 'api/csrftoken', $this->churchHandle);
         }
     }
 
