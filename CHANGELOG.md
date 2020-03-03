@@ -1,10 +1,13 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.5.1
+    * BUGFIX     #10   Query new CSRF-Token after login and add it to each request
+
 * 0.5.0
     * FEATURE          First working implementation of the new REST Api
-    * BUGFIX           GroupMemberscipEndDate can be null
-	
+    * BUGFIX           GroupMembershipEndDate can be null
+
 * 0.4.5
     * FEATURE     #8   Calendar entries now processes moreInfos and link on entry
 
