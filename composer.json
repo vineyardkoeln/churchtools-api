@@ -18,10 +18,11 @@
         "php-http/httplug-pack" : "^1.1"
     },
     "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5.4"
     },
     "autoload": {
         "psr-4": {
-            "": "src"
+            "ChurchTools\\": "src/ChurchTools"
         }
     }
 }
