@@ -233,8 +233,17 @@ class Event extends CTObject
         return $this->adminIDS;
     }
 
-    public function getServicenetries(): ?array
+    public function getServiceEntries(): ?array
     {
         return $this->serviceEntries;
+    }
+
+    /**
+     * @deprecated Please use getServiceEntries()!
+     * @return array|null
+     */
+    public function getServicenetries(): ?array
+    {
+        return $this->getServiceEntries();
     }
 }
