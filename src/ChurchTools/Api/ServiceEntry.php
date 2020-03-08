@@ -11,6 +11,7 @@ namespace ChurchTools\Api;
 class ServiceEntry extends CTObject
 {
     private $id;
+    private $serviceId;
     private $startDate;
     private $endDate;
     private $serviceGroupID;
@@ -39,6 +40,9 @@ class ServiceEntry extends CTObject
         switch ($blockName) {
             case 'id':
                 $this->id = intval($blockData);
+                break;
+            case 'service_id':
+                $this->serviceId = intval($blockData);
                 break;
             case 'servicegroup_id':
                 $this->serviceGroupID = intval($blockData);
@@ -108,12 +112,19 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     *
      * @return int calendar id this entry is for
      */
     public function getID(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return int service id this entry is for
+     */
+    public function getServiceID(): int
+    {
+        return $this->serviceId;
     }
 
     /**
