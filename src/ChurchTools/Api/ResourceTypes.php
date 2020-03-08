@@ -32,7 +32,7 @@ class ResourceTypes extends CTObject
      * Returns the resource type object associated with this id
      *
      * @param int id of resource to retrieve
-     * 
+     *
      * @return ChurchTools\Api\ResourceType
      */
     public function getResourceType($resourceTypeID): ResourceType
@@ -42,9 +42,9 @@ class ResourceTypes extends CTObject
 
     /**
      * Get list of visible resource types ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
      * @return array list of resource types id's
      */
     public function getResourceTypesIDS($sorted = false): array

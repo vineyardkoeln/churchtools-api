@@ -8,12 +8,12 @@ use ChurchTools\Api\Resources;
 use ChurchTools\Api\ResourceTypes;
 
 /**
- * The masterdata contains the global settings of the ct instance, like 
+ * The masterdata contains the global settings of the ct instance, like
  * calendars, services, etc.
- * 
+ *
  * Currently we only parse the data blocks mentioned below.
  * All other parts can be retrieved as array via the getRawData('nameOfDataBlock')
- * 
+ *
  * @author André Schild
  */
 class MasterData extends CTObject
@@ -109,7 +109,7 @@ class MasterData extends CTObject
 
     /**
      * All system wide calendars where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\Calendars list calendars
      */
     public function getCalendars(): Calendars
@@ -119,7 +119,7 @@ class MasterData extends CTObject
     
     /**
      * All system wide grouos where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\Groups list groups
      */
     public function getGroups(): groups
@@ -129,7 +129,7 @@ class MasterData extends CTObject
 
     /**
      * All system wide group types where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\GroupTypes list group types
      */
     public function getGroupTypes(): GroupTypes
@@ -139,17 +139,17 @@ class MasterData extends CTObject
     
     /**
      * All system wide resources where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\Resources list resources
      */
-    public function getResources(): Resources 
+    public function getResources(): Resources
     {
         return $this->resources;
     }
     
     /**
      * All system wide resource types where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\ResourceTypes list resource types
      */
     public function getResourceTypes(): ResourceTypes
@@ -159,7 +159,7 @@ class MasterData extends CTObject
     
     /**
      * All system wide resource types where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\ResourceTypes list resource types
      */
     public function getServiceGroups(): ServiceGroups
@@ -169,7 +169,7 @@ class MasterData extends CTObject
         
     /**
      * All system wide service where the user has access
-     * 
+     *
      * @return \ChurchTools\Api\ServiceEntries list resource types
      */
     public function getServiceEntries(): ServiceEntries

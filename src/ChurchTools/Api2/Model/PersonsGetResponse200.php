@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class PersonsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Person[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var PersonsGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Person[]
      */
@@ -26,7 +26,7 @@ class PersonsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Person[] $data
      *
@@ -38,7 +38,7 @@ class PersonsGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return PersonsGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class PersonsGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param PersonsGetResponse200Meta $meta
      *

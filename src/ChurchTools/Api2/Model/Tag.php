@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class Tag
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $count;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -32,7 +32,7 @@ class Tag
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -44,7 +44,7 @@ class Tag
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class Tag
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -65,7 +65,7 @@ class Tag
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -74,7 +74,7 @@ class Tag
         return $this->count;
     }
     /**
-     * 
+     *
      *
      * @param int $count
      *

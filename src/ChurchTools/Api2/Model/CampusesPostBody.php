@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class CampusesPostBody
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $shorty;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $sortKey = 10;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -32,7 +32,7 @@ class CampusesPostBody
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -44,7 +44,7 @@ class CampusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class CampusesPostBody
         return $this->shorty;
     }
     /**
-     * 
+     *
      *
      * @param string $shorty
      *
@@ -65,7 +65,7 @@ class CampusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -74,7 +74,7 @@ class CampusesPostBody
         return $this->sortKey;
     }
     /**
-     * 
+     *
      *
      * @param int $sortKey
      *

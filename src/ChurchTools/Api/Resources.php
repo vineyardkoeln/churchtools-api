@@ -32,7 +32,7 @@ class Resources extends CTObject
      * Returns the resource object associated with this ID
      *
      * @param int id of resource to retrieve
-     * 
+     *
      * @return ChurchTools\Api\Resource
      */
     public function getResource($resourceID): Resource
@@ -42,9 +42,9 @@ class Resources extends CTObject
 
     /**
      * Get list of visible resource ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
      * @return array list of resource id's
      */
     public function getResourceIDS($sorted = false): array
@@ -63,17 +63,16 @@ class Resources extends CTObject
 
     /**
      * Get list of visible resource ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
      * @return array list of resource id's
      */
     public function getResourceIDSOfType($resourceTypeID, $sorted = false): array
     {
         $resources = [];
         foreach ($this->resources as $resource) {
-            if ($resource->getResourceTypeID() == $resourceTypeID)
-            {
+            if ($resource->getResourceTypeID() == $resourceTypeID) {
                 $id        = $resource->getID();
                 $order     = $resource->getSortKey();
                 $resources[$id] = $order;
@@ -84,5 +83,4 @@ class Resources extends CTObject
         }
         return array_keys($resources);
     }
-    
 }

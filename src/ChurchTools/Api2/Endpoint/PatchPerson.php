@@ -9,7 +9,7 @@ class PatchPerson extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * Endpoint to update a person in ChurchTools. Generally, you can provide any information to save, but be aware that you can only save information for fields you have write access to. Beware, that not all fields which are listed in the Person schema can be updated. E.g. `imageUrl` or `familyUrl`.
      *
      * @param string $id ID or GUID of person
-     * @param \stdClass $requestBody 
+     * @param \stdClass $requestBody
      */
     public function __construct(string $id, \stdClass $requestBody)
     {

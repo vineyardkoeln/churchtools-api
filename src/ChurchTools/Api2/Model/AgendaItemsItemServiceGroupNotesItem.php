@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class AgendaItemsItemServiceGroupNotesItem
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $serviceGroupId;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $note;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -26,7 +26,7 @@ class AgendaItemsItemServiceGroupNotesItem
         return $this->serviceGroupId;
     }
     /**
-     * 
+     *
      *
      * @param int $serviceGroupId
      *
@@ -38,7 +38,7 @@ class AgendaItemsItemServiceGroupNotesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -47,7 +47,7 @@ class AgendaItemsItemServiceGroupNotesItem
         return $this->note;
     }
     /**
-     * 
+     *
      *
      * @param string $note
      *

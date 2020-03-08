@@ -31,11 +31,14 @@ class RepeatingType extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'bezeichnung': $this->title       = $blockData;
+            case 'bezeichnung':
+                $this->title       = $blockData;
                 break;
-            case 'sortkey': $this->sortKey       = $blockData;
+            case 'sortkey':
+                $this->sortKey       = $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -59,7 +62,7 @@ class RepeatingType extends CTObject
         return $this->title;
     }
 
-   public static function isNoRepeat($id): bool
+    public static function isNoRepeat($id): bool
     {
         return $id == 0;
     }

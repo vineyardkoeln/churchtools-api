@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class InfoGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $build;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $version;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -26,7 +26,7 @@ class InfoGetResponse200
         return $this->build;
     }
     /**
-     * 
+     *
      *
      * @param string $build
      *
@@ -38,7 +38,7 @@ class InfoGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -47,7 +47,7 @@ class InfoGetResponse200
         return $this->version;
     }
     /**
-     * 
+     *
      *
      * @param string $version
      *

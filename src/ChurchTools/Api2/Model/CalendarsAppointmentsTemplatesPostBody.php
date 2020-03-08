@@ -5,61 +5,61 @@ namespace ChurchTools\Api2\Model;
 class CalendarsAppointmentsTemplatesPostBody
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $title;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $comment;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $startTime;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $duration;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $allDay;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $note;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isInternal;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $categoryId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $repeatId;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->title;
     }
     /**
-     * 
+     *
      *
      * @param string $title
      *
@@ -80,7 +80,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->comment;
     }
     /**
-     * 
+     *
      *
      * @param string $comment
      *
@@ -101,7 +101,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -110,7 +110,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->startTime;
     }
     /**
-     * 
+     *
      *
      * @param string $startTime
      *
@@ -122,7 +122,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -131,7 +131,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->duration;
     }
     /**
-     * 
+     *
      *
      * @param int $duration
      *
@@ -143,7 +143,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -152,7 +152,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->allDay;
     }
     /**
-     * 
+     *
      *
      * @param bool $allDay
      *
@@ -164,7 +164,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -173,7 +173,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->note;
     }
     /**
-     * 
+     *
      *
      * @param string $note
      *
@@ -185,7 +185,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -194,7 +194,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->isInternal;
     }
     /**
-     * 
+     *
      *
      * @param bool $isInternal
      *
@@ -206,7 +206,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -215,7 +215,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->categoryId;
     }
     /**
-     * 
+     *
      *
      * @param int $categoryId
      *
@@ -227,7 +227,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -236,7 +236,7 @@ class CalendarsAppointmentsTemplatesPostBody
         return $this->repeatId;
     }
     /**
-     * 
+     *
      *
      * @param int $repeatId
      *

@@ -5,31 +5,31 @@ namespace ChurchTools\Api2\Model;
 class Agenda
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $series;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isFinal;
     /**
-     * 
+     *
      *
      * @var int
      */
@@ -41,13 +41,13 @@ class Agenda
      */
     protected $total;
     /**
-     * 
+     *
      *
      * @var AgendaItemsItem[]
      */
     protected $items;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class Agenda
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -68,7 +68,7 @@ class Agenda
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class Agenda
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -89,7 +89,7 @@ class Agenda
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class Agenda
         return $this->series;
     }
     /**
-     * 
+     *
      *
      * @param string $series
      *
@@ -110,7 +110,7 @@ class Agenda
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -119,7 +119,7 @@ class Agenda
         return $this->isFinal;
     }
     /**
-     * 
+     *
      *
      * @param bool $isFinal
      *
@@ -131,7 +131,7 @@ class Agenda
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -140,7 +140,7 @@ class Agenda
         return $this->calendarId;
     }
     /**
-     * 
+     *
      *
      * @param int $calendarId
      *
@@ -173,7 +173,7 @@ class Agenda
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AgendaItemsItem[]
      */
@@ -182,7 +182,7 @@ class Agenda
         return $this->items;
     }
     /**
-     * 
+     *
      *
      * @param AgendaItemsItem[] $items
      *

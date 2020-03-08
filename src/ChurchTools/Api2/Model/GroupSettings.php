@@ -5,7 +5,7 @@ namespace ChurchTools\Api2\Model;
 class GroupSettings
 {
     /**
-     * 
+     *
      *
      * @var bool
      */
@@ -23,7 +23,7 @@ class GroupSettings
      */
     protected $autoAccept;
     /**
-     * 
+     *
      *
      * @var bool
      */
@@ -35,7 +35,7 @@ class GroupSettings
      */
     protected $inStatistic;
     /**
-     * 
+     *
      *
      * @var GroupSettingsGroupMeeting
      */
@@ -53,7 +53,7 @@ class GroupSettings
      */
     protected $newMember;
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -62,7 +62,7 @@ class GroupSettings
         return $this->isHidden;
     }
     /**
-     * 
+     *
      *
      * @param bool $isHidden
      *
@@ -116,7 +116,7 @@ class GroupSettings
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -125,7 +125,7 @@ class GroupSettings
         return $this->isPublic;
     }
     /**
-     * 
+     *
      *
      * @param bool $isPublic
      *
@@ -158,7 +158,7 @@ class GroupSettings
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return GroupSettingsGroupMeeting
      */
@@ -167,7 +167,7 @@ class GroupSettings
         return $this->groupMeeting;
     }
     /**
-     * 
+     *
      *
      * @param GroupSettingsGroupMeeting $groupMeeting
      *

@@ -87,5 +87,4 @@ class ServiceEntries extends CTObject
         }
         return array_keys($services);
     }
-
 }

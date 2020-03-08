@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonsIdEventsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Event
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Event
      */
@@ -20,7 +20,7 @@ class PersonsIdEventsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Event $data
      *

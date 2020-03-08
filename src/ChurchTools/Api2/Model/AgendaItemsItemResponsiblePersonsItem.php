@@ -17,7 +17,7 @@ class AgendaItemsItemResponsiblePersonsItem
      */
     protected $approved;
     /**
-     * 
+     *
      *
      * @var object
      */
@@ -65,7 +65,7 @@ class AgendaItemsItemResponsiblePersonsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return object
      */
@@ -74,7 +74,7 @@ class AgendaItemsItemResponsiblePersonsItem
         return $this->person;
     }
     /**
-     * 
+     *
      *
      * @param object $person
      *

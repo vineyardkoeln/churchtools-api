@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class DepartmentsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Department[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var DepartmentsGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Department[]
      */
@@ -26,7 +26,7 @@ class DepartmentsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Department[] $data
      *
@@ -38,7 +38,7 @@ class DepartmentsGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return DepartmentsGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class DepartmentsGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param DepartmentsGetResponse200Meta $meta
      *

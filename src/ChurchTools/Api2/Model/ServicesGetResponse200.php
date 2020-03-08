@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class ServicesGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Service[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Service[]
      */
@@ -20,7 +20,7 @@ class ServicesGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Service[] $data
      *

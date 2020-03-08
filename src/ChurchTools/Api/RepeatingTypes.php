@@ -32,7 +32,7 @@ class RepeatingTypes extends CTObject
      * Returns the repeating type object associated with this repeating type
      *
      * @param int id of repeating type to retrieve
-     * 
+     *
      * @return ChurchTools\Api\RepeatingType
      */
     public function getRepeatingType($repeatingTypeID): RepeatingType
@@ -42,9 +42,9 @@ class RepeatingTypes extends CTObject
 
     /**
      * Get list of visible repeating types ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
      * @return array list of repeating types id's
      */
     public function getRepeatingTypesIDS($sorted = false): array

@@ -5,49 +5,49 @@ namespace ChurchTools\Api2\Model;
 class AgendasSendPostResponse200ErrorsItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $titel;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $domainType;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $domainIdentifier;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $apiUrl;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $frontendUrl;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $imageUrl;
     /**
-     * 
+     *
      *
      * @var AgendasSendPostResponse200ErrorsItemDomainAttributes
      */
     protected $domainAttributes;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->titel;
     }
     /**
-     * 
+     *
      *
      * @param string $titel
      *
@@ -68,7 +68,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->domainType;
     }
     /**
-     * 
+     *
      *
      * @param string $domainType
      *
@@ -89,7 +89,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->domainIdentifier;
     }
     /**
-     * 
+     *
      *
      * @param string $domainIdentifier
      *
@@ -110,7 +110,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->apiUrl;
     }
     /**
-     * 
+     *
      *
      * @param string $apiUrl
      *
@@ -131,7 +131,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -140,7 +140,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->frontendUrl;
     }
     /**
-     * 
+     *
      *
      * @param string $frontendUrl
      *
@@ -152,7 +152,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -161,7 +161,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->imageUrl;
     }
     /**
-     * 
+     *
      *
      * @param string $imageUrl
      *
@@ -173,7 +173,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AgendasSendPostResponse200ErrorsItemDomainAttributes
      */
@@ -182,7 +182,7 @@ class AgendasSendPostResponse200ErrorsItem
         return $this->domainAttributes;
     }
     /**
-     * 
+     *
      *
      * @param AgendasSendPostResponse200ErrorsItemDomainAttributes $domainAttributes
      *

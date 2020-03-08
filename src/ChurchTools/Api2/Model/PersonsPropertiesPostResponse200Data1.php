@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonsPropertiesPostResponse200Data1
 {
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $hasEmail;
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -20,7 +20,7 @@ class PersonsPropertiesPostResponse200Data1
         return $this->hasEmail;
     }
     /**
-     * 
+     *
      *
      * @param bool $hasEmail
      *

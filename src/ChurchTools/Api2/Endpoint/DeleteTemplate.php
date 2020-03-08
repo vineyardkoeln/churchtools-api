@@ -6,7 +6,7 @@ class DeleteTemplate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     protected $templateId;
     /**
-     * 
+     *
      *
      * @param int $templateId ID of appointment template
      */

@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonsIdSettingsModuleGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var PersonSetting[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return PersonSetting[]
      */
@@ -20,7 +20,7 @@ class PersonsIdSettingsModuleGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param PersonSetting[] $data
      *

@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class FilesDomainTypeDomainIdentifierPostBody
 {
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $files;
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -20,7 +20,7 @@ class FilesDomainTypeDomainIdentifierPostBody
         return $this->files;
     }
     /**
-     * 
+     *
      *
      * @param string[] $files
      *

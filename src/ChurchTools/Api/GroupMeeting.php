@@ -39,29 +39,41 @@ class GroupMeeting extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'gruppe_id': $this->groupId         = intval($blockData);
+            case 'gruppe_id':
+                $this->groupId         = intval($blockData);
                 break;
-            case 'kommentar': $this->remark       = $blockData;
+            case 'kommentar':
+                $this->remark       = $blockData;
                 break;
-            case 'anzahl_gaeste': $this->numGuests       = intval($blockData);
+            case 'anzahl_gaeste':
+                $this->numGuests       = intval($blockData);
                 break;
-            case 'datumvon': $this->startDate= $this->parseDateTime($blockData);
+            case 'datumvon':
+                $this->startDate= $this->parseDateTime($blockData);
                 break;
-            case 'datumbis': $this->endDate= $this->parseDateTime($blockData);
+            case 'datumbis':
+                $this->endDate= $this->parseDateTime($blockData);
                 break;
-            case 'modified_date': $this->modifiedDate= $this->parseDateTime($blockData);
+            case 'modified_date':
+                $this->modifiedDate= $this->parseDateTime($blockData);
                 break;
-            case 'modified_pid': $this->modifiedPersonId         = intval($blockData);
+            case 'modified_pid':
+                $this->modifiedPersonId         = intval($blockData);
                 break;
-            case 'eintragerfolgt_yn': $this->entryDone         = intval($blockData);
+            case 'eintragerfolgt_yn':
+                $this->entryDone         = intval($blockData);
                 break;
-            case 'ausgefallen_yn': $this->meetingCanceled          = intval($blockData);
+            case 'ausgefallen_yn':
+                $this->meetingCanceled          = intval($blockData);
                 break;
-            case 'pollresult': $this->pollResult          = $blockData;
+            case 'pollresult':
+                $this->pollResult          = $blockData;
                 break;
-            case 'entries': $this->entries          = $blockData;
+            case 'entries':
+                $this->entries          = $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -116,5 +128,4 @@ class GroupMeeting extends CTObject
     {
         return $this->entryDone == 1;
     }
-    
 }

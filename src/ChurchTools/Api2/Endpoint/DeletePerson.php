@@ -6,7 +6,7 @@ class DeletePerson extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 {
     protected $id;
     /**
-     * 
+     *
      *
      * @param string $id ID or GUID of person
      */

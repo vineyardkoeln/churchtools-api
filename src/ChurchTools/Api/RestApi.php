@@ -129,7 +129,7 @@ class RestApi
      *
      * @see https://api.church.tools/function-churchcal_getAllowedCategories.html
      */
-    public function getAllowedCalendars(bool $includePrivate= false): ?Calendars
+    public function getAllowedCalendars(bool $includePrivate = false): ?Calendars
     {
         $retVal= null;
         $rawData= $this->callApi(self::CALENDAR_ROUTE, [
@@ -225,7 +225,7 @@ class RestApi
             'sub'  => 'getList',
             'g_id' => $groupId,
         ]);
-        if ($rawData['data'] != null ) {
+        if ($rawData['data'] != null) {
             foreach ($rawData['data'] as $bookingData) {
                 $e= new GroupMeeting($bookingData, false);
                 array_push($retVal, $e);
@@ -380,5 +380,4 @@ class RestApi
             return sprintf(self::API_URL_TEMPLATE_HOSTED . 'api/csrftoken', $this->churchHandle);
         }
     }
-
 }

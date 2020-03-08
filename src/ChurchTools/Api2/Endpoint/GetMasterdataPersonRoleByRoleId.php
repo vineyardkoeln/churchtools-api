@@ -6,7 +6,7 @@ class GetMasterdataPersonRoleByRoleId extends \Jane\OpenApiRuntime\Client\BaseEn
 {
     protected $roleId;
     /**
-     * 
+     *
      *
      * @param int $roleId ID of group type role
      */

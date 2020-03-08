@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class LogsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Log[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var LogsGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Log[]
      */
@@ -26,7 +26,7 @@ class LogsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Log[] $data
      *
@@ -38,7 +38,7 @@ class LogsGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return LogsGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class LogsGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param LogsGetResponse200Meta $meta
      *

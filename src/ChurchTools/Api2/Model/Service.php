@@ -5,79 +5,79 @@ namespace ChurchTools\Api2\Model;
 class Service
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $serviceGroupId;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $commentOnConfirmation;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $sortKey;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $allowDecline;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $allowExchange;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $comment;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $standard;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $hidePersonName;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $sendReminderMails;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $sendServiceRequestEmails;
     /**
-     * 
+     *
      *
      * @var bool
      */
@@ -95,13 +95,13 @@ class Service
      */
     protected $tagIds;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $calTextTemplate;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -110,7 +110,7 @@ class Service
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -122,7 +122,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -131,7 +131,7 @@ class Service
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -143,7 +143,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -152,7 +152,7 @@ class Service
         return $this->serviceGroupId;
     }
     /**
-     * 
+     *
      *
      * @param int $serviceGroupId
      *
@@ -164,7 +164,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -173,7 +173,7 @@ class Service
         return $this->commentOnConfirmation;
     }
     /**
-     * 
+     *
      *
      * @param bool $commentOnConfirmation
      *
@@ -185,7 +185,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -194,7 +194,7 @@ class Service
         return $this->sortKey;
     }
     /**
-     * 
+     *
      *
      * @param int $sortKey
      *
@@ -206,7 +206,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -215,7 +215,7 @@ class Service
         return $this->allowDecline;
     }
     /**
-     * 
+     *
      *
      * @param bool $allowDecline
      *
@@ -227,7 +227,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -236,7 +236,7 @@ class Service
         return $this->allowExchange;
     }
     /**
-     * 
+     *
      *
      * @param bool $allowExchange
      *
@@ -248,7 +248,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -257,7 +257,7 @@ class Service
         return $this->comment;
     }
     /**
-     * 
+     *
      *
      * @param string $comment
      *
@@ -269,7 +269,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -278,7 +278,7 @@ class Service
         return $this->standard;
     }
     /**
-     * 
+     *
      *
      * @param bool $standard
      *
@@ -290,7 +290,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -299,7 +299,7 @@ class Service
         return $this->hidePersonName;
     }
     /**
-     * 
+     *
      *
      * @param bool $hidePersonName
      *
@@ -311,7 +311,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -320,7 +320,7 @@ class Service
         return $this->sendReminderMails;
     }
     /**
-     * 
+     *
      *
      * @param bool $sendReminderMails
      *
@@ -332,7 +332,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -341,7 +341,7 @@ class Service
         return $this->sendServiceRequestEmails;
     }
     /**
-     * 
+     *
      *
      * @param bool $sendServiceRequestEmails
      *
@@ -353,7 +353,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -362,7 +362,7 @@ class Service
         return $this->allowControlLiveAgenda;
     }
     /**
-     * 
+     *
      *
      * @param bool $allowControlLiveAgenda
      *
@@ -416,7 +416,7 @@ class Service
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -425,7 +425,7 @@ class Service
         return $this->calTextTemplate;
     }
     /**
-     * 
+     *
      *
      * @param string $calTextTemplate
      *

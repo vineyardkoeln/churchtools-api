@@ -33,17 +33,23 @@ class GroupType extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'bezeichnung': $this->title       = $blockData;
+            case 'bezeichnung':
+                $this->title       = $blockData;
                 break;
-            case 'sortkey': $this->sortKey       = intval($blockData);
+            case 'sortkey':
+                $this->sortKey       = intval($blockData);
                 break;
-            case 'muss_leiter_enthalten_yn': $this->requireLeader         = $blockData == "1";
+            case 'muss_leiter_enthalten_yn':
+                $this->requireLeader         = $blockData == "1";
                 break;
-            case 'in_neue_person_erstellen_yn': $this->showInCreatePerson         = $blockData == "1";
+            case 'in_neue_person_erstellen_yn':
+                $this->showInCreatePerson         = $blockData == "1";
                 break;
-            case 'permission_deep_no': $this->permissionDeepNumber         = intval($blockData);
+            case 'permission_deep_no':
+                $this->permissionDeepNumber         = intval($blockData);
                 break;
             
             default:
@@ -69,7 +75,7 @@ class GroupType extends CTObject
     }
 
     /**
-     * 
+     *
      * @return int sortkey of resource type entry
      */
     public function getSortKey(): int
@@ -91,5 +97,4 @@ class GroupType extends CTObject
     {
         return $this->permissionDeepNumber;
     }
-    
 }

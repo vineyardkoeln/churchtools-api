@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class AgendasSendPostResponse200Args
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $count;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -20,7 +20,7 @@ class AgendasSendPostResponse200Args
         return $this->count;
     }
     /**
-     * 
+     *
      *
      * @param int $count
      *

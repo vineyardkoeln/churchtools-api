@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class FilesDomainTypeDomainIdentifierPostResponse200
 {
     /**
-     * 
+     *
      *
      * @var File[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var FilesDomainTypeDomainIdentifierPostResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return File[]
      */
@@ -26,7 +26,7 @@ class FilesDomainTypeDomainIdentifierPostResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param File[] $data
      *
@@ -38,7 +38,7 @@ class FilesDomainTypeDomainIdentifierPostResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return FilesDomainTypeDomainIdentifierPostResponse200Meta
      */
@@ -47,7 +47,7 @@ class FilesDomainTypeDomainIdentifierPostResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param FilesDomainTypeDomainIdentifierPostResponse200Meta $meta
      *

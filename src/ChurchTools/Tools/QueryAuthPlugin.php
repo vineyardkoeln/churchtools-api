@@ -6,6 +6,7 @@ namespace ChurchTools\Tools;
 use Http\Client\Common\Plugin;
 use Http\Promise\Promise;
 use Psr\Http\Message\RequestInterface;
+
 /**
  * Set the authentication for the request
  *
@@ -31,8 +32,7 @@ final class QueryAuthPlugin implements Plugin
     {
         $uri = $request->getUri();
         parse_str($uri->getQuery(), $query);
-        if ($this->loginToken != null)
-        {
+        if ($this->loginToken != null) {
             $query += ["login_token" => $this->loginToken];
         }
         $request = $request->withUri(

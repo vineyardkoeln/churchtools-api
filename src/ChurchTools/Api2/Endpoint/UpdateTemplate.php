@@ -6,10 +6,10 @@ class UpdateTemplate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     protected $templateId;
     /**
-     * 
+     *
      *
      * @param int $templateId ID of appointment template
-     * @param \stdClass $requestBody 
+     * @param \stdClass $requestBody
      */
     public function __construct(int $templateId, \stdClass $requestBody)
     {

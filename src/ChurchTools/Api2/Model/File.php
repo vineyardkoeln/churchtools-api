@@ -5,31 +5,31 @@ namespace ChurchTools\Api2\Model;
 class File
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $filename;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $url;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -41,19 +41,19 @@ class File
      */
     protected $size;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $domainType;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $domainIdentifier;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -62,7 +62,7 @@ class File
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -74,7 +74,7 @@ class File
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class File
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -95,7 +95,7 @@ class File
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class File
         return $this->filename;
     }
     /**
-     * 
+     *
      *
      * @param string $filename
      *
@@ -116,7 +116,7 @@ class File
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class File
         return $this->url;
     }
     /**
-     * 
+     *
      *
      * @param string $url
      *
@@ -137,7 +137,7 @@ class File
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class File
         return $this->relativeUrl;
     }
     /**
-     * 
+     *
      *
      * @param string $relativeUrl
      *
@@ -179,7 +179,7 @@ class File
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class File
         return $this->domainType;
     }
     /**
-     * 
+     *
      *
      * @param string $domainType
      *
@@ -200,7 +200,7 @@ class File
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class File
         return $this->domainIdentifier;
     }
     /**
-     * 
+     *
      *
      * @param string $domainIdentifier
      *

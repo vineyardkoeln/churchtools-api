@@ -6,10 +6,10 @@ class PutCampusById extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 {
     protected $id;
     /**
-     * 
+     *
      *
      * @param int $id ID of campus
-     * @param \ChurchTools\Api2\Model\CampusesIdPutBody|\stdClass $requestBody 
+     * @param \ChurchTools\Api2\Model\CampusesIdPutBody|\stdClass $requestBody
      */
     public function __construct(int $id, $requestBody)
     {

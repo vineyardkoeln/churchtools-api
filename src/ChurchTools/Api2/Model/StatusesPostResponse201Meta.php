@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class StatusesPostResponse201Meta
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $count;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -20,7 +20,7 @@ class StatusesPostResponse201Meta
         return $this->count;
     }
     /**
-     * 
+     *
      *
      * @param int $count
      *

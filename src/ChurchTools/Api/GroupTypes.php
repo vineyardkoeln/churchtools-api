@@ -32,7 +32,7 @@ class GroupTypes extends CTObject
      * Returns the booking status type object associated with this id
      *
      * @param int id of booking status to retrieve
-     * 
+     *
      * @return ChurchTools\Api\BookingStatusType
      */
     public function getGroupType($groupTypeID): GroupType
@@ -42,9 +42,9 @@ class GroupTypes extends CTObject
 
     /**
      * Get list of visible group types status types ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
      * @return array list of group types id's
      */
     public function getGroupTypesIDS($sorted = false): array

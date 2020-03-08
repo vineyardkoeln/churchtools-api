@@ -34,9 +34,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetAllCampuses(), $fetch);
     }
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\CampusesPostBody $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\CampusesPostBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\CreateNewCampusBadRequestException
      * @throws \ChurchTools\Api2\Exception\CreateNewCampusPaymentRequiredException
@@ -48,7 +48,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\CreateNewCampus($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of campus
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -62,7 +62,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\DeleteCampusById($id), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of campus
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -76,10 +76,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetCampusById($id), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of campus
-     * @param \ChurchTools\Api2\Model\CampusesIdPutBody|\stdClass $requestBody 
+     * @param \ChurchTools\Api2\Model\CampusesIdPutBody|\stdClass $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\ChurchTools\Api2\Model\CampusesIdPutResponse200|\Psr\Http\Message\ResponseInterface
@@ -111,9 +111,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetAllStatuses(), $fetch);
     }
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\StatusesPostBody|\stdClass $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\StatusesPostBody|\stdClass $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\CreateNewStatusBadRequestException
      *
@@ -124,7 +124,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\CreateNewStatus($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of status
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -138,7 +138,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\DeleteStatusById($id), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of status
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -152,10 +152,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetStatusById($id), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of status
-     * @param \ChurchTools\Api2\Model\StatusesIdPutBody $requestBody 
+     * @param \ChurchTools\Api2\Model\StatusesIdPutBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return null|\ChurchTools\Api2\Model\StatusesIdPutResponse200|\Psr\Http\Message\ResponseInterface
@@ -189,7 +189,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
     /**
      * Endpoint to save a new person in ChurchTools. Generally, you can provide any information to save, but be aware that you can only save information for fields you have write access to. If the request fails because a duplicate is found (person with same name) use the `force` flag to create this person even if a duplicate is found.
      *
-     * @param \ChurchTools\Api2\Model\PersonsPostBody $requestBody 
+     * @param \ChurchTools\Api2\Model\PersonsPostBody $requestBody
      * @param array $queryParameters {
      *     @var bool $force Force the action, which would otherwise fail.
      * }
@@ -205,9 +205,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\CreatePerson($requestBody, $queryParameters), $fetch);
     }
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\PersonsPropertiesPostBody $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\PersonsPropertiesPostBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\GetPersonPropertiesUnauthorizedException
      *
@@ -218,7 +218,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetPersonProperties($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $id ID or GUID of person
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -249,7 +249,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
      * Endpoint to update a person in ChurchTools. Generally, you can provide any information to save, but be aware that you can only save information for fields you have write access to. Beware, that not all fields which are listed in the Person schema can be updated. E.g. `imageUrl` or `familyUrl`.
      *
      * @param string $id ID or GUID of person
-     * @param \stdClass $requestBody 
+     * @param \stdClass $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\PatchPersonBadRequestException
      * @throws \ChurchTools\Api2\Exception\PatchPersonForbiddenException
@@ -261,7 +261,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\PatchPerson($id, $requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $id ID or GUID of person
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -395,7 +395,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetAllGroups($queryParameters), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $id ID of group
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -465,9 +465,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetTags($queryParameters), $fetch);
     }
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\TagsPostBody $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\TagsPostBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\SaveTagForbiddenException
      *
@@ -489,7 +489,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetAllDepartments(), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainType The domain type. Currently supported are 'avatar', 'groupimage', 'logo', 'attatchments', 'html_template', 'service', 'song_arrangement', 'importtable', 'person', 'familyavatar', 'wiki_.?'.
      * @param string $domainIdentifier the domain identifier
@@ -503,11 +503,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\DeleteFiles($domainType, $domainIdentifier), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param string $domainType The domain type. Currently supported are 'avatar', 'groupimage', 'logo', 'attatchments', 'html_template', 'service', 'song_arrangement', 'importtable', 'person', 'familyavatar', 'wiki_.?'.
      * @param string $domainIdentifier the domain identifier
-     * @param \ChurchTools\Api2\Model\FilesDomainTypeDomainIdentifierPostBody $requestBody 
+     * @param \ChurchTools\Api2\Model\FilesDomainTypeDomainIdentifierPostBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\UploadFilesForbiddenException
      *
@@ -562,9 +562,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetAllTemplates(), $fetch);
     }
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\CalendarsAppointmentsTemplatesPostBody $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\CalendarsAppointmentsTemplatesPostBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\CreateTemplateForbiddenException
      *
@@ -575,7 +575,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\CreateTemplate($requestBody), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $templateId ID of appointment template
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -589,7 +589,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\DeleteTemplate($templateId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $templateId ID of appointment template
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -603,10 +603,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetTemplateById($templateId), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $templateId ID of appointment template
-     * @param \stdClass $requestBody 
+     * @param \stdClass $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\UpdateTemplateForbiddenException
      * @throws \ChurchTools\Api2\Exception\UpdateTemplateNotFoundException
@@ -633,7 +633,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
     /**
      * A agenda can be sent to multiple people at once. Recipients can be participants of one of the events, whereby the user sending the mail MUST see the service groups, or the user can add additional recipients from the list of people the user can see. To send a mail the user MUST see the agenda.
      *
-     * @param \ChurchTools\Api2\Model\AgendasSendPostBody $requestBody 
+     * @param \ChurchTools\Api2\Model\AgendasSendPostBody $requestBody
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      * @throws \ChurchTools\Api2\Exception\SendAgendaEmailBadRequestException
      * @throws \ChurchTools\Api2\Exception\SendAgendaEmailForbiddenException
@@ -656,7 +656,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr18Client
         return $this->executePsr7Endpoint(new \ChurchTools\Api2\Endpoint\GetAllGroupTypeRoles(), $fetch);
     }
     /**
-     * 
+     *
      *
      * @param int $roleId ID of group type role
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

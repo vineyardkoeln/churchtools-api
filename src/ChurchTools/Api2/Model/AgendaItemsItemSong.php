@@ -5,55 +5,55 @@ namespace ChurchTools\Api2\Model;
 class AgendaItemsItemSong
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $songId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $arrangementId;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $title;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $arrangement;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $category;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $key;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $bpm;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $defaultArrangement;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -62,7 +62,7 @@ class AgendaItemsItemSong
         return $this->songId;
     }
     /**
-     * 
+     *
      *
      * @param int $songId
      *
@@ -74,7 +74,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -83,7 +83,7 @@ class AgendaItemsItemSong
         return $this->arrangementId;
     }
     /**
-     * 
+     *
      *
      * @param int $arrangementId
      *
@@ -95,7 +95,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class AgendaItemsItemSong
         return $this->title;
     }
     /**
-     * 
+     *
      *
      * @param string $title
      *
@@ -116,7 +116,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class AgendaItemsItemSong
         return $this->arrangement;
     }
     /**
-     * 
+     *
      *
      * @param string $arrangement
      *
@@ -137,7 +137,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class AgendaItemsItemSong
         return $this->category;
     }
     /**
-     * 
+     *
      *
      * @param string $category
      *
@@ -158,7 +158,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -167,7 +167,7 @@ class AgendaItemsItemSong
         return $this->key;
     }
     /**
-     * 
+     *
      *
      * @param string $key
      *
@@ -179,7 +179,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class AgendaItemsItemSong
         return $this->bpm;
     }
     /**
-     * 
+     *
      *
      * @param string $bpm
      *
@@ -200,7 +200,7 @@ class AgendaItemsItemSong
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class AgendaItemsItemSong
         return $this->defaultArrangement;
     }
     /**
-     * 
+     *
      *
      * @param string $defaultArrangement
      *

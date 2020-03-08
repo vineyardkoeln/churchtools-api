@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class PersonsIdRelationshipsGetResponse200DataItem
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $relationshipName;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $degreeOfRelationship;
     /**
-     * 
+     *
      *
      * @var object
      */
     protected $relative;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -32,7 +32,7 @@ class PersonsIdRelationshipsGetResponse200DataItem
         return $this->relationshipName;
     }
     /**
-     * 
+     *
      *
      * @param string $relationshipName
      *
@@ -44,7 +44,7 @@ class PersonsIdRelationshipsGetResponse200DataItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class PersonsIdRelationshipsGetResponse200DataItem
         return $this->degreeOfRelationship;
     }
     /**
-     * 
+     *
      *
      * @param string $degreeOfRelationship
      *
@@ -65,7 +65,7 @@ class PersonsIdRelationshipsGetResponse200DataItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return object
      */
@@ -74,7 +74,7 @@ class PersonsIdRelationshipsGetResponse200DataItem
         return $this->relative;
     }
     /**
-     * 
+     *
      *
      * @param object $relative
      *

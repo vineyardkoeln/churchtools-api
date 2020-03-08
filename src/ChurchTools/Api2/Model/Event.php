@@ -5,43 +5,43 @@ namespace ChurchTools\Api2\Model;
 class Event
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $description;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $startDate;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $endDate;
     /**
-     * 
+     *
      *
      * @var EventEventServicesItem[]
      */
     protected $eventServices;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -50,7 +50,7 @@ class Event
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -62,7 +62,7 @@ class Event
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class Event
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -83,7 +83,7 @@ class Event
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class Event
         return $this->description;
     }
     /**
-     * 
+     *
      *
      * @param string $description
      *
@@ -104,7 +104,7 @@ class Event
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class Event
         return $this->startDate;
     }
     /**
-     * 
+     *
      *
      * @param string $startDate
      *
@@ -125,7 +125,7 @@ class Event
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class Event
         return $this->endDate;
     }
     /**
-     * 
+     *
      *
      * @param string $endDate
      *
@@ -146,7 +146,7 @@ class Event
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return EventEventServicesItem[]
      */
@@ -155,7 +155,7 @@ class Event
         return $this->eventServices;
     }
     /**
-     * 
+     *
      *
      * @param EventEventServicesItem[] $eventServices
      *

@@ -6,7 +6,7 @@ class GetTemplateById extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 {
     protected $templateId;
     /**
-     * 
+     *
      *
      * @param int $templateId ID of appointment template
      */

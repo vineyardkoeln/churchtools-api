@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class MasterdataPersonRolesGetResponse200Meta
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $count;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -20,7 +20,7 @@ class MasterdataPersonRolesGetResponse200Meta
         return $this->count;
     }
     /**
-     * 
+     *
      *
      * @param int $count
      *

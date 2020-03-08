@@ -5,43 +5,43 @@ namespace ChurchTools\Api2\Model;
 class StatusesPostBody
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $shorty;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isMember;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isSearchable = true;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $sortKey = 10;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $securityLevelId = 1;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -50,7 +50,7 @@ class StatusesPostBody
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -62,7 +62,7 @@ class StatusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class StatusesPostBody
         return $this->shorty;
     }
     /**
-     * 
+     *
      *
      * @param string $shorty
      *
@@ -83,7 +83,7 @@ class StatusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -92,7 +92,7 @@ class StatusesPostBody
         return $this->isMember;
     }
     /**
-     * 
+     *
      *
      * @param bool $isMember
      *
@@ -104,7 +104,7 @@ class StatusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -113,7 +113,7 @@ class StatusesPostBody
         return $this->isSearchable;
     }
     /**
-     * 
+     *
      *
      * @param bool $isSearchable
      *
@@ -125,7 +125,7 @@ class StatusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -134,7 +134,7 @@ class StatusesPostBody
         return $this->sortKey;
     }
     /**
-     * 
+     *
      *
      * @param int $sortKey
      *
@@ -146,7 +146,7 @@ class StatusesPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -155,7 +155,7 @@ class StatusesPostBody
         return $this->securityLevelId;
     }
     /**
-     * 
+     *
      *
      * @param int $securityLevelId
      *

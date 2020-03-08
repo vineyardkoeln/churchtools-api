@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class EventsEventIdAgendaGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Agenda
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Agenda
      */
@@ -20,7 +20,7 @@ class EventsEventIdAgendaGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Agenda $data
      *

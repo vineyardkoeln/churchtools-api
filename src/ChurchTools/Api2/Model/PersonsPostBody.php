@@ -5,127 +5,127 @@ namespace ChurchTools\Api2\Model;
 class PersonsPostBody
 {
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $title;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $firstName;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $lastName;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $nickname;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $job;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $street;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $addressAddition;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $zip;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $city;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $country;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $phonePrivate;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $phoneWork;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $mobile;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $fax;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $birthName;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $birthday;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $birthplace;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $sexId;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $email;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $cmsUserId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
@@ -137,97 +137,97 @@ class PersonsPostBody
      */
     protected $privacyPolicyAgreement;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $nationalityId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $familyStatusId;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $weddingDate;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $campusId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $statusId;
     /**
-     * 
+     *
      *
      * @var \DateTime|null
      */
     protected $firstContact;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $dateOfBelonging;
     /**
-     * 
+     *
      *
      * @var \DateTime|null
      */
     protected $dateOfEntry;
     /**
-     * 
+     *
      *
      * @var \DateTime|null
      */
     protected $dateOfResign;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $dateOfBaptism;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $placeOfBaptism;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $baptisedBy;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $referredBy;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $referredTo;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $growPathId;
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -236,7 +236,7 @@ class PersonsPostBody
         return $this->title;
     }
     /**
-     * 
+     *
      *
      * @param string|null $title
      *
@@ -248,7 +248,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -257,7 +257,7 @@ class PersonsPostBody
         return $this->firstName;
     }
     /**
-     * 
+     *
      *
      * @param string|null $firstName
      *
@@ -269,7 +269,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -278,7 +278,7 @@ class PersonsPostBody
         return $this->lastName;
     }
     /**
-     * 
+     *
      *
      * @param string|null $lastName
      *
@@ -290,7 +290,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -299,7 +299,7 @@ class PersonsPostBody
         return $this->nickname;
     }
     /**
-     * 
+     *
      *
      * @param string|null $nickname
      *
@@ -311,7 +311,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -320,7 +320,7 @@ class PersonsPostBody
         return $this->job;
     }
     /**
-     * 
+     *
      *
      * @param string|null $job
      *
@@ -332,7 +332,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -341,7 +341,7 @@ class PersonsPostBody
         return $this->street;
     }
     /**
-     * 
+     *
      *
      * @param string|null $street
      *
@@ -353,7 +353,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -362,7 +362,7 @@ class PersonsPostBody
         return $this->addressAddition;
     }
     /**
-     * 
+     *
      *
      * @param string|null $addressAddition
      *
@@ -374,7 +374,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -383,7 +383,7 @@ class PersonsPostBody
         return $this->zip;
     }
     /**
-     * 
+     *
      *
      * @param string|null $zip
      *
@@ -395,7 +395,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -404,7 +404,7 @@ class PersonsPostBody
         return $this->city;
     }
     /**
-     * 
+     *
      *
      * @param string|null $city
      *
@@ -416,7 +416,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -425,7 +425,7 @@ class PersonsPostBody
         return $this->country;
     }
     /**
-     * 
+     *
      *
      * @param string|null $country
      *
@@ -437,7 +437,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -446,7 +446,7 @@ class PersonsPostBody
         return $this->phonePrivate;
     }
     /**
-     * 
+     *
      *
      * @param string|null $phonePrivate
      *
@@ -458,7 +458,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -467,7 +467,7 @@ class PersonsPostBody
         return $this->phoneWork;
     }
     /**
-     * 
+     *
      *
      * @param string|null $phoneWork
      *
@@ -479,7 +479,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -488,7 +488,7 @@ class PersonsPostBody
         return $this->mobile;
     }
     /**
-     * 
+     *
      *
      * @param string|null $mobile
      *
@@ -500,7 +500,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -509,7 +509,7 @@ class PersonsPostBody
         return $this->fax;
     }
     /**
-     * 
+     *
      *
      * @param string|null $fax
      *
@@ -521,7 +521,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -530,7 +530,7 @@ class PersonsPostBody
         return $this->birthName;
     }
     /**
-     * 
+     *
      *
      * @param string|null $birthName
      *
@@ -542,7 +542,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -551,7 +551,7 @@ class PersonsPostBody
         return $this->birthday;
     }
     /**
-     * 
+     *
      *
      * @param string|null $birthday
      *
@@ -563,7 +563,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -572,7 +572,7 @@ class PersonsPostBody
         return $this->birthplace;
     }
     /**
-     * 
+     *
      *
      * @param string|null $birthplace
      *
@@ -584,7 +584,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -593,7 +593,7 @@ class PersonsPostBody
         return $this->sexId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $sexId
      *
@@ -605,7 +605,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -614,7 +614,7 @@ class PersonsPostBody
         return $this->email;
     }
     /**
-     * 
+     *
      *
      * @param string|null $email
      *
@@ -626,7 +626,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -635,7 +635,7 @@ class PersonsPostBody
         return $this->cmsUserId;
     }
     /**
-     * 
+     *
      *
      * @param string|null $cmsUserId
      *
@@ -647,7 +647,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -656,7 +656,7 @@ class PersonsPostBody
         return $this->optigemId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $optigemId
      *
@@ -689,7 +689,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -698,7 +698,7 @@ class PersonsPostBody
         return $this->nationalityId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $nationalityId
      *
@@ -710,7 +710,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -719,7 +719,7 @@ class PersonsPostBody
         return $this->familyStatusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $familyStatusId
      *
@@ -731,7 +731,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -740,7 +740,7 @@ class PersonsPostBody
         return $this->weddingDate;
     }
     /**
-     * 
+     *
      *
      * @param string|null $weddingDate
      *
@@ -752,7 +752,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -761,7 +761,7 @@ class PersonsPostBody
         return $this->campusId;
     }
     /**
-     * 
+     *
      *
      * @param int $campusId
      *
@@ -773,7 +773,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -782,7 +782,7 @@ class PersonsPostBody
         return $this->statusId;
     }
     /**
-     * 
+     *
      *
      * @param int $statusId
      *
@@ -794,7 +794,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return \DateTime|null
      */
@@ -803,7 +803,7 @@ class PersonsPostBody
         return $this->firstContact;
     }
     /**
-     * 
+     *
      *
      * @param \DateTime|null $firstContact
      *
@@ -815,7 +815,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -824,7 +824,7 @@ class PersonsPostBody
         return $this->dateOfBelonging;
     }
     /**
-     * 
+     *
      *
      * @param string|null $dateOfBelonging
      *
@@ -836,7 +836,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return \DateTime|null
      */
@@ -845,7 +845,7 @@ class PersonsPostBody
         return $this->dateOfEntry;
     }
     /**
-     * 
+     *
      *
      * @param \DateTime|null $dateOfEntry
      *
@@ -857,7 +857,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return \DateTime|null
      */
@@ -866,7 +866,7 @@ class PersonsPostBody
         return $this->dateOfResign;
     }
     /**
-     * 
+     *
      *
      * @param \DateTime|null $dateOfResign
      *
@@ -878,7 +878,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -887,7 +887,7 @@ class PersonsPostBody
         return $this->dateOfBaptism;
     }
     /**
-     * 
+     *
      *
      * @param string|null $dateOfBaptism
      *
@@ -899,7 +899,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -908,7 +908,7 @@ class PersonsPostBody
         return $this->placeOfBaptism;
     }
     /**
-     * 
+     *
      *
      * @param string|null $placeOfBaptism
      *
@@ -920,7 +920,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -929,7 +929,7 @@ class PersonsPostBody
         return $this->baptisedBy;
     }
     /**
-     * 
+     *
      *
      * @param string|null $baptisedBy
      *
@@ -941,7 +941,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -950,7 +950,7 @@ class PersonsPostBody
         return $this->referredBy;
     }
     /**
-     * 
+     *
      *
      * @param string|null $referredBy
      *
@@ -962,7 +962,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -971,7 +971,7 @@ class PersonsPostBody
         return $this->referredTo;
     }
     /**
-     * 
+     *
      *
      * @param string|null $referredTo
      *
@@ -983,7 +983,7 @@ class PersonsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -992,7 +992,7 @@ class PersonsPostBody
         return $this->growPathId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $growPathId
      *

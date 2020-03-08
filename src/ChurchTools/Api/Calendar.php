@@ -41,31 +41,44 @@ class Calendar extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id                = intval($blockData);
+            case 'id':
+                $this->id                = intval($blockData);
                 break;
-            case 'bezeichnung': $this->name              = $blockData;
+            case 'bezeichnung':
+                $this->name              = $blockData;
                 break;
-            case 'sortkey': $this->sortkey           = intval($blockData);
+            case 'sortkey':
+                $this->sortkey           = intval($blockData);
                 break;
-            case 'color': $this->color             = $blockData;
+            case 'color':
+                $this->color             = $blockData;
                 break;
-            case 'oeffentlich_yn': $this->calendar_public   = $blockData == "1";
+            case 'oeffentlich_yn':
+                $this->calendar_public   = $blockData == "1";
                 break;
-            case 'privat_yn': $this->calendar_private  = $blockData == "1";
+            case 'privat_yn':
+                $this->calendar_private  = $blockData == "1";
                 break;
-            case 'randomurl': $this->random_url        = $blockData;
+            case 'randomurl':
+                $this->random_url        = $blockData;
                 break;
-            case 'ical_source_url': $this->ical_source_url   = $blockData;
+            case 'ical_source_url':
+                $this->ical_source_url   = $blockData;
                 break;
-            case 'station_id': $this->station_id        = intval($blockData);
+            case 'station_id':
+                $this->station_id        = intval($blockData);
                 break;
-            case 'modified_date': $this->modified_date     = new DateTime($blockData);
+            case 'modified_date':
+                $this->modified_date     = new DateTime($blockData);
                 break;
-            case 'modified_pid': $this->modified_pid      = intval($blockData);
+            case 'modified_pid':
+                $this->modified_pid      = intval($blockData);
                 break;
-            case 'event_template_id': $this->event_template_id = intval($blockData);
+            case 'event_template_id':
+                $this->event_template_id = intval($blockData);
                 break;
-            case 'textColor': $this->textColor         = $blockData;
+            case 'textColor':
+                $this->textColor         = $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -153,7 +166,7 @@ class Calendar extends CTObject
     }
 
     /**
-     * 
+     *
      * @return date calendar last modified at
      */
     public function getModifiedDate(): ?\DateTime
@@ -162,7 +175,7 @@ class Calendar extends CTObject
     }
 
     /**
-     * 
+     *
      * @return date calendar last modified by person ID
      */
     public function getModifiedByPID(): ?int

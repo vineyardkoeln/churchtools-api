@@ -5,9 +5,9 @@ namespace ChurchTools\Api2\Endpoint;
 class GetPersonProperties extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\PersonsPropertiesPostBody $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\PersonsPropertiesPostBody $requestBody
      */
     public function __construct(\ChurchTools\Api2\Model\PersonsPropertiesPostBody $requestBody)
     {

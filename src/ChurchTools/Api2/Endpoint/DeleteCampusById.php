@@ -6,7 +6,7 @@ class DeleteCampusById extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 {
     protected $id;
     /**
-     * 
+     *
      *
      * @param int $id ID of campus
      */

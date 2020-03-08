@@ -11,7 +11,7 @@ namespace ChurchTools\Tools;
  *
  * @author a.schild
  */
-class Api2JsonDecoder extends \Symfony\Component\Serializer\Encoder\JsonDecode  implements \Symfony\Component\Serializer\Encoder\DecoderInterface 
+class Api2JsonDecoder extends \Symfony\Component\Serializer\Encoder\JsonDecode implements \Symfony\Component\Serializer\Encoder\DecoderInterface
 {
     
     /**
@@ -29,14 +29,14 @@ class Api2JsonDecoder extends \Symfony\Component\Serializer\Encoder\JsonDecode  
      * @throws NotEncodableValueException
      *
      * @see https://php.net/json_decode
-     */     
-    public function decode($data, $format, array $context = []) {
+     */
+    public function decode($data, $format, array $context = [])
+    {
         $childData= $data;
         $toReplace= "\"privacyPolicyAgreement\":[]";
         $toReplaceWith= "\"privacyPolicyAgreement\":{}";
         
-        if (strpos($data, $toReplace))
-        {
+        if (strpos($data, $toReplace)) {
             $childData= str_replace($toReplace, $toReplaceWith, $data);
         }
         return parent::decode($childData, $format, $context);

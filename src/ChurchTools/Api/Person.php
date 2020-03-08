@@ -34,17 +34,23 @@ class Person extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'p_id': $this->id         = intval($blockData);
+            case 'p_id':
+                $this->id         = intval($blockData);
                 break;
-            case 'name': $this->lastName       = $blockData;
+            case 'name':
+                $this->lastName       = $blockData;
                 break;
-            case 'vorname': $this->firstName       = $blockData;
+            case 'vorname':
+                $this->firstName       = $blockData;
                 break;
-            case 'em': $this->email        = intval($blockData);
+            case 'em':
+                $this->email        = intval($blockData);
                 break;
-            case 'active_yn': $this->active        = $blockData == "1";
+            case 'active_yn':
+                $this->active        = $blockData == "1";
                 break;
-            case "groupmembers": $this->groupMemberShip= $blockData;
+            case "groupmembers":
+                $this->groupMemberShip= $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);

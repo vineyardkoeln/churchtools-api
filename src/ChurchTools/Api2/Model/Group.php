@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class Group
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -23,31 +23,31 @@ class Group
      */
     protected $securityLevelForGroup;
     /**
-     * 
+     *
      *
      * @var GroupInformation
      */
     protected $information;
     /**
-     * 
+     *
      *
      * @var GroupSettings
      */
     protected $settings;
     /**
-     * 
+     *
      *
      * @var GroupFollowUp
      */
     protected $followUp;
     /**
-     * 
+     *
      *
      * @var GroupRolesItem[]
      */
     protected $roles;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class Group
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -68,7 +68,7 @@ class Group
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class Group
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -110,7 +110,7 @@ class Group
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return GroupInformation
      */
@@ -119,7 +119,7 @@ class Group
         return $this->information;
     }
     /**
-     * 
+     *
      *
      * @param GroupInformation $information
      *
@@ -131,7 +131,7 @@ class Group
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return GroupSettings
      */
@@ -140,7 +140,7 @@ class Group
         return $this->settings;
     }
     /**
-     * 
+     *
      *
      * @param GroupSettings $settings
      *
@@ -152,7 +152,7 @@ class Group
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return GroupFollowUp
      */
@@ -161,7 +161,7 @@ class Group
         return $this->followUp;
     }
     /**
-     * 
+     *
      *
      * @param GroupFollowUp $followUp
      *
@@ -173,7 +173,7 @@ class Group
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return GroupRolesItem[]
      */
@@ -182,7 +182,7 @@ class Group
         return $this->roles;
     }
     /**
-     * 
+     *
      *
      * @param GroupRolesItem[] $roles
      *

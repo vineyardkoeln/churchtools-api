@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class LogsGetResponse200Meta
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $count;
     /**
-     * 
+     *
      *
      * @var LogsGetResponse200MetaPagination
      */
     protected $pagination;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -26,7 +26,7 @@ class LogsGetResponse200Meta
         return $this->count;
     }
     /**
-     * 
+     *
      *
      * @param int $count
      *
@@ -38,7 +38,7 @@ class LogsGetResponse200Meta
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return LogsGetResponse200MetaPagination
      */
@@ -47,7 +47,7 @@ class LogsGetResponse200Meta
         return $this->pagination;
     }
     /**
-     * 
+     *
      *
      * @param LogsGetResponse200MetaPagination $pagination
      *

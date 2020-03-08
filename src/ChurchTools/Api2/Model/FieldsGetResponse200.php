@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class FieldsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var FieldsGetResponse200DataItem[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var FieldsGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return FieldsGetResponse200DataItem[]
      */
@@ -26,7 +26,7 @@ class FieldsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param FieldsGetResponse200DataItem[] $data
      *
@@ -38,7 +38,7 @@ class FieldsGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return FieldsGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class FieldsGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param FieldsGetResponse200Meta $meta
      *

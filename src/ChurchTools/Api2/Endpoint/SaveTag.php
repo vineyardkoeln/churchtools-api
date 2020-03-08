@@ -5,9 +5,9 @@ namespace ChurchTools\Api2\Endpoint;
 class SaveTag extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\TagsPostBody $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\TagsPostBody $requestBody
      */
     public function __construct(\ChurchTools\Api2\Model\TagsPostBody $requestBody)
     {

@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class AppointmentTemplate
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $title;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $comment;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -35,55 +35,55 @@ class AppointmentTemplate
      */
     protected $duration;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $allDay;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $note;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isInternal;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $categoryId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $repeatId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $repeatFrequence;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $repeatOptionId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $repeatDuration;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -92,7 +92,7 @@ class AppointmentTemplate
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -104,7 +104,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class AppointmentTemplate
         return $this->title;
     }
     /**
-     * 
+     *
      *
      * @param string $title
      *
@@ -125,7 +125,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class AppointmentTemplate
         return $this->comment;
     }
     /**
-     * 
+     *
      *
      * @param string $comment
      *
@@ -146,7 +146,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class AppointmentTemplate
         return $this->startTime;
     }
     /**
-     * 
+     *
      *
      * @param string $startTime
      *
@@ -188,7 +188,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -197,7 +197,7 @@ class AppointmentTemplate
         return $this->allDay;
     }
     /**
-     * 
+     *
      *
      * @param bool $allDay
      *
@@ -209,7 +209,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -218,7 +218,7 @@ class AppointmentTemplate
         return $this->note;
     }
     /**
-     * 
+     *
      *
      * @param string $note
      *
@@ -230,7 +230,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -239,7 +239,7 @@ class AppointmentTemplate
         return $this->isInternal;
     }
     /**
-     * 
+     *
      *
      * @param bool $isInternal
      *
@@ -251,7 +251,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -260,7 +260,7 @@ class AppointmentTemplate
         return $this->categoryId;
     }
     /**
-     * 
+     *
      *
      * @param int $categoryId
      *
@@ -272,7 +272,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -281,7 +281,7 @@ class AppointmentTemplate
         return $this->repeatId;
     }
     /**
-     * 
+     *
      *
      * @param int $repeatId
      *
@@ -293,7 +293,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -302,7 +302,7 @@ class AppointmentTemplate
         return $this->repeatFrequence;
     }
     /**
-     * 
+     *
      *
      * @param int $repeatFrequence
      *
@@ -314,7 +314,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -323,7 +323,7 @@ class AppointmentTemplate
         return $this->repeatOptionId;
     }
     /**
-     * 
+     *
      *
      * @param int $repeatOptionId
      *
@@ -335,7 +335,7 @@ class AppointmentTemplate
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -344,7 +344,7 @@ class AppointmentTemplate
         return $this->repeatDuration;
     }
     /**
-     * 
+     *
      *
      * @param int $repeatDuration
      *

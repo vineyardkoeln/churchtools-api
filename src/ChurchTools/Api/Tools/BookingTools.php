@@ -20,25 +20,30 @@ class BookingTools
      *
      */
 
-    public static function filterBookingEntries(array $bookingEntries,
-                                                 int $startDate, int $endDate,
-            bool $includeConfirmed= true, bool $includeWaitingConfirmation= false, 
-            bool $includeRejected= false, bool $includeDeleted= false
-            ): array
-    {
-        $retVal = array_filter($bookingEntries,
-            function($entry) use ($startDate, $endDate, $includeConfirmed, $includeWaitingConfirmation, $includeRejected, $includeDeleted) {
-            return (
+    public static function filterBookingEntries(
+        array $bookingEntries,
+        int $startDate,
+        int $endDate,
+        bool $includeConfirmed = true,
+        bool $includeWaitingConfirmation = false,
+        bool $includeRejected = false,
+        bool $includeDeleted = false
+    ): array {
+        $retVal = array_filter(
+            $bookingEntries,
+            function ($entry) use ($startDate, $endDate, $includeConfirmed, $includeWaitingConfirmation, $includeRejected, $includeDeleted) {
+                return (
                     $includeConfirmed && $entry->isConfirmed() ||
                     $includeWaitingConfirmation && $entry->isWaitingConfirmation() ||
                     $includeRejected && $entry->isRejected() ||
                     $includeDeleted && $entry->isDeleted()
                     )
-            &&
-                ($entry->getStartDate()->getTimestamp() <= $endDate && 
+                &&
+                ($entry->getStartDate()->getTimestamp() <= $endDate &&
                  ($entry->getStartDate()->getTimestamp() >= $startDate ||
                  ($entry->getEndDate()->getTimestamp() >= $startDate))) ;
-        });
+            }
+        );
         return $retVal;
     }
 
@@ -50,17 +55,20 @@ class BookingTools
      *
      * @return array the sorted array
      */
-    public static function sortBookingEntries(array $bookingEntries,
-                                               bool $sortAscending = true): array
-    {
-        usort($bookingEntries,
-            function ($a, $b) use($sortAscending): bool {
-            if ($sortAscending) {
-                return $a->getStartDate()->getTimestamp() > $b->getStartDate()->getTimestamp();
-            } else {
-                return $a->getStartDate()->getTimestamp() < $b->getStartDate()->getTimestamp();
+    public static function sortBookingEntries(
+        array $bookingEntries,
+        bool $sortAscending = true
+    ): array {
+        usort(
+            $bookingEntries,
+            function ($a, $b) use ($sortAscending): bool {
+                if ($sortAscending) {
+                    return $a->getStartDate()->getTimestamp() > $b->getStartDate()->getTimestamp();
+                } else {
+                    return $a->getStartDate()->getTimestamp() < $b->getStartDate()->getTimestamp();
+                }
             }
-        });
+        );
         return $bookingEntries;
     }
 }

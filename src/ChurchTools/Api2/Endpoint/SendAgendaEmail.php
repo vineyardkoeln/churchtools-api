@@ -7,7 +7,7 @@ class SendAgendaEmail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * A agenda can be sent to multiple people at once. Recipients can be participants of one of the events, whereby the user sending the mail MUST see the service groups, or the user can add additional recipients from the list of people the user can see. To send a mail the user MUST see the agenda.
      *
-     * @param \ChurchTools\Api2\Model\AgendasSendPostBody $requestBody 
+     * @param \ChurchTools\Api2\Model\AgendasSendPostBody $requestBody
      */
     public function __construct(\ChurchTools\Api2\Model\AgendasSendPostBody $requestBody)
     {

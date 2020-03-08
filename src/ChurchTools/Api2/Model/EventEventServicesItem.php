@@ -5,67 +5,67 @@ namespace ChurchTools\Api2\Model;
 class EventEventServicesItem
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var object
      */
     protected $person;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $serviceId;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $agreed;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isValid;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $requestedDate;
     /**
-     * 
+     *
      *
      * @var object
      */
     protected $requesterPerson;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $comment;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $counter;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -74,7 +74,7 @@ class EventEventServicesItem
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -86,7 +86,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return object
      */
@@ -95,7 +95,7 @@ class EventEventServicesItem
         return $this->person;
     }
     /**
-     * 
+     *
      *
      * @param object $person
      *
@@ -107,7 +107,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class EventEventServicesItem
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -128,7 +128,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -137,7 +137,7 @@ class EventEventServicesItem
         return $this->serviceId;
     }
     /**
-     * 
+     *
      *
      * @param int $serviceId
      *
@@ -149,7 +149,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -158,7 +158,7 @@ class EventEventServicesItem
         return $this->agreed;
     }
     /**
-     * 
+     *
      *
      * @param bool $agreed
      *
@@ -170,7 +170,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -179,7 +179,7 @@ class EventEventServicesItem
         return $this->isValid;
     }
     /**
-     * 
+     *
      *
      * @param bool $isValid
      *
@@ -191,7 +191,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -200,7 +200,7 @@ class EventEventServicesItem
         return $this->requestedDate;
     }
     /**
-     * 
+     *
      *
      * @param string $requestedDate
      *
@@ -212,7 +212,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return object
      */
@@ -221,7 +221,7 @@ class EventEventServicesItem
         return $this->requesterPerson;
     }
     /**
-     * 
+     *
      *
      * @param object $requesterPerson
      *
@@ -233,7 +233,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -242,7 +242,7 @@ class EventEventServicesItem
         return $this->comment;
     }
     /**
-     * 
+     *
      *
      * @param string $comment
      *
@@ -254,7 +254,7 @@ class EventEventServicesItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -263,7 +263,7 @@ class EventEventServicesItem
         return $this->counter;
     }
     /**
-     * 
+     *
      *
      * @param int $counter
      *

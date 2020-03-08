@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class CampusesPostResponse201
 {
     /**
-     * 
+     *
      *
      * @var Campus
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var CampusesPostResponse201Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Campus
      */
@@ -26,7 +26,7 @@ class CampusesPostResponse201
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Campus $data
      *
@@ -38,7 +38,7 @@ class CampusesPostResponse201
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return CampusesPostResponse201Meta
      */
@@ -47,7 +47,7 @@ class CampusesPostResponse201
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param CampusesPostResponse201Meta $meta
      *

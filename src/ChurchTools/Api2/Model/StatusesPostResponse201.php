@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class StatusesPostResponse201
 {
     /**
-     * 
+     *
      *
      * @var Status
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var StatusesPostResponse201Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Status
      */
@@ -26,7 +26,7 @@ class StatusesPostResponse201
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Status $data
      *
@@ -38,7 +38,7 @@ class StatusesPostResponse201
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return StatusesPostResponse201Meta
      */
@@ -47,7 +47,7 @@ class StatusesPostResponse201
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param StatusesPostResponse201Meta $meta
      *

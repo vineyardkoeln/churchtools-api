@@ -5,37 +5,37 @@ namespace ChurchTools\Api2\Model;
 class GroupMember
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $personId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $roleId;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $comment;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $memberStartDate;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $memberEndDate;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -44,7 +44,7 @@ class GroupMember
         return $this->personId;
     }
     /**
-     * 
+     *
      *
      * @param int $personId
      *
@@ -56,7 +56,7 @@ class GroupMember
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class GroupMember
         return $this->roleId;
     }
     /**
-     * 
+     *
      *
      * @param int $roleId
      *
@@ -77,7 +77,7 @@ class GroupMember
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class GroupMember
         return $this->comment;
     }
     /**
-     * 
+     *
      *
      * @param string $comment
      *
@@ -98,7 +98,7 @@ class GroupMember
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class GroupMember
         return $this->memberStartDate;
     }
     /**
-     * 
+     *
      *
      * @param string $memberStartDate
      *
@@ -119,7 +119,7 @@ class GroupMember
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -128,7 +128,7 @@ class GroupMember
         return $this->memberEndDate;
     }
     /**
-     * 
+     *
      *
      * @param string|null $memberEndDate
      *

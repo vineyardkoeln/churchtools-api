@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class MasterdataPersonRolesRoleIdGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Role
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Role
      */
@@ -20,7 +20,7 @@ class MasterdataPersonRolesRoleIdGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Role $data
      *

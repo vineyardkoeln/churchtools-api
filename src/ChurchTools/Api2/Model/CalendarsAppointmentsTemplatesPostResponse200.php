@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class CalendarsAppointmentsTemplatesPostResponse200
 {
     /**
-     * 
+     *
      *
      * @var AppointmentTemplate[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return AppointmentTemplate[]
      */
@@ -20,7 +20,7 @@ class CalendarsAppointmentsTemplatesPostResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param AppointmentTemplate[] $data
      *

@@ -20,15 +20,19 @@ class CalendarTools
      *
      */
 
-    public static function filterCalendarEntries(array $calendarEntries,
-                                                 int $startDate, int $endDate): array
-    {
-        $retVal = array_filter($calendarEntries,
-            function($entry) use ($startDate, $endDate) {
-            return $entry->getStartDate()->getTimestamp() <= $endDate && 
+    public static function filterCalendarEntries(
+        array $calendarEntries,
+        int $startDate,
+        int $endDate
+    ): array {
+        $retVal = array_filter(
+            $calendarEntries,
+            function ($entry) use ($startDate, $endDate) {
+                return $entry->getStartDate()->getTimestamp() <= $endDate &&
                 ($entry->getStartDate()->getTimestamp() >= $startDate ||
                 ($entry->getEndDate()->getTimestamp() >= $startDate)) ;
-        });
+            }
+        );
         return $retVal;
     }
 
@@ -40,17 +44,20 @@ class CalendarTools
      *
      * @return array the sorted array
      */
-    public static function sortCalendarEntries(array $calendarEntries,
-                                               bool $sortAscending = true): array
-    {
-        usort($calendarEntries,
-            function ($a, $b) use($sortAscending): bool {
-            if ($sortAscending) {
-                return $a->getStartDate()->getTimestamp() > $b->getStartDate()->getTimestamp();
-            } else {
-                return $a->getStartDate()->getTimestamp() < $b->getStartDate()->getTimestamp();
+    public static function sortCalendarEntries(
+        array $calendarEntries,
+        bool $sortAscending = true
+    ): array {
+        usort(
+            $calendarEntries,
+            function ($a, $b) use ($sortAscending): bool {
+                if ($sortAscending) {
+                    return $a->getStartDate()->getTimestamp() > $b->getStartDate()->getTimestamp();
+                } else {
+                    return $a->getStartDate()->getTimestamp() < $b->getStartDate()->getTimestamp();
+                }
             }
-        });
+        );
         return $calendarEntries;
     }
 }

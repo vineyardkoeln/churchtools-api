@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class PersonPrivacyPolicyAgreement
 {
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $date;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $typeId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $whoId;
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -32,7 +32,7 @@ class PersonPrivacyPolicyAgreement
         return $this->date;
     }
     /**
-     * 
+     *
      *
      * @param string|null $date
      *
@@ -44,7 +44,7 @@ class PersonPrivacyPolicyAgreement
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -53,7 +53,7 @@ class PersonPrivacyPolicyAgreement
         return $this->typeId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $typeId
      *
@@ -65,7 +65,7 @@ class PersonPrivacyPolicyAgreement
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -74,7 +74,7 @@ class PersonPrivacyPolicyAgreement
         return $this->whoId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $whoId
      *

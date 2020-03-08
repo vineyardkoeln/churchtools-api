@@ -25,7 +25,7 @@ abstract class CTObject
 
     /**
      * Parses the rewData arrays and constructs the object tree as far as possible
-     * 
+     *
      * @param array $rawData        Raw array data as received from the server
      * @param bool $hasDataBlock    Is the data located in the ["data"] array element, or can be access directly, default true
      *
@@ -66,7 +66,7 @@ abstract class CTObject
     }
 
     /**
-     * 
+     *
      * @return array all unparsed data blocks
      */
     public function getUnparsedDataBlocks(): array
@@ -75,7 +75,7 @@ abstract class CTObject
     }
 
     /**
-     * 
+     *
      * @param string $blockName name of block to return
      * @return array containing the raw data as returned from the api call
      */
@@ -86,7 +86,7 @@ abstract class CTObject
 
     /**
      * Parse and convert a timestamp returned from the CT server into a \DateTime object
-     * 
+     *
      * @param string|null $stringData date+time to be parsed into a \DateTime object
      * @return \DateTime|null date+time of entry, or null when empty
      */
@@ -103,26 +103,28 @@ abstract class CTObject
      * Check if this is a full day event
      * Since we don't receive a flag to detect full day events, we need to check if
      * both start+end times are 00:00:00, then it's a full day event
-     * 
+     *
      * @param DateTime $startDateTime
      * @param DateTime $endDateTime
      * @return boolean true when it's a full day event
      */
-    protected function isFullDayEvent(DateTime $startDateTime, DateTime $endDateTime): bool {
+    protected function isFullDayEvent(DateTime $startDateTime, DateTime $endDateTime): bool
+    {
         return $startDateTime->format("H:i:s") == "00:00:00" && $endDateTime->format("H:i:s") == "00:00:00";
     }
-    
+
     /**
      * Set the end time of the event to the end of day.
      * Is used to expand the end time of full day events to 23:59:59 of the last day
-     * 
+     *
      * @param DateTime $endDateTime
      * @return boolean true when it's a full day event
      */
-    protected function makeFullDayEvent(DateTime $endDateTime): DateTime {
+    protected function makeFullDayEvent(DateTime $endDateTime): DateTime
+    {
         return $endDateTime->setTime(23, 59, 59);
     }
-    
+
     /**
      * The CT api sometimes returns the list of adminusers as a comma separated
      * string. For example "1, 23, 33"

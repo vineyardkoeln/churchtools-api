@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class TagsPostBody
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -26,7 +26,7 @@ class TagsPostBody
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -38,7 +38,7 @@ class TagsPostBody
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -47,7 +47,7 @@ class TagsPostBody
         return $this->type;
     }
     /**
-     * 
+     *
      *
      * @param string $type
      *

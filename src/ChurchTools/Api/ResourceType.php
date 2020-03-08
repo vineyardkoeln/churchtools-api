@@ -31,13 +31,17 @@ class ResourceType extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'sortkey': $this->sortKey    = intval($blockData);
+            case 'sortkey':
+                $this->sortKey    = intval($blockData);
                 break;
-            case 'bezeichnung': $this->description   = $blockData;
+            case 'bezeichnung':
+                $this->description   = $blockData;
                 break;
-            case 'station_id': $this->stationId = intval($blockData);
+            case 'station_id':
+                $this->stationId = intval($blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -53,7 +57,7 @@ class ResourceType extends CTObject
     }
 
     /**
-     * 
+     *
      * @return int sortkey of resource type entry
      */
     public function getSortKey(): int
@@ -62,9 +66,9 @@ class ResourceType extends CTObject
     }
     
     /**
-     * 
+     *
      * @return string Description of this resource type
-     * 
+     *
      */
     public function getDescription(): string
     {
@@ -72,7 +76,7 @@ class ResourceType extends CTObject
     }
     
     /**
-     * 
+     *
      * @return int Station id of this resource type
      */
     public function getStationId(): ?int

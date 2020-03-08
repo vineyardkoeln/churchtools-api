@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class GroupSettingsNewMember
 {
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $campusId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $statusId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $departmentId;
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -32,7 +32,7 @@ class GroupSettingsNewMember
         return $this->campusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $campusId
      *
@@ -44,7 +44,7 @@ class GroupSettingsNewMember
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -53,7 +53,7 @@ class GroupSettingsNewMember
         return $this->statusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $statusId
      *
@@ -65,7 +65,7 @@ class GroupSettingsNewMember
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -74,7 +74,7 @@ class GroupSettingsNewMember
         return $this->departmentId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $departmentId
      *

@@ -38,27 +38,38 @@ class Resource extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'resourcetype_id': $this->resourcetype_id    = intval($blockData);
+            case 'resourcetype_id':
+                $this->resourcetype_id    = intval($blockData);
                 break;
-            case 'sortkey': $this->sortkey   = intval($blockData);
+            case 'sortkey':
+                $this->sortkey   = intval($blockData);
                 break;
-            case 'bezeichnung': $this->bezeichnung = $blockData;
+            case 'bezeichnung':
+                $this->bezeichnung = $blockData;
                 break;
-            case 'location': $this->location   = $blockData;
+            case 'location':
+                $this->location   = $blockData;
                 break;
-            case 'ical_location': $this->ical_location   = $blockData;
+            case 'ical_location':
+                $this->ical_location   = $blockData;
                 break;
-            case 'autoaccept_yn': $this->autoaccept_yn       = $blockData == "1";
+            case 'autoaccept_yn':
+                $this->autoaccept_yn       = $blockData == "1";
                 break;
-            case 'bookingrequirescalendarentry_yn': $this->bookingrequirescalendarenry_yn       = $blockData == "1";
+            case 'bookingrequirescalendarentry_yn':
+                $this->bookingrequirescalendarenry_yn       = $blockData == "1";
                 break;
-            case 'admin_person_ids': $this->adminPersonIds= $this->parseAdminIDS($blockData);
+            case 'admin_person_ids':
+                $this->adminPersonIds= $this->parseAdminIDS($blockData);
                 break;
-            case 'virtual_yn': $this->virtual_yn       = $blockData == "1";
+            case 'virtual_yn':
+                $this->virtual_yn       = $blockData == "1";
                 break;
-            case 'randomurl': $this->randomURL       = $blockData;
+            case 'randomurl':
+                $this->randomURL       = $blockData;
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -82,9 +93,9 @@ class Resource extends CTObject
     }
 
     /**
-     * 
+     *
      * @return int sort order of resource
-     * 
+     *
      */
     public function getSortKey(): int
     {
@@ -92,7 +103,7 @@ class Resource extends CTObject
     }
 
     /**
-     * 
+     *
      * @return string name of resource
      */
     public function getDescription(): string
@@ -117,7 +128,7 @@ class Resource extends CTObject
     }
 
     /**
-     * 
+     *
      * @return boolean auto accept new bookings
      */
     public function getAutoAccept(): boolean
@@ -126,7 +137,7 @@ class Resource extends CTObject
     }
 
     /**
-     * 
+     *
      * @return boolean booking requires a associated calendar entry
      */
     public function getBookingRequiresCalendarEntry(): boolean
@@ -135,7 +146,7 @@ class Resource extends CTObject
     }
     
     /**
-     * 
+     *
      * @return boolean true if it's a virtual resource
      */
     public function getVirtual(): boolean
@@ -149,12 +160,11 @@ class Resource extends CTObject
     }
     
     /**
-     * 
+     *
      * @return string random URL string
      */
     public function getRandomUrl(): string
     {
         return $this->randomURL;
     }
-    
 }

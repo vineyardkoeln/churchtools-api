@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class CampusesIdGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Campus
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Campus
      */
@@ -20,7 +20,7 @@ class CampusesIdGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Campus $data
      *

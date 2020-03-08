@@ -5,43 +5,43 @@ namespace ChurchTools\Api2\Model;
 class ServiceGroup
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $name;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $sortKey;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $viewAll;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $campusId;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $onlyVisibleInCampusFilter;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -50,7 +50,7 @@ class ServiceGroup
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -62,7 +62,7 @@ class ServiceGroup
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class ServiceGroup
         return $this->name;
     }
     /**
-     * 
+     *
      *
      * @param string $name
      *
@@ -83,7 +83,7 @@ class ServiceGroup
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -92,7 +92,7 @@ class ServiceGroup
         return $this->sortKey;
     }
     /**
-     * 
+     *
      *
      * @param int $sortKey
      *
@@ -104,7 +104,7 @@ class ServiceGroup
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -113,7 +113,7 @@ class ServiceGroup
         return $this->viewAll;
     }
     /**
-     * 
+     *
      *
      * @param bool $viewAll
      *
@@ -125,7 +125,7 @@ class ServiceGroup
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -134,7 +134,7 @@ class ServiceGroup
         return $this->campusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $campusId
      *
@@ -146,7 +146,7 @@ class ServiceGroup
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -155,7 +155,7 @@ class ServiceGroup
         return $this->onlyVisibleInCampusFilter;
     }
     /**
-     * 
+     *
      *
      * @param bool $onlyVisibleInCampusFilter
      *

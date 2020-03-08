@@ -43,37 +43,53 @@ class Booking extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'minpre': $this->preTime    = intval($blockData);
+            case 'minpre':
+                $this->preTime    = intval($blockData);
                 break;
-            case 'minpost': $this->postTime   = intval($blockData);
+            case 'minpost':
+                $this->postTime   = intval($blockData);
                 break;
-            case 'resource_id': $this->resourceID = intval($blockData);
+            case 'resource_id':
+                $this->resourceID = intval($blockData);
                 break;
-            case 'status_id': $this->statusID   = intval($blockData);
+            case 'status_id':
+                $this->statusID   = intval($blockData);
                 break;
-            case 'person_id': $this->personID = intval($blockData);
+            case 'person_id':
+                $this->personID = intval($blockData);
                 break;
-            case 'location': $this->location   = $blockData;
+            case 'location':
+                $this->location   = $blockData;
                 break;
-            case 'note': $this->remarks       = $blockData;
+            case 'note':
+                $this->remarks       = $blockData;
                 break;
-            case 'text': $this->title       = $blockData;
+            case 'text':
+                $this->title       = $blockData;
                 break;
-            case 'version': $this->version       = $blockData;
+            case 'version':
+                $this->version       = $blockData;
                 break;
-            case 'startdate': $this->startDate    = $this->parseDateTime($blockData);
+            case 'startdate':
+                $this->startDate    = $this->parseDateTime($blockData);
                 break;
-            case 'enddate': $this->endDate      = $this->parseDateTime($blockData);
+            case 'enddate':
+                $this->endDate      = $this->parseDateTime($blockData);
                 break;
-            case 'create_date': $this->createDate    = $this->parseDateTime($blockData);
+            case 'create_date':
+                $this->createDate    = $this->parseDateTime($blockData);
                 break;
-            case 'modified_date': $this->modifiedDate      = $this->parseDateTime($blockData);
+            case 'modified_date':
+                $this->modifiedDate      = $this->parseDateTime($blockData);
                 break;
-            case 'cc_cal_id': $this->calendarEntryID      = intval($blockData);
+            case 'cc_cal_id':
+                $this->calendarEntryID      = intval($blockData);
                 break;
-            case 'category_id': $this->calendarID      = intval($blockData);
+            case 'category_id':
+                $this->calendarID      = intval($blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -189,5 +205,4 @@ class Booking extends CTObject
     {
         return $this->calendarID;
     }
-
 }

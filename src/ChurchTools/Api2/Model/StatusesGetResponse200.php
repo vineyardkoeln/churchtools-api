@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class StatusesGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Status[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var StatusesGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Status[]
      */
@@ -26,7 +26,7 @@ class StatusesGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Status[] $data
      *
@@ -38,7 +38,7 @@ class StatusesGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return StatusesGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class StatusesGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param StatusesGetResponse200Meta $meta
      *

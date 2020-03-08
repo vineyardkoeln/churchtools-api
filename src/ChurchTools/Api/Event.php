@@ -41,47 +41,68 @@ class Event extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id                = intval($blockData);
+            case 'id':
+                $this->id                = intval($blockData);
                 break;
-            case 'startdate': $this->startDate         = $this->parseDateTime($blockData);
+            case 'startdate':
+                $this->startDate         = $this->parseDateTime($blockData);
                 break;
-            case 'enddate': $this->endDate           = $this->parseDateTime($blockData);
+            case 'enddate':
+                $this->endDate           = $this->parseDateTime($blockData);
                 break;
-            case 'valid_yn': $this->isValid           = $blockData == "1";
+            case 'valid_yn':
+                $this->isValid           = $blockData == "1";
                 break;
-            case 'cal_startdate': $this->calendarStartDate = $this->parseDateTime($blockData);
+            case 'cal_startdate':
+                $this->calendarStartDate = $this->parseDateTime($blockData);
                 break;
-            case 'cal_enddate': $this->calendarEndDate   = $this->parseDateTime($blockData);
+            case 'cal_enddate':
+                $this->calendarEndDate   = $this->parseDateTime($blockData);
                 break;
-            case 'cc_cal_id': $this->cc_cal_id         = intval($blockData);
+            case 'cc_cal_id':
+                $this->cc_cal_id         = intval($blockData);
                 break;
-            case 'bezeichnung': $this->title             = $blockData;
+            case 'bezeichnung':
+                $this->title             = $blockData;
                 break;
-            case 'special': $this->moreInfos         = $blockData;
+            case 'special':
+                $this->moreInfos         = $blockData;
                 break;
-            case 'category_id': $this->calendarID        = intval($blockData);
+            case 'category_id':
+                $this->calendarID        = intval($blockData);
                 break;
-            case 'repeat_id': $this->repeatID          = intval($blockData);
+            case 'repeat_id':
+                $this->repeatID          = intval($blockData);
                 break;
-            case 'repeat_until': $this->repeatUntil       = new DateTime($blockData);
+            case 'repeat_until':
+                $this->repeatUntil       = new DateTime($blockData);
                 break;
-            case 'repeat_frequence': $this->repeatFrequence   = intval($blockData);
+            case 'repeat_frequence':
+                $this->repeatFrequence   = intval($blockData);
                 break;
-            case 'repeat_option_id': $this->repeatOptionID    = intval($blockData);
+            case 'repeat_option_id':
+                $this->repeatOptionID    = intval($blockData);
                 break;
-            case 'intern_yn': $this->isInternal        = $blockData == '1';
+            case 'intern_yn':
+                $this->isInternal        = $blockData == '1';
                 break;
-            case 'notizen': $this->remarks           = $blockData;
+            case 'notizen':
+                $this->remarks           = $blockData;
                 break;
-            case 'ort': $this->location          = $blockData;
+            case 'ort':
+                $this->location          = $blockData;
                 break;
-            case 'link': $this->link              = $blockData;
+            case 'link':
+                $this->link              = $blockData;
                 break;
-            case 'datediff': $this->dateDiff          = intval($blockData);
+            case 'datediff':
+                $this->dateDiff          = intval($blockData);
                 break;
-            case 'agenda': $this->isAgenda          = $blockData == '1';
+            case 'agenda':
+                $this->isAgenda          = $blockData == '1';
                 break;
-            case 'admin' : $this->adminIDS          = $this->parseAdminIDS($blockData);
+            case 'admin':
+                $this->adminIDS          = $this->parseAdminIDS($blockData);
                 break;
             case 'bookings':
                 $bookings                = [];

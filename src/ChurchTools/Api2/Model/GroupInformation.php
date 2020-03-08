@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class GroupInformation
 {
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $imageUrl;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $dateOfFoundation;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $endDate;
     /**
-     * 
+     *
      *
      * @var string|null
      */
@@ -35,55 +35,55 @@ class GroupInformation
      */
     protected $weekday;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $groupCategoryId;
     /**
-     * 
+     *
      *
      * @var int[]
      */
     protected $ageGroups;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $targetGroupId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $maxMembers;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $groupTypeId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $groupStatusId;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $note;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $campusId;
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -92,7 +92,7 @@ class GroupInformation
         return $this->imageUrl;
     }
     /**
-     * 
+     *
      *
      * @param string|null $imageUrl
      *
@@ -104,7 +104,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -113,7 +113,7 @@ class GroupInformation
         return $this->dateOfFoundation;
     }
     /**
-     * 
+     *
      *
      * @param string|null $dateOfFoundation
      *
@@ -125,7 +125,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -134,7 +134,7 @@ class GroupInformation
         return $this->endDate;
     }
     /**
-     * 
+     *
      *
      * @param string|null $endDate
      *
@@ -146,7 +146,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -155,7 +155,7 @@ class GroupInformation
         return $this->meetingTime;
     }
     /**
-     * 
+     *
      *
      * @param string|null $meetingTime
      *
@@ -188,7 +188,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -197,7 +197,7 @@ class GroupInformation
         return $this->groupCategoryId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $groupCategoryId
      *
@@ -209,7 +209,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int[]
      */
@@ -218,7 +218,7 @@ class GroupInformation
         return $this->ageGroups;
     }
     /**
-     * 
+     *
      *
      * @param int[] $ageGroups
      *
@@ -230,7 +230,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -239,7 +239,7 @@ class GroupInformation
         return $this->targetGroupId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $targetGroupId
      *
@@ -251,7 +251,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -260,7 +260,7 @@ class GroupInformation
         return $this->maxMembers;
     }
     /**
-     * 
+     *
      *
      * @param int|null $maxMembers
      *
@@ -272,7 +272,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -281,7 +281,7 @@ class GroupInformation
         return $this->groupTypeId;
     }
     /**
-     * 
+     *
      *
      * @param int $groupTypeId
      *
@@ -293,7 +293,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -302,7 +302,7 @@ class GroupInformation
         return $this->groupStatusId;
     }
     /**
-     * 
+     *
      *
      * @param int $groupStatusId
      *
@@ -314,7 +314,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -323,7 +323,7 @@ class GroupInformation
         return $this->note;
     }
     /**
-     * 
+     *
      *
      * @param string $note
      *
@@ -335,7 +335,7 @@ class GroupInformation
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -344,7 +344,7 @@ class GroupInformation
         return $this->campusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $campusId
      *

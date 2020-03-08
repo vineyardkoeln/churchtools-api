@@ -5,37 +5,37 @@ namespace ChurchTools\Api2\Model;
 class GroupFollowUp
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $typeId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $targetTypeId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $targetObjectId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $targetGroupMemberStatusId;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $sendReminderMails;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -44,7 +44,7 @@ class GroupFollowUp
         return $this->typeId;
     }
     /**
-     * 
+     *
      *
      * @param int $typeId
      *
@@ -56,7 +56,7 @@ class GroupFollowUp
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class GroupFollowUp
         return $this->targetTypeId;
     }
     /**
-     * 
+     *
      *
      * @param int $targetTypeId
      *
@@ -77,7 +77,7 @@ class GroupFollowUp
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -86,7 +86,7 @@ class GroupFollowUp
         return $this->targetObjectId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $targetObjectId
      *
@@ -98,7 +98,7 @@ class GroupFollowUp
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -107,7 +107,7 @@ class GroupFollowUp
         return $this->targetGroupMemberStatusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $targetGroupMemberStatusId
      *
@@ -119,7 +119,7 @@ class GroupFollowUp
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -128,7 +128,7 @@ class GroupFollowUp
         return $this->sendReminderMails;
     }
     /**
-     * 
+     *
      *
      * @param bool $sendReminderMails
      *

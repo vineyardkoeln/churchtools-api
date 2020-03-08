@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class AgendasSendPostResponse200ErrorsItemDomainAttributes
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $firstName;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $lastName;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -26,7 +26,7 @@ class AgendasSendPostResponse200ErrorsItemDomainAttributes
         return $this->firstName;
     }
     /**
-     * 
+     *
      *
      * @param string $firstName
      *
@@ -38,7 +38,7 @@ class AgendasSendPostResponse200ErrorsItemDomainAttributes
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -47,7 +47,7 @@ class AgendasSendPostResponse200ErrorsItemDomainAttributes
         return $this->lastName;
     }
     /**
-     * 
+     *
      *
      * @param string $lastName
      *

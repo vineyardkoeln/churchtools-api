@@ -7,7 +7,7 @@ class CreatePerson extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * Endpoint to save a new person in ChurchTools. Generally, you can provide any information to save, but be aware that you can only save information for fields you have write access to. If the request fails because a duplicate is found (person with same name) use the `force` flag to create this person even if a duplicate is found.
      *
-     * @param \ChurchTools\Api2\Model\PersonsPostBody $requestBody 
+     * @param \ChurchTools\Api2\Model\PersonsPostBody $requestBody
      * @param array $queryParameters {
      *     @var bool $force Force the action, which would otherwise fail.
      * }

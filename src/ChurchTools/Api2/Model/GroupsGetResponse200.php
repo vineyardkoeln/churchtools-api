@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class GroupsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Group[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var GroupsGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Group[]
      */
@@ -26,7 +26,7 @@ class GroupsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Group[] $data
      *
@@ -38,7 +38,7 @@ class GroupsGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return GroupsGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class GroupsGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param GroupsGetResponse200Meta $meta
      *

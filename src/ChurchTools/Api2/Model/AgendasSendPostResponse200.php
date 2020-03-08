@@ -5,25 +5,25 @@ namespace ChurchTools\Api2\Model;
 class AgendasSendPostResponse200
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $message;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $translatedMessage;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $messageKey;
     /**
-     * 
+     *
      *
      * @var AgendasSendPostResponse200Args
      */
@@ -35,7 +35,7 @@ class AgendasSendPostResponse200
      */
     protected $errors;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -44,7 +44,7 @@ class AgendasSendPostResponse200
         return $this->message;
     }
     /**
-     * 
+     *
      *
      * @param string $message
      *
@@ -56,7 +56,7 @@ class AgendasSendPostResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class AgendasSendPostResponse200
         return $this->translatedMessage;
     }
     /**
-     * 
+     *
      *
      * @param string $translatedMessage
      *
@@ -77,7 +77,7 @@ class AgendasSendPostResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class AgendasSendPostResponse200
         return $this->messageKey;
     }
     /**
-     * 
+     *
      *
      * @param string $messageKey
      *
@@ -98,7 +98,7 @@ class AgendasSendPostResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AgendasSendPostResponse200Args
      */
@@ -107,7 +107,7 @@ class AgendasSendPostResponse200
         return $this->args;
     }
     /**
-     * 
+     *
      *
      * @param AgendasSendPostResponse200Args $args
      *

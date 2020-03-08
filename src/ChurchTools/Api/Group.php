@@ -37,23 +37,32 @@ class Group extends CTObject
     protected function handleDataBlock($blockName, $blockData): void
     {
         switch ($blockName) {
-            case 'id': $this->id         = intval($blockData);
+            case 'id':
+                $this->id         = intval($blockData);
                 break;
-            case 'bezeichnung': $this->title       = $blockData;
+            case 'bezeichnung':
+                $this->title       = $blockData;
                 break;
-            case 'sortkey': $this->sortKey       = $blockData;
+            case 'sortkey':
+                $this->sortKey       = $blockData;
                 break;
-            case 'gruppentyp_id': $this->groupTypeID        = intval($blockData);
+            case 'gruppentyp_id':
+                $this->groupTypeID        = intval($blockData);
                 break;
-            case 'groupstatus_id': $this->groupStatusID        = intval($blockData);
+            case 'groupstatus_id':
+                $this->groupStatusID        = intval($blockData);
                 break;
-            case 'letzteaenderung': $this->modifiedDate      = $this->parseDateTime($blockData);
+            case 'letzteaenderung':
+                $this->modifiedDate      = $this->parseDateTime($blockData);
                 break;
-            case 'permission_deep_no': $this->permissionDeepNumber         = intval($blockData);
+            case 'permission_deep_no':
+                $this->permissionDeepNumber         = intval($blockData);
                 break;
-            case 'parents': $this->parentIDS      = array_map('intval', $blockData);
+            case 'parents':
+                $this->parentIDS      = array_map('intval', $blockData);
                 break;
-            case 'childs': $this->childIDS      =  array_map('intval', $blockData);
+            case 'childs':
+                $this->childIDS      =  array_map('intval', $blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -101,6 +110,4 @@ class Group extends CTObject
     {
         return $this->permissionDeepNumber;
     }
-    
-    
 }

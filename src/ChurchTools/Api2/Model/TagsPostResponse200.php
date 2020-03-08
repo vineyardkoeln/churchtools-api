@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class TagsPostResponse200
 {
     /**
-     * 
+     *
      *
      * @var Tag
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Tag
      */
@@ -20,7 +20,7 @@ class TagsPostResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Tag $data
      *

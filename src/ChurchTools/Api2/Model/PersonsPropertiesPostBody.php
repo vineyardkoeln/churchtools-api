@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonsPropertiesPostBody
 {
     /**
-     * 
+     *
      *
      * @var int[]
      */
     protected $ids;
     /**
-     * 
+     *
      *
      * @return int[]
      */
@@ -20,7 +20,7 @@ class PersonsPropertiesPostBody
         return $this->ids;
     }
     /**
-     * 
+     *
      *
      * @param int[] $ids
      *

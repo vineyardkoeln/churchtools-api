@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonSetting
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $module;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -23,7 +23,7 @@ class PersonSetting
      */
     protected $value;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -32,7 +32,7 @@ class PersonSetting
         return $this->module;
     }
     /**
-     * 
+     *
      *
      * @param string $module
      *
@@ -44,7 +44,7 @@ class PersonSetting
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class PersonSetting
         return $this->attribute;
     }
     /**
-     * 
+     *
      *
      * @param string $attribute
      *

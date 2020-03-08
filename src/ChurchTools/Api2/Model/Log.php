@@ -5,7 +5,7 @@ namespace ChurchTools\Api2\Model;
 class Log
 {
     /**
-     * 
+     *
      *
      * @var int
      */
@@ -47,13 +47,13 @@ class Log
      */
     protected $domainId;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $message;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -62,7 +62,7 @@ class Log
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -200,7 +200,7 @@ class Log
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class Log
         return $this->message;
     }
     /**
-     * 
+     *
      *
      * @param string $message
      *

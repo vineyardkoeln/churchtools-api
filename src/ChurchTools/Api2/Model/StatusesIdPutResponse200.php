@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class StatusesIdPutResponse200
 {
     /**
-     * 
+     *
      *
      * @var Status
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Status
      */
@@ -20,7 +20,7 @@ class StatusesIdPutResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Status $data
      *

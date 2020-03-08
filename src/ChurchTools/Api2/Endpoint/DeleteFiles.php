@@ -7,7 +7,7 @@ class DeleteFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected $domainType;
     protected $domainIdentifier;
     /**
-     * 
+     *
      *
      * @param string $domainType The domain type. Currently supported are 'avatar', 'groupimage', 'logo', 'attatchments', 'html_template', 'service', 'song_arrangement', 'importtable', 'person', 'familyavatar', 'wiki_.?'.
      * @param string $domainIdentifier the domain identifier

@@ -5,37 +5,37 @@ namespace ChurchTools\Api2\Model;
 class PersonsPostResponse400
 {
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $message;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $translatedMessage;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $messageKey;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $args;
     /**
-     * 
+     *
      *
      * @var string[]
      */
     protected $errors;
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -44,7 +44,7 @@ class PersonsPostResponse400
         return $this->message;
     }
     /**
-     * 
+     *
      *
      * @param string $message
      *
@@ -56,7 +56,7 @@ class PersonsPostResponse400
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class PersonsPostResponse400
         return $this->translatedMessage;
     }
     /**
-     * 
+     *
      *
      * @param string $translatedMessage
      *
@@ -77,7 +77,7 @@ class PersonsPostResponse400
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class PersonsPostResponse400
         return $this->messageKey;
     }
     /**
-     * 
+     *
      *
      * @param string $messageKey
      *
@@ -98,7 +98,7 @@ class PersonsPostResponse400
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -107,7 +107,7 @@ class PersonsPostResponse400
         return $this->args;
     }
     /**
-     * 
+     *
      *
      * @param string[] $args
      *
@@ -119,7 +119,7 @@ class PersonsPostResponse400
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string[]
      */
@@ -128,7 +128,7 @@ class PersonsPostResponse400
         return $this->errors;
     }
     /**
-     * 
+     *
      *
      * @param string[] $errors
      *

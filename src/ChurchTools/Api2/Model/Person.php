@@ -5,7 +5,7 @@ namespace ChurchTools\Api2\Model;
 class Person
 {
     /**
-     * 
+     *
      *
      * @var int
      */
@@ -23,271 +23,271 @@ class Person
      */
     protected $editSecurityLevelForPerson;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $title;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $firstName;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $lastName;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $nickname;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $job;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $street;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $addressAddition;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $zip;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $city;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $country;
     /**
-     * 
+     *
      *
      * @var float|null
      */
     protected $latitude;
     /**
-     * 
+     *
      *
      * @var float|null
      */
     protected $longitude;
     /**
-     * 
+     *
      *
      * @var float|null
      */
     protected $latitudeLoose;
     /**
-     * 
+     *
      *
      * @var float|null
      */
     protected $longitudeLoose;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $phonePrivate;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $phoneWork;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $mobile;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $fax;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $birthName;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $birthday;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $birthplace;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $imageUrl;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $familyImageUrl;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $sexId;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $email;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $cmsUserId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $optigemId;
     /**
-     * 
+     *
      *
      * @var PersonPrivacyPolicyAgreement
      */
     protected $privacyPolicyAgreement;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $nationalityId;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $familyStatusId;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $weddingDate;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $campusId;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $statusId;
     /**
-     * 
+     *
      *
      * @var \DateTime|null
      */
     protected $firstContact;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $dateOfBelonging;
     /**
-     * 
+     *
      *
      * @var \DateTime|null
      */
     protected $dateOfEntry;
     /**
-     * 
+     *
      *
      * @var \DateTime|null
      */
     protected $dateOfResign;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $dateOfBaptism;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $placeOfBaptism;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $baptisedBy;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $referredBy;
     /**
-     * 
+     *
      *
      * @var string|null
      */
     protected $referredTo;
     /**
-     * 
+     *
      *
      * @var int|null
      */
     protected $growPathId;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isArchived;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -296,7 +296,7 @@ class Person
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -350,7 +350,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -359,7 +359,7 @@ class Person
         return $this->title;
     }
     /**
-     * 
+     *
      *
      * @param string|null $title
      *
@@ -371,7 +371,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -380,7 +380,7 @@ class Person
         return $this->firstName;
     }
     /**
-     * 
+     *
      *
      * @param string|null $firstName
      *
@@ -392,7 +392,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -401,7 +401,7 @@ class Person
         return $this->lastName;
     }
     /**
-     * 
+     *
      *
      * @param string|null $lastName
      *
@@ -413,7 +413,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -422,7 +422,7 @@ class Person
         return $this->nickname;
     }
     /**
-     * 
+     *
      *
      * @param string|null $nickname
      *
@@ -434,7 +434,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -443,7 +443,7 @@ class Person
         return $this->job;
     }
     /**
-     * 
+     *
      *
      * @param string|null $job
      *
@@ -455,7 +455,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -464,7 +464,7 @@ class Person
         return $this->street;
     }
     /**
-     * 
+     *
      *
      * @param string|null $street
      *
@@ -476,7 +476,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -485,7 +485,7 @@ class Person
         return $this->addressAddition;
     }
     /**
-     * 
+     *
      *
      * @param string|null $addressAddition
      *
@@ -497,7 +497,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -506,7 +506,7 @@ class Person
         return $this->zip;
     }
     /**
-     * 
+     *
      *
      * @param string|null $zip
      *
@@ -518,7 +518,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -527,7 +527,7 @@ class Person
         return $this->city;
     }
     /**
-     * 
+     *
      *
      * @param string|null $city
      *
@@ -539,7 +539,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -548,7 +548,7 @@ class Person
         return $this->country;
     }
     /**
-     * 
+     *
      *
      * @param string|null $country
      *
@@ -560,7 +560,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return float|null
      */
@@ -569,7 +569,7 @@ class Person
         return $this->latitude;
     }
     /**
-     * 
+     *
      *
      * @param float|null $latitude
      *
@@ -581,7 +581,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return float|null
      */
@@ -590,7 +590,7 @@ class Person
         return $this->longitude;
     }
     /**
-     * 
+     *
      *
      * @param float|null $longitude
      *
@@ -602,7 +602,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return float|null
      */
@@ -611,7 +611,7 @@ class Person
         return $this->latitudeLoose;
     }
     /**
-     * 
+     *
      *
      * @param float|null $latitudeLoose
      *
@@ -623,7 +623,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return float|null
      */
@@ -632,7 +632,7 @@ class Person
         return $this->longitudeLoose;
     }
     /**
-     * 
+     *
      *
      * @param float|null $longitudeLoose
      *
@@ -644,7 +644,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -653,7 +653,7 @@ class Person
         return $this->phonePrivate;
     }
     /**
-     * 
+     *
      *
      * @param string|null $phonePrivate
      *
@@ -665,7 +665,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -674,7 +674,7 @@ class Person
         return $this->phoneWork;
     }
     /**
-     * 
+     *
      *
      * @param string|null $phoneWork
      *
@@ -686,7 +686,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -695,7 +695,7 @@ class Person
         return $this->mobile;
     }
     /**
-     * 
+     *
      *
      * @param string|null $mobile
      *
@@ -707,7 +707,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -716,7 +716,7 @@ class Person
         return $this->fax;
     }
     /**
-     * 
+     *
      *
      * @param string|null $fax
      *
@@ -728,7 +728,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -737,7 +737,7 @@ class Person
         return $this->birthName;
     }
     /**
-     * 
+     *
      *
      * @param string|null $birthName
      *
@@ -749,7 +749,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -758,7 +758,7 @@ class Person
         return $this->birthday;
     }
     /**
-     * 
+     *
      *
      * @param string|null $birthday
      *
@@ -770,7 +770,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -779,7 +779,7 @@ class Person
         return $this->birthplace;
     }
     /**
-     * 
+     *
      *
      * @param string|null $birthplace
      *
@@ -791,7 +791,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -800,7 +800,7 @@ class Person
         return $this->imageUrl;
     }
     /**
-     * 
+     *
      *
      * @param string|null $imageUrl
      *
@@ -812,7 +812,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -821,7 +821,7 @@ class Person
         return $this->familyImageUrl;
     }
     /**
-     * 
+     *
      *
      * @param string|null $familyImageUrl
      *
@@ -833,7 +833,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -842,7 +842,7 @@ class Person
         return $this->sexId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $sexId
      *
@@ -854,7 +854,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -863,7 +863,7 @@ class Person
         return $this->email;
     }
     /**
-     * 
+     *
      *
      * @param string|null $email
      *
@@ -875,7 +875,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -884,7 +884,7 @@ class Person
         return $this->cmsUserId;
     }
     /**
-     * 
+     *
      *
      * @param string|null $cmsUserId
      *
@@ -896,7 +896,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -905,7 +905,7 @@ class Person
         return $this->optigemId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $optigemId
      *
@@ -917,7 +917,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return PersonPrivacyPolicyAgreement
      */
@@ -926,7 +926,7 @@ class Person
         return $this->privacyPolicyAgreement;
     }
     /**
-     * 
+     *
      *
      * @param PersonPrivacyPolicyAgreement $privacyPolicyAgreement
      *
@@ -938,7 +938,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -947,7 +947,7 @@ class Person
         return $this->nationalityId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $nationalityId
      *
@@ -959,7 +959,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -968,7 +968,7 @@ class Person
         return $this->familyStatusId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $familyStatusId
      *
@@ -980,7 +980,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -989,7 +989,7 @@ class Person
         return $this->weddingDate;
     }
     /**
-     * 
+     *
      *
      * @param string|null $weddingDate
      *
@@ -1001,7 +1001,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -1010,7 +1010,7 @@ class Person
         return $this->campusId;
     }
     /**
-     * 
+     *
      *
      * @param int $campusId
      *
@@ -1022,7 +1022,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -1031,7 +1031,7 @@ class Person
         return $this->statusId;
     }
     /**
-     * 
+     *
      *
      * @param int $statusId
      *
@@ -1043,7 +1043,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return \DateTime|null
      */
@@ -1052,7 +1052,7 @@ class Person
         return $this->firstContact;
     }
     /**
-     * 
+     *
      *
      * @param \DateTime|null $firstContact
      *
@@ -1064,7 +1064,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -1073,7 +1073,7 @@ class Person
         return $this->dateOfBelonging;
     }
     /**
-     * 
+     *
      *
      * @param string|null $dateOfBelonging
      *
@@ -1085,7 +1085,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return \DateTime|null
      */
@@ -1094,7 +1094,7 @@ class Person
         return $this->dateOfEntry;
     }
     /**
-     * 
+     *
      *
      * @param \DateTime|null $dateOfEntry
      *
@@ -1106,7 +1106,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return \DateTime|null
      */
@@ -1115,7 +1115,7 @@ class Person
         return $this->dateOfResign;
     }
     /**
-     * 
+     *
      *
      * @param \DateTime|null $dateOfResign
      *
@@ -1127,7 +1127,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -1136,7 +1136,7 @@ class Person
         return $this->dateOfBaptism;
     }
     /**
-     * 
+     *
      *
      * @param string|null $dateOfBaptism
      *
@@ -1148,7 +1148,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -1157,7 +1157,7 @@ class Person
         return $this->placeOfBaptism;
     }
     /**
-     * 
+     *
      *
      * @param string|null $placeOfBaptism
      *
@@ -1169,7 +1169,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -1178,7 +1178,7 @@ class Person
         return $this->baptisedBy;
     }
     /**
-     * 
+     *
      *
      * @param string|null $baptisedBy
      *
@@ -1190,7 +1190,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -1199,7 +1199,7 @@ class Person
         return $this->referredBy;
     }
     /**
-     * 
+     *
      *
      * @param string|null $referredBy
      *
@@ -1211,7 +1211,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string|null
      */
@@ -1220,7 +1220,7 @@ class Person
         return $this->referredTo;
     }
     /**
-     * 
+     *
      *
      * @param string|null $referredTo
      *
@@ -1232,7 +1232,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int|null
      */
@@ -1241,7 +1241,7 @@ class Person
         return $this->growPathId;
     }
     /**
-     * 
+     *
      *
      * @param int|null $growPathId
      *
@@ -1253,7 +1253,7 @@ class Person
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -1262,7 +1262,7 @@ class Person
         return $this->isArchived;
     }
     /**
-     * 
+     *
      *
      * @param bool $isArchived
      *

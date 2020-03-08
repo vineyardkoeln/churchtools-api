@@ -7,11 +7,11 @@ class UploadFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected $domainType;
     protected $domainIdentifier;
     /**
-     * 
+     *
      *
      * @param string $domainType The domain type. Currently supported are 'avatar', 'groupimage', 'logo', 'attatchments', 'html_template', 'service', 'song_arrangement', 'importtable', 'person', 'familyavatar', 'wiki_.?'.
      * @param string $domainIdentifier the domain identifier
-     * @param \ChurchTools\Api2\Model\FilesDomainTypeDomainIdentifierPostBody $requestBody 
+     * @param \ChurchTools\Api2\Model\FilesDomainTypeDomainIdentifierPostBody $requestBody
      */
     public function __construct(string $domainType, string $domainIdentifier, \ChurchTools\Api2\Model\FilesDomainTypeDomainIdentifierPostBody $requestBody)
     {

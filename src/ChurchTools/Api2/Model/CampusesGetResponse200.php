@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class CampusesGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Campus[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var CampusesGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Campus[]
      */
@@ -26,7 +26,7 @@ class CampusesGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Campus[] $data
      *
@@ -38,7 +38,7 @@ class CampusesGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return CampusesGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class CampusesGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param CampusesGetResponse200Meta $meta
      *

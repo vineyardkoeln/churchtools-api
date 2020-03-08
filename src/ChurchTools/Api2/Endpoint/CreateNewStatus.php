@@ -5,9 +5,9 @@ namespace ChurchTools\Api2\Endpoint;
 class CreateNewStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * 
      *
-     * @param \ChurchTools\Api2\Model\StatusesPostBody|\stdClass $requestBody 
+     *
+     * @param \ChurchTools\Api2\Model\StatusesPostBody|\stdClass $requestBody
      */
     public function __construct($requestBody)
     {

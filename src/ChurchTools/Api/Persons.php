@@ -35,13 +35,12 @@ class Persons extends CTObject
 
     /**
      * Get list of visible person ids
-     * 
-     * 
+     *
+     *
      * @return array list of person id's
      */
     public function getPersonIDS(): array
     {
         return array_keys($this->persons);
     }
-    
 }

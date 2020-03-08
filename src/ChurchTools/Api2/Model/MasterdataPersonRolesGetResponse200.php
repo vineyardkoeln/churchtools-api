@@ -5,19 +5,19 @@ namespace ChurchTools\Api2\Model;
 class MasterdataPersonRolesGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Role[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @var MasterdataPersonRolesGetResponse200Meta
      */
     protected $meta;
     /**
-     * 
+     *
      *
      * @return Role[]
      */
@@ -26,7 +26,7 @@ class MasterdataPersonRolesGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Role[] $data
      *
@@ -38,7 +38,7 @@ class MasterdataPersonRolesGetResponse200
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return MasterdataPersonRolesGetResponse200Meta
      */
@@ -47,7 +47,7 @@ class MasterdataPersonRolesGetResponse200
         return $this->meta;
     }
     /**
-     * 
+     *
      *
      * @param MasterdataPersonRolesGetResponse200Meta $meta
      *

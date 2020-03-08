@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonsIdTagsGetResponse200
 {
     /**
-     * 
+     *
      *
      * @var Tag[]
      */
     protected $data;
     /**
-     * 
+     *
      *
      * @return Tag[]
      */
@@ -20,7 +20,7 @@ class PersonsIdTagsGetResponse200
         return $this->data;
     }
     /**
-     * 
+     *
      *
      * @param Tag[] $data
      *

@@ -32,7 +32,7 @@ class Calendars extends CTObject
      * Returns the calendar object associated with this calendarID
      *
      * @param int id of calendar to retrieve
-     * 
+     *
      * @return ChurchTools\Api\Calendar
      */
     public function getCalendar($calendarID): Calendar
@@ -42,9 +42,9 @@ class Calendars extends CTObject
 
     /**
      * Get list of visible calendar ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
      * @return array list of calendar id's
      */
     public function getCalendarIDS($sorted = false): array

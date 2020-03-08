@@ -5,31 +5,31 @@ namespace ChurchTools\Api2\Model;
 class AgendaItemsItem
 {
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $id;
     /**
-     * 
+     *
      *
      * @var int
      */
     protected $position;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $type;
     /**
-     * 
+     *
      *
      * @var string
      */
     protected $title;
     /**
-     * 
+     *
      *
      * @var string
      */
@@ -47,13 +47,13 @@ class AgendaItemsItem
      */
     protected $start;
     /**
-     * 
+     *
      *
      * @var bool
      */
     protected $isBeforeEvent;
     /**
-     * 
+     *
      *
      * @var AgendaItemsItemResponsible
      */
@@ -71,7 +71,7 @@ class AgendaItemsItem
      */
     protected $song;
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -80,7 +80,7 @@ class AgendaItemsItem
         return $this->id;
     }
     /**
-     * 
+     *
      *
      * @param int $id
      *
@@ -92,7 +92,7 @@ class AgendaItemsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return int
      */
@@ -101,7 +101,7 @@ class AgendaItemsItem
         return $this->position;
     }
     /**
-     * 
+     *
      *
      * @param int $position
      *
@@ -113,7 +113,7 @@ class AgendaItemsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class AgendaItemsItem
         return $this->type;
     }
     /**
-     * 
+     *
      *
      * @param string $type
      *
@@ -134,7 +134,7 @@ class AgendaItemsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -143,7 +143,7 @@ class AgendaItemsItem
         return $this->title;
     }
     /**
-     * 
+     *
      *
      * @param string $title
      *
@@ -155,7 +155,7 @@ class AgendaItemsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return string
      */
@@ -164,7 +164,7 @@ class AgendaItemsItem
         return $this->note;
     }
     /**
-     * 
+     *
      *
      * @param string $note
      *
@@ -218,7 +218,7 @@ class AgendaItemsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return bool
      */
@@ -227,7 +227,7 @@ class AgendaItemsItem
         return $this->isBeforeEvent;
     }
     /**
-     * 
+     *
      *
      * @param bool $isBeforeEvent
      *
@@ -239,7 +239,7 @@ class AgendaItemsItem
         return $this;
     }
     /**
-     * 
+     *
      *
      * @return AgendaItemsItemResponsible
      */
@@ -248,7 +248,7 @@ class AgendaItemsItem
         return $this->responsible;
     }
     /**
-     * 
+     *
      *
      * @param AgendaItemsItemResponsible $responsible
      *

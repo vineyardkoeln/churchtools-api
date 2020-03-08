@@ -6,7 +6,7 @@ class GetStatusById extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 {
     protected $id;
     /**
-     * 
+     *
      *
      * @param int $id ID of status
      */

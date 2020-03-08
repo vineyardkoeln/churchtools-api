@@ -5,13 +5,13 @@ namespace ChurchTools\Api2\Model;
 class PersonsPropertiesPostResponse200Data
 {
     /**
-     * 
+     *
      *
      * @var PersonsPropertiesPostResponse200Data1
      */
     protected $1;
     /**
-     * 
+     *
      *
      * @return PersonsPropertiesPostResponse200Data1
      */
@@ -20,7 +20,7 @@ class PersonsPropertiesPostResponse200Data
         return $this->1;
     }
     /**
-     * 
+     *
      *
      * @param PersonsPropertiesPostResponse200Data1 $1
      *
