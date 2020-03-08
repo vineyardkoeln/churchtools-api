@@ -11,9 +11,12 @@ namespace ChurchTools\Api;
 class ServiceEntries extends CTObject
 {
     // List of service groups in master data
-    private $serviceEntries= [];
+    private $serviceEntries = [];
 
     /**
+     * ServiceEntries constructor.
+     * @param array $rawData
+     * @param bool $hasDataBlock
      */
     public function __construct(array $rawData, bool $hasDataBlock = false)
     {
@@ -21,6 +24,8 @@ class ServiceEntries extends CTObject
     }
 
     /**
+     * @param string $blockName
+     * @param array|string $blockData
      */
     protected function handleDataBlock($blockName, $blockData): void
     {
@@ -32,8 +37,7 @@ class ServiceEntries extends CTObject
      * Returns the resource type object associated with this id
      *
      * @param int id of resource to retrieve
-     * 
-     * @return ChurchTools\Api\ServiceEntry
+     * @return ServiceEntry
      */
     public function getService($serviceID): ServiceEntry
     {
@@ -42,9 +46,8 @@ class ServiceEntries extends CTObject
 
     /**
      * Get list of visible resource types ID's, optionally sorted by sortKey
-     * 
+     *
      * @param boolean should the ID's be sorted according to the sortkey
-     * 
      * @return array list of resource types id's
      */
     public function getServiceGroupIDS($sorted = false): array
@@ -61,20 +64,19 @@ class ServiceEntries extends CTObject
         return array_keys($serviceEntries);
     }
 
-    
+
     /**
      * Get list of visible resource ID's, optionally sorted by sortKey
-     * 
-     * @param boolean should the ID's be sorted according to the sortkey
-     * 
+     *
+     * @param int $serviceGroupID should the ID's be sorted according to the sortkey
+     * @param boolean $sorted
      * @return array list of resource id's
      */
     public function getServiceIDSOfGroup($serviceGroupID, $sorted = false): array
     {
         $services = [];
         foreach ($this->serviceEntries as $serviceEntry) {
-            if ($serviceEntry->getServiceGroupID() == $serviceGroupID)
-            {
+            if ($serviceEntry->getServiceGroupID() == $serviceGroupID) {
                 $id        = $serviceEntry->getID();
                 $order     = $serviceEntry->getSortKey();
                 $services[$id] = $order;
@@ -85,5 +87,5 @@ class ServiceEntries extends CTObject
         }
         return array_keys($services);
     }
-    
+
 }

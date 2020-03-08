@@ -11,13 +11,20 @@ namespace ChurchTools\Api;
 class ServiceEntry extends CTObject
 {
     private $id;
+    private $startDate;
+    private $endDate;
     private $serviceGroupID;
     private $title;
     private $sortKey;
     private $remarks;
+    private $name;
+    private $user;
+    private $hasAccepted;
+    private $isValid;
+    private $bookings; // ?
 
     /**
-     * @inhertidoc
+     * @inheritdoc
      */
     public function __construct(array $rawData, bool $hasDataBlock = false)
     {
@@ -25,21 +32,43 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     * @inhertidoc
+     * @inheritdoc
      */
     protected function handleDataBlock($blockName, $blockData): void
     {
-        //var_dump($blockName);
         switch ($blockName) {
-            case 'id': $this->id           = intval($blockData);
+            case 'id':
+                $this->id = intval($blockData);
                 break;
-            case 'servicegroup_id': $this->serviceGroupID    = intval($blockData);
+            case 'servicegroup_id':
+                $this->serviceGroupID = intval($blockData);
                 break;
-            case 'bezeichnung': $this->title         = $blockData;
+            case 'bezeichnung':
+                $this->title = $blockData;
                 break;
-            case 'notiz': $this->remarks         = $blockData;
+            case 'notiz':
+                $this->remarks = $blockData;
                 break;
-            case 'sortkey': $this->sortKey   = intval($blockData);
+            case 'sortkey':
+                $this->sortKey = intval($blockData);
+                break;
+            case 'name':
+                $this->name = $blockData;
+                break;
+            case 'user':
+                $this->user = $blockData;
+                break;
+            case 'zugesagt_yn':
+                $this->hasAccepted = boolval($blockData);
+                break;
+            case 'valid_yn':
+                $this->isValid = boolval($blockData);
+                break;
+            case 'startdate':
+                $this->startDate = new \DateTime($blockData);
+                break;
+            case 'enddate':
+                $this->endDate = new \DateTime($blockData);
                 break;
             default:
                 parent::handleDataBlock($blockName, $blockData);
@@ -47,7 +76,7 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     * @return date start date of service entry
+     * @return \DateTime start date of service entry
      */
     public function getStartDate(): \DateTime
     {
@@ -55,7 +84,7 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     * @return date end date of service entry
+     * @return \DateTime end date of service entry
      */
     public function getEndDate(): \DateTime
     {
@@ -79,7 +108,7 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     * 
+     *
      * @return int calendar id this entry is for
      */
     public function getID(): int
@@ -88,25 +117,45 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     * 
+     *
      * @return int calendar id this entry is for
      */
     public function getServiceGroupID(): int
     {
         return $this->serviceGroupID;
     }
-    
+
     /**
-     * 
-     * @return array Booking of bookings associated with this service entry
+     *
+     * @return array Array of bookings associated with this service entry
      */
     public function getBookings(): ?array
     {
         return $this->bookings;
     }
-    
+
     public function getSortKey(): int
     {
         return $this->sortKey;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getUser(): string
+    {
+        return $this->user;
+    }
+
+    public function hasAccepted(): bool
+    {
+        return $this->hasAccepted;
+    }
+
+    public function isValid(): bool
+    {
+        return $this->isValid;
     }
 }
