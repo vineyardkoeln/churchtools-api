@@ -22,7 +22,7 @@ class ServiceEntry extends CTObject
     private $user;
     private $hasAccepted;
     private $isValid;
-    private $bookings; // ?
+    private $bookings; // Where do we get those from?
 
     /**
      * @inheritdoc
@@ -137,7 +137,6 @@ class ServiceEntry extends CTObject
     }
 
     /**
-     *
      * @return array Array of bookings associated with this service entry
      */
     public function getBookings(): ?array
@@ -150,12 +149,12 @@ class ServiceEntry extends CTObject
         return $this->sortKey;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getUser(): string
+    public function getUser(): ?string
     {
         return $this->user;
     }

@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.5.2
+    * FEATURE          Extend ServiceEntry model for API v1
+
 * 0.5.1
     * BUGFIX     #10   Query new CSRF-Token after login and add it to each request
 
