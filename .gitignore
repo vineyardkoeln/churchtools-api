@@ -7,6 +7,7 @@
 nbproject
 *.iml
 *.ipr
+composer.lock
 /vendor/
 /src/ChurchTools/Tools/.jane
 /src/ChurchTools/Api2/Client.php
