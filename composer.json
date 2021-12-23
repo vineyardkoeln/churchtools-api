@@ -9,13 +9,11 @@
         {"name": "André Schild", "email": "andre@schild.ws"}
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=8.0",
         "ext-json": "*",
         "jane-php/open-api": "^5.2",
         "guzzlehttp/psr7" : "^1.6",
-        "guzzlehttp/guzzle": "^6.4",
-        "php-http/guzzle6-adapter" : "^2.0",
-        "php-http/httplug-pack" : "^1.1"
+        "guzzlehttp/guzzle": "^7.3"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5.4"
