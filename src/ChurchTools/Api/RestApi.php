@@ -50,7 +50,7 @@ class RestApi
      * @param string $password
      * @return RestApi
      */
-    public static function createWithUsernamePassword(string $churchHandle, string $username, string $password, $cookie_jar = null): RestApi
+    public static function createWithUsernamePassword(string $churchHandle, string $username, string $password, $cookie_jar = null, $retryOn401 = true): RestApi
     {
         $newInstance = new self($churchHandle, $cookie_jar);
         // Login is mandatory before each request except if a cookie has been set/provided
@@ -66,6 +66,15 @@ class RestApi
         } catch (\Exception $e) {
             if ($cookie_jar && $e->getCode() === 401) {
                 $cookie_jar->clearSessionCookies();
+                if ($retryOn401) {
+                    return self::createWithUsernamePassword(
+                        $churchHandle,
+                        $username,
+                        $password,
+                        $cookie_jar,
+                        false /* make sure, this happens only once. */
+                    );
+                }
             }
             throw $e;
         }
@@ -80,7 +89,7 @@ class RestApi
      * @param string $loginToken
      * @return RestApi
      */
-    public static function createWithLoginIdToken(string $churchHandle, string $loginId, string $loginToken, FileCookieJar $cookie_jar = null): RestApi
+    public static function createWithLoginIdToken(string $churchHandle, string $loginToken, FileCookieJar $cookie_jar = null, $retryOn401 = true): RestApi
     {
         $newInstance = new self($churchHandle, $cookie_jar);
         // Login is mandatory before each request except if a cookie has been set/provided
@@ -95,6 +104,14 @@ class RestApi
         } catch (\Exception $e) {
             if ($cookie_jar && $e->getCode() === 401) {
                 $cookie_jar->clearSessionCookies();
+                if ($retryOn401) {
+                    return self::createWithLoginIdToken(
+                        $churchHandle,
+                        $loginToken,
+                        $cookie_jar,
+                        false /* make sure, this happens only once. */
+                    );
+                }
             }
             throw $e;
         }
