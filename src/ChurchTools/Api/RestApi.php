@@ -6,6 +6,7 @@ use ChurchTools\Api\MasterData;
 use ChurchTools\Api\Exception\ChurchToolsApiException;
 use ChurchTools\Api\Exception\JsonDecodingException;
 use ChurchTools\Api\Exception\RestApiException;
+use GuzzleHttp\Cookie\FileCookieJar;
 
 /**
  * Class RestApi
@@ -30,11 +31,14 @@ class RestApi
      *
      * @param string $churchHandle
      */
-    private function __construct(string $churchHandle)
+    private function __construct(string $churchHandle, $cookie_jar = null)
     {
-        $this->guzzleClient = new \GuzzleHttp\Client([
-            'cookies' => true,
-        ]);
+        if ($cookie_jar) {
+            $cookies = [ 'cookies' => $cookie_jar ];
+        } else {
+            $cookies = true;
+        }
+        $this->guzzleClient = new \GuzzleHttp\Client($cookies);
         $this->churchHandle = $churchHandle;
     }
 
@@ -46,7 +50,7 @@ class RestApi
      * @param string $password
      * @return RestApi
      */
-    public static function createWithUsernamePassword(string $churchHandle, string $username, string $password): RestApi
+    public static function createWithUsernamePassword(string $churchHandle, string $username, string $password, $cookie_jar = null): RestApi
     {
         $newInstance = new self($churchHandle);
 
@@ -74,6 +78,33 @@ class RestApi
         $newInstance = new self($churchHandle);
 
         // Login is mandatory before each request
+        $newInstance->callApi(self::LOGIN_ROUTE, [
+            'func' => 'loginWithToken',
+            'id' => $loginId,
+            'token' => $loginToken,
+        ]);
+        $newInstance->getCsrfToken();
+
+        return $newInstance;
+    }
+
+
+    /**
+     * Login with login ID and token
+     *
+     * @param string $churchHandle
+     * @param string $loginId
+     * @param string $loginToken
+     * @return RestApi
+     */
+    public static function createWithLoginIdTokenOrCookie(string $churchHandle, string $loginId, string $loginToken, FileCookieJar $cookie_jar = null): RestApi
+    {
+        if ($cookie_jar->getCookieByName('ChurchTools_churchtools')) {
+            return new self($churchHandle, $cookie_jar);
+        }
+
+        $newInstance = new self($churchHandle);
+        // Login is mandatory before each request except if a cookie has been set/provided
         $newInstance->callApi(self::LOGIN_ROUTE, [
             'func' => 'loginWithToken',
             'id' => $loginId,
