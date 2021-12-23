@@ -52,16 +52,23 @@ class RestApi
      */
     public static function createWithUsernamePassword(string $churchHandle, string $username, string $password, $cookie_jar = null): RestApi
     {
-        $newInstance = new self($churchHandle);
-
-        // Login is mandatory before each request
-        $newInstance->callApi(self::LOGIN_ROUTE, [
-            'func' => 'login',
-            'email' => $username,
-            'password' => $password,
-        ]);
-        $newInstance->getCsrfToken();
-
+        $newInstance = new self($churchHandle, $cookie_jar);
+        // Login is mandatory before each request except if a cookie has been set/provided
+        if (!$cookie_jar || !$cookie_jar->getCookieByName('ChurchTools_churchtools')) {
+            $resp = $newInstance->callApi(self::LOGIN_ROUTE, [
+                'func' => 'login',
+                'email' => $username,
+                'password' => $password,
+            ]);
+        }
+        try {
+            $newInstance->getCsrfToken();
+        } catch (\Exception $e) {
+            if ($cookie_jar && $e->getCode() === 401) {
+                $cookie_jar->clearSessionCookies();
+            }
+            throw $e;
+        }
         return $newInstance;
     }
 
@@ -73,43 +80,25 @@ class RestApi
      * @param string $loginToken
      * @return RestApi
      */
-    public static function createWithLoginIdToken(string $churchHandle, string $loginId, string $loginToken): RestApi
+    public static function createWithLoginIdToken(string $churchHandle, string $loginId, string $loginToken, FileCookieJar $cookie_jar = null): RestApi
     {
-        $newInstance = new self($churchHandle);
-
-        // Login is mandatory before each request
-        $newInstance->callApi(self::LOGIN_ROUTE, [
-            'func' => 'loginWithToken',
-            'id' => $loginId,
-            'token' => $loginToken,
-        ]);
-        $newInstance->getCsrfToken();
-
-        return $newInstance;
-    }
-
-
-    /**
-     * Login with login ID and token
-     *
-     * @param string $churchHandle
-     * @param string $loginId
-     * @param string $loginToken
-     * @return RestApi
-     */
-    public static function createWithLoginIdTokenOrCookie(string $churchHandle, string $loginToken, FileCookieJar $cookie_jar = null): RestApi
-    {
-        if ($cookie_jar->getCookieByName('ChurchTools_churchtools')) {
-            return new self($churchHandle, $cookie_jar);
+        $newInstance = new self($churchHandle, $cookie_jar);
+        // Login is mandatory before each request except if a cookie has been set/provided
+        if (!$cookie_jar || !$cookie_jar->getCookieByName('ChurchTools_churchtools')) {
+            $resp = $newInstance->callApi(self::LOGIN_ROUTE, [
+                'func' => 'loginWithToken',
+                'token' => $loginToken,
+            ]);
+        }
+        try {
+            $newInstance->getCsrfToken();
+        } catch (\Exception $e) {
+            if ($cookie_jar && $e->getCode() === 401) {
+                $cookie_jar->clearSessionCookies();
+            }
+            throw $e;
         }
 
-        $newInstance = new self($churchHandle);
-        // Login is mandatory before each request except if a cookie has been set/provided
-        $newInstance->callApi(self::LOGIN_ROUTE, [
-            'func' => 'loginWithToken',
-            'token' => $loginToken,
-        ]);
-        $newInstance->getCsrfToken();
 
         return $newInstance;
     }
