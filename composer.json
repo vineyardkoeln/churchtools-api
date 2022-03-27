@@ -9,7 +9,7 @@
         {"name": "André Schild", "email": "andre@schild.ws"}
     ],
     "require": {
-        "php": ">=8.0",
+        "php": "^8.1",
         "ext-json": "*",
         "jane-php/open-api": "^5.2",
         "guzzlehttp/psr7" : "^1.6",

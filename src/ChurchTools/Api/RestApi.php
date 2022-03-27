@@ -115,8 +115,6 @@ class RestApi
             }
             throw $e;
         }
-
-
         return $newInstance;
     }
 
