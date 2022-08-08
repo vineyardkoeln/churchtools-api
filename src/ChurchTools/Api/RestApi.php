@@ -99,10 +99,13 @@ class RestApi
                 'token' => $loginToken,
             ]);
         }
+
         try {
             $newInstance->getCsrfToken();
         } catch (\Exception $e) {
+            $cookie = $cookie_jar->getCookieByName('ChurchTools_churchtools');
             if ($cookie_jar && $e->getCode() === 401) {
+                $cookie->setDiscard(true);
                 $cookie_jar->clearSessionCookies();
                 if ($retryOn401) {
                     return self::createWithLoginIdToken(
