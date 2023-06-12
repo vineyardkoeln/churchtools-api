@@ -1,6 +1,9 @@
 Change Log for ChurchTools API
 ==============================
 
+* 0.5.3
+    * BUGFIX           Merged fork from rhemalinz, thanks for the enhancements/fixes
+
 * 0.5.2
     * FEATURE          Extend ServiceEntry model for API v1
 

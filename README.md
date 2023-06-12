@@ -2,13 +2,22 @@
 
 Access the API for [ChurchTools][1] at [https://api.churchtools.de/][3] in an object-oriented way that integrates nicely with modern PHP projects via Composer.
 
-The API v2 which uses the new (2019) REST api can be found in the README_API2.md.
+The API v2 which uses the new (2019) REST api can be found in the [README_API2.md].
 
 Free software (both as in free beer *and* free speech) by [Vineyard Köln][2], licensed under Apache 2.0
 
 [1]: https://church.tools/
 [2]: https://vineyard.koeln/
 [3]: https://api.churchtools.de/
+
+
+## Further development
+Currently this library has not been updated recently.
+If you wish to participate in development, you can send us pull requests to integrate in the main branch
+
+## Other php CT API implementations
+https://github.com/5pm-HDH/churchtools-api
+
 
 ## Installation
 
