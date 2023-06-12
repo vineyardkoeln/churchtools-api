@@ -129,27 +129,27 @@ class Resource extends CTObject
 
     /**
      *
-     * @return boolean auto accept new bookings
+     * @return bool auto accept new bookings
      */
-    public function getAutoAccept(): boolean
+    public function getAutoAccept(): bool
     {
         return $this->autoaccept_yn;
     }
 
     /**
      *
-     * @return boolean booking requires a associated calendar entry
+     * @return bool booking requires a associated calendar entry
      */
-    public function getBookingRequiresCalendarEntry(): boolean
+    public function getBookingRequiresCalendarEntry(): bool
     {
         return $this->bookingrequirescalendarenry_yn;
     }
     
     /**
      *
-     * @return boolean true if it's a virtual resource
+     * @return bool true if it's a virtual resource
      */
-    public function getVirtual(): boolean
+    public function getVirtual(): bool
     {
         return $this->virtual_yn;
     }
