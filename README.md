@@ -1,3 +1,5 @@
+# No longer maintained. Please move to https://github.com/5pm-HDH/churchtools-api!
+
 # ChurchTools API
 
 Access the API for [ChurchTools][1] at [https://api.churchtools.de/][3] in an object-oriented way that integrates nicely with modern PHP projects via Composer.
